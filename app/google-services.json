@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1041206830040",
+    "project_id": "dream-catcher-3000",
+    "storage_bucket": "dream-catcher-3000.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041206830040:android:6045cf68799f196f80c8ad",
+        "android_client_info": {
+          "package_name": "fi.ottooks.dreamcatcherdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041206830040-cbfvbu5s7h1761mjqmptmjrha7lfd4gl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeeZdUiSQzLIztxwzhqjD9ffkOjkiRZ5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041206830040-cbfvbu5s7h1761mjqmptmjrha7lfd4gl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
