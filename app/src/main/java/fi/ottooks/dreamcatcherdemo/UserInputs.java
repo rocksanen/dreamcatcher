@@ -1,7 +1,10 @@
 package fi.ottooks.dreamcatcherdemo;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.SharedPreferences;
+import android.content.Context;
+
 
 public class UserInputs implements Comparable<UserInputs> {
 
@@ -20,7 +23,7 @@ public class UserInputs implements Comparable<UserInputs> {
     }
 
     public UserInputs(){
-        /*                      //Otto, pitäisikö tämän konstrakturin ottaa oletuksia arvoja kun kutsutaan sen?!
+        /*                      //Otto, tarvitseko että tämä konstrakturi ottaa oletuksia arvoja kun kutsutaan sen?!
         this.startTime = 23.00;
         this.endTime = 7.00;
         this.sleepTime = 8.00;
@@ -47,21 +50,32 @@ public class UserInputs implements Comparable<UserInputs> {
 
         return this.moodValue;
     }
-  /*
+
+    /*
+    @Override
+    public Activity getActivity() {
+        return ((android.app.Fragment) getContext()).getActivity();
+    }
+
+     */
+
     public void save() {
 
-        SharedPreferences prefPut = getSharedPreference("Userinputs" , Activity.MODE_PRIVATE);
+        /*
+
+        SharedPreferences prefPut = getSharedPreferences("Userinputs" , Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
-        prefEditor.putInt("StartTime", this.startTime);
-        prefEditor.putInt("EndTime", this.endTime);
-        prefEditor.putInt("FullTime", this.sleepTime);
+        prefEditor.putLong("StartTime", Double.doubleToLongBits(this.startTime));
+        prefEditor.putLong("EndTime", Double.doubleToLongBits(this.endTime));
+        prefEditor.putLong("FullTime", Double.doubleToLongBits(this.sleepTime));
         prefEditor.putInt("Mood", this.moodValue);
 
         prefEditor.commit();
 
+         */
     }
 
-*/
+
 
 
 
