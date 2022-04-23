@@ -2,9 +2,13 @@ package fi.ottooks.dreamcatcherdemo;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Notification;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,7 +28,11 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager pager;
     private androidx.viewpager.widget.PagerAdapter pagerAdapter;
     private StatsSorting statsSorting;
-    private ArrayList<StatsSorting> testiLista = new ArrayList<>();
+    private ArrayList<UserInputs> testiLista = new ArrayList<>();
+
+    //luodaan context muuttuja
+    private static Context contextOfApplication;
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -33,17 +41,40 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Firebase firebase = new Firebase(new StatsSorting(10.00, 08.00, 14.00, 4));
+
+
         setSliderAdapter();
+
+        //alustetaan se
+        contextOfApplication = this;
+
         testSorting();
-        Firebase firebase = new Firebase(new StatsSorting(10.00, 08.00, 14.00, 4));
 
 
     }
 
+
+    //Luodaan sille getter metodi
+    public static Context getContextOfApplication(){
+
+        return contextOfApplication;
+    }
+
+
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void testSorting() {
 
+        testiLista.add(new UserInputs(LocalDate.now(),10.00, 08.00, 14.00, 4));
+        testiLista.add(new UserInputs(LocalDate.now().plusDays(1),10.00, 08.00, 14.00, 2));
+        testiLista.add(new UserInputs(LocalDate.now().plusDays(2),10.00, 08.00, 14.00, 1));
+        testiLista.add(new UserInputs(LocalDate.now().plusDays(3),10.00, 08.00, 14.00, 3));
+        testiLista.add(new UserInputs(LocalDate.now().plusDays(4),.00, 08.00, 14.00, 3));
+        testiLista.add(new UserInputs(LocalDate.now().plusDays(5),10.00, 08.00, 14.00, 5));
+        testiLista.add(new UserInputs(LocalDate.now().plusDays(6),10.00, 08.00, 14.00, 5));
 
+        //testStats();
 
 
     }
@@ -51,7 +82,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void testStats() {
 
+        Collections.sort(testiLista);
+        Collections.reverse(testiLista);
 
+
+        for(UserInputs user: testiLista) {
+
+            Log.d("otto", Integer.toString(user.getMoodValue()));
+
+
+        }
 
 
 
