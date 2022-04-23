@@ -1,25 +1,34 @@
 package fi.ottooks.dreamcatcherdemo;
 
-import android.app.Activity;
-import android.app.Application;
 import android.content.SharedPreferences;
 import android.content.Context;
 
 
 public class UserInputs implements Comparable<UserInputs> {
 
+    private final static String PREFS = "UserInputs";
+    private final static String START = "StartTime";
+    private final static String END = "EndTime";
+    private final static String FULL = "FullTime";
+    private final static String MOOD = "Mood";
+
+    Context context ;
+
+
     private  double startTime;
     private  double endTime;
     private  double sleepTime;
     private  int moodValue;
 
+
     public UserInputs(double startTime,double endTime, double sleepTime, int moodValue) {
 
         this.startTime = startTime;
         this.endTime = endTime;
-        this.sleepTime = sleepTime;
+        this.sleepTime = sleepTime;             //Sleeptime = (24-this.endTime) + this.startTime (Automatic way);
         this.moodValue = moodValue;
 
+       // saveData();
     }
 
     public UserInputs(){
@@ -32,52 +41,53 @@ public class UserInputs implements Comparable<UserInputs> {
          */
     }
 
-    public double getStartTime() {
 
+
+    public double getStartTime(){
+        // SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
+        // Double.longBitsToDouble(prefGet.getLong(START,0));
         return this.startTime;
     }
     public double getEndTime(){
-
+        // SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
+        // Double.longBitsToDouble(prefGet.getLong(END,0));
         return this.endTime;
     }
 
     public double getSleepTime(){
 
+        // SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
+        // Double.longBitsToDouble(prefGet.getLong(FULL,0));
         return this.sleepTime;
     }
 
     public int getMoodValue(){
 
+        // SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
+        // prefGet.getInt(MOOD,0);
         return this.moodValue;
     }
 
-    /*
-    @Override
-    public Activity getActivity() {
-        return ((android.app.Fragment) getContext()).getActivity();
+    public void loadData(){
+
+        SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
+        Double.longBitsToDouble(prefGet.getLong(START,0));
+        Double.longBitsToDouble(prefGet.getLong(END,0));
+        Double.longBitsToDouble(prefGet.getLong(FULL,0));
+        prefGet.getInt(MOOD,0);
     }
+    public void saveData(){
 
-     */
-
-    public void save() {
-
-        /*
-
-        SharedPreferences prefPut = getSharedPreferences("Userinputs" , Activity.MODE_PRIVATE);
+        SharedPreferences prefPut = context.getSharedPreferences(PREFS ,Context.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
-        prefEditor.putLong("StartTime", Double.doubleToLongBits(this.startTime));
-        prefEditor.putLong("EndTime", Double.doubleToLongBits(this.endTime));
-        prefEditor.putLong("FullTime", Double.doubleToLongBits(this.sleepTime));
-        prefEditor.putInt("Mood", this.moodValue);
+        prefEditor.putLong(START, Double.doubleToLongBits(this.startTime));
+        prefEditor.putLong(END, Double.doubleToLongBits(this.endTime));
+        prefEditor.putLong(FULL, Double.doubleToLongBits(this.sleepTime));
+        prefEditor.putInt(MOOD, this.moodValue);
 
         prefEditor.commit();
 
-         */
     }
-
-
-
-
 
 
     public String toString(){
@@ -90,16 +100,10 @@ public class UserInputs implements Comparable<UserInputs> {
 
 
     @Override
-    public int compareTo(UserInputs other) {
+    public int compareTo(UserInputs other){
 
-        return Integer.compare(this.moodValue, other.moodValue);  //Otto is this what u meant by using comparable implementation(to sort Mood values)!?
+        return Integer.compare(this.moodValue, other.moodValue);
 
-        /*
-        if (this.moodValue != other.getMoodValue()) {
-            return this.moodValue - other.getMoodValue();
-        }
-        return this.moodValue;
 
-     */
     }
 }
