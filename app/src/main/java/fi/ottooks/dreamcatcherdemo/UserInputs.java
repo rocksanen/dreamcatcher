@@ -1,95 +1,108 @@
 package fi.ottooks.dreamcatcherdemo;
 
-import android.content.SharedPreferences;
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
+
+import com.google.gson.Gson;
+
+import java.time.LocalDate;
 
 public class UserInputs implements Comparable<UserInputs> {
-
-    private final static String PREFS = "UserInputs";
-    private final static String START = "StartTime";
-    private final static String END = "EndTime";
-    private final static String FULL = "FullTime";
-    private final static String MOOD = "Mood";
-
-    Context context ;
-
 
     private  double startTime;
     private  double endTime;
     private  double sleepTime;
     private  int moodValue;
+    private LocalDate date;
+    public static final String SHAREDPREFS = "fi.ottooks.dreamcatcherdemo";
+    Gson gson;
 
 
-    public UserInputs(double startTime,double endTime, double sleepTime, int moodValue) {
+    public UserInputs(LocalDate date,double startTime, double endTime, double sleepTime, int moodValue) {
 
         this.startTime = startTime;
         this.endTime = endTime;
-        this.sleepTime = sleepTime;             //Sleeptime = (24-this.endTime) + this.startTime (Automatic way);
+        this.sleepTime = sleepTime;
         this.moodValue = moodValue;
+        this.date = date;
 
-       // saveData();
+        save();
+
     }
 
     public UserInputs(){
-        /*                      //Otto, tarvitseko että tämä konstrakturi ottaa oletuksia arvoja kun kutsutaan sen?!
-        this.startTime = 23.00;
-        this.endTime = 7.00;
-        this.sleepTime = 8.00;
-        this.moodValue = 5;
 
-         */
     }
 
 
 
-    public double getStartTime(){
-        // SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
-        // Double.longBitsToDouble(prefGet.getLong(START,0));
+    public double getStartTime() {
+
         return this.startTime;
     }
     public double getEndTime(){
-        // SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
-        // Double.longBitsToDouble(prefGet.getLong(END,0));
+
         return this.endTime;
     }
 
     public double getSleepTime(){
 
-        // SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
-        // Double.longBitsToDouble(prefGet.getLong(FULL,0));
         return this.sleepTime;
     }
 
     public int getMoodValue(){
 
-        // SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
-        // prefGet.getInt(MOOD,0);
         return this.moodValue;
     }
 
-    public void loadData(){
 
-        SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
-        Double.longBitsToDouble(prefGet.getLong(START,0));
-        Double.longBitsToDouble(prefGet.getLong(END,0));
-        Double.longBitsToDouble(prefGet.getLong(FULL,0));
-        prefGet.getInt(MOOD,0);
+    public LocalDate getDate() {
+
+        return this.date;
     }
-    public void saveData(){
 
-        SharedPreferences prefPut = context.getSharedPreferences(PREFS ,Context.MODE_PRIVATE);
-        SharedPreferences.Editor prefEditor = prefPut.edit();
-        prefEditor.putLong(START, Double.doubleToLongBits(this.startTime));
-        prefEditor.putLong(END, Double.doubleToLongBits(this.endTime));
-        prefEditor.putLong(FULL, Double.doubleToLongBits(this.sleepTime));
-        prefEditor.putInt(MOOD, this.moodValue);
 
+    public void save() {
+
+        //Tässä otetaan käyttöön Gson luokka
+        Gson gson = new Gson();
+        //Sen jälkeen alustetaan jsonin arvoksi tämä kyseinen UserInputsien instanssi.
+        String json = gson.toJson(this);
+
+
+        //Luodaan sharedpreferences mainactivityn contextia hyväksi käyttäen
+        //Haetaan se context mainactivityyn juuri luodulla metodilla
+        SharedPreferences sharedPreferences =
+        MainActivity.getContextOfApplication().getSharedPreferences(SHAREDPREFS,Activity.MODE_PRIVATE);
+
+        //Ja laitetaan tiedot mitä halutaan
+        SharedPreferences.Editor prefEditor =
+        sharedPreferences.edit();
+
+        //prefEditor.putInt("StartTime", this.startTime);
+        //prefEditor.putInt("EndTime", this.endTime);
+        //prefEditor.putInt("FullTime", this.sleepTime);
+
+        //Ja täällä lisätään json preferensseihin, avaimeksi olen tehnyt päivämäärän jota kasvatellaan testi
+        //koodissa MainActivityn puolella.
+        prefEditor.putString(this.date.toString(), json);
+
+        //prefEditor.putString("Mohammed","Al-Jewari");
         prefEditor.commit();
 
     }
 
 
+
+
+
+
+    @NonNull
     public String toString(){
 
         return "Alarm start time: " + this.startTime + ",\n" +
@@ -100,10 +113,9 @@ public class UserInputs implements Comparable<UserInputs> {
 
 
     @Override
-    public int compareTo(UserInputs other){
+    public int compareTo(UserInputs other) {
 
         return Integer.compare(this.moodValue, other.moodValue);
-
 
     }
 }
