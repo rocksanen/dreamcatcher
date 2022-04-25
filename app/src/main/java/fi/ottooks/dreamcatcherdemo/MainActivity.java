@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private androidx.viewpager.widget.PagerAdapter pagerAdapter;
     private StatsSorting statsSorting;
     private ArrayList<StatsSorting> testiLista = new ArrayList<>();
+    private static Context contextOfApplication;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -37,28 +39,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setSliderAdapter();
+        contextOfApplication = this;
         testSorting();
         Firebase firebase = new Firebase(new StatsSorting(10.00, 08.00, 14.00, 4));
 
 
         //OTTO!!!!!!!!!!!!!!!!!!!!!! MITEN PÄÄSEE NAPPIIN KÄSIKSI
-
-        /*Button btn = (Button)findViewById(R.id.uusi_heratys);
+        /*
+        Button btn = pager.findViewById(R.id.uusi_heratys);
         btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), SetAlarmView.class));
+                //startActivity(new Intent(getBaseContext(), SetAlarmView.class));
 
+                Log.i("otto","kyllä se Samu siitä");
                 //setContentView(R.layout.activity_set_alarm_view);
 
             }
         });
 
-         */
+*/
+    }
 
+    public static Context getContextOfApplication(){
 
-
+        return contextOfApplication;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -90,8 +96,10 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(),list);
         pager.setAdapter(pagerAdapter);
 
+
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(pager);
+
 
     }
 
