@@ -41,7 +41,7 @@ public class aService extends Service {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.tilastot)
                 .setContentTitle(alarmTitle)
-                .setContentText("Herätys :)")
+                .setContentText("Herätys ;)")
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
