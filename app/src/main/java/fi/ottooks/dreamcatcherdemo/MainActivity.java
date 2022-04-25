@@ -43,23 +43,6 @@ public class MainActivity extends AppCompatActivity {
         testSorting();
         Firebase firebase = new Firebase(new StatsSorting(10.00, 08.00, 14.00, 4));
 
-
-        //OTTO!!!!!!!!!!!!!!!!!!!!!! MITEN PÄÄSEE NAPPIIN KÄSIKSI
-        /*
-        Button btn = pager.findViewById(R.id.uusi_heratys);
-        btn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                //startActivity(new Intent(getBaseContext(), SetAlarmView.class));
-
-                Log.i("otto","kyllä se Samu siitä");
-                //setContentView(R.layout.activity_set_alarm_view);
-
-            }
-        });
-
-*/
     }
 
     public static Context getContextOfApplication(){

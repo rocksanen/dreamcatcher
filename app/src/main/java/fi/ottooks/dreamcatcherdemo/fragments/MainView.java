@@ -1,5 +1,6 @@
 package fi.ottooks.dreamcatcherdemo.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,6 +40,7 @@ public class MainView extends Fragment {
             @Override
             public void onClick(View arg0) {
 
+                startActivity(new Intent(getActivity(), fi.ottooks.dreamcatcherdemo.SetAlarmView.class));
                 Log.d("namu","pelle");
 
             }
