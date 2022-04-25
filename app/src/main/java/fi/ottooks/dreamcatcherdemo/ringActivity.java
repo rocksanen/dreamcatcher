@@ -11,13 +11,12 @@ import javax.annotation.Nullable;
 
 public class ringActivity extends AppCompatActivity {
 
-    Button btn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ring_activity);
-        btn = btn.findViewById(R.id.sammuta);
+        Button btn = (Button)findViewById(R.id.sammuta);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,6 +26,8 @@ public class ringActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
 
     }
 

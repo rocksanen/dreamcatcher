@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.TimePicker;
 
 import java.sql.Time;
+import java.util.Random;
 
 
 public class SetAlarmView extends AppCompatActivity {
@@ -58,11 +59,15 @@ public class SetAlarmView extends AppCompatActivity {
 
 
     private void luoHeratys() {
+        int alarmId = new Random().nextInt(Integer.MAX_VALUE);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             Log.d("testing", "String.valueOf(clock)");
-            Clock clock = new Clock(tp.getHour(), tp.getMinute(), "Test");
+            Log.d("Tunti", Integer.toString(tp.getHour()));
+            Log.d("Tunti", Integer.toString(tp.getMinute()));
+            Clock clock = new Clock(tp.getHour(), tp.getMinute(), alarmId, "Test");
             //clock.set(getContext());
-            Log.d("testing", String.valueOf(clock));
+            Log.d("testing", Integer.toString(clock.getHour()));
+            Log.d("testing", Integer.toString(clock.getMin()));
             clock.set(this);
 
 

@@ -14,6 +14,7 @@ public class Clock {
 
     private int hour;
     private int min;
+    private int id;
 
     private long created;
 
@@ -21,9 +22,10 @@ public class Clock {
 
     private boolean started;
 
-    public Clock (int hour, int min, String title) {
+    public Clock (int hour, int min, int id, String title) {
         this.hour = hour;
         this.min = min;
+        this.id = id;
 
         this.created = created;
 
@@ -50,7 +52,7 @@ public class Clock {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, aBroadcastReceiver.class);
         intent.putExtra(TITLE, title);
-        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, id, intent, 0);
 
         Calendar calendar = Calendar.getInstance();
 

@@ -6,11 +6,12 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 
 public class notiChannel extends Application {
-    public static final String CHANNEL_ID = "ALARM_CHANNEL";
+    public static final String CHANNEL_ID = "ALARM_SERVICE_CHANNEL";
 
     @Override
     public void onCreate() {
         super.onCreate();
+        createNotiChannel();
     }
 
     private void createNotiChannel() {

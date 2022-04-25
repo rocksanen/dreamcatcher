@@ -1,6 +1,10 @@
 package fi.ottooks.dreamcatcherdemo;
 
+import static fi.ottooks.dreamcatcherdemo.notiChannel.CHANNEL_ID;
+
 import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
@@ -30,18 +34,45 @@ public class aService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Intent notiIntent = new Intent(this, ringActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notiIntent, 0);
-        String alarmTitle = String.format("%s Alarm", intent.getStringExtra("Test"));
+        String alarmTitle = String.format("%s Alarm", "teST");
 
-        Notification noti = new NotificationCompat.Builder(this, notiChannel.CHANNEL_ID).setContentTitle(alarmTitle).setContentText("herää").setContentIntent(pendingIntent).build();
+
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.tilastot)
+                .setContentTitle(alarmTitle)
+                .setContentText("Herätys :)")
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        int notificationId = 1;
+        createChannel(notificationManager);
         mediaPlayer.start();
-        startForeground(1, noti);
+        startForeground(notificationId, notificationBuilder.build());
 
         return START_STICKY;
+    }
+
+    public void createChannel(NotificationManager notificationManager) {
+        NotificationChannel channel = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            channel = new NotificationChannel(CHANNEL_ID, "nimi", NotificationManager.IMPORTANCE_DEFAULT);
+            channel.setDescription("testi noti");
+            notificationManager.createNotificationChannel(channel);
+        }
+
     }
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mediaPlayer.stop();
     }
 }

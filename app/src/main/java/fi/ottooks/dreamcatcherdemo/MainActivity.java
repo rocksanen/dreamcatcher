@@ -34,16 +34,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.page_1);
 
-        setSliderAdapter();
-        testSorting();
+        //setSliderAdapter();
+        //testSorting();
         Firebase firebase = new Firebase(new StatsSorting(10.00, 08.00, 14.00, 4));
 
 
-        //OTTO!!!!!!!!!!!!!!!!!!!!!! MITEN PÄÄSEE NAPPIIN KÄSIKSI
-
-        /*Button btn = (Button)findViewById(R.id.uusi_heratys);
+        Button btn = (Button)findViewById(R.id.uusi_heratys);
         btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -54,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-         */
 
 
 
