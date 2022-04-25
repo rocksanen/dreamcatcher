@@ -16,12 +16,12 @@ public class MainView extends Fragment {
     @Nullable
     @Override
     public View onCreateView
-
     (
         @NonNull LayoutInflater inflater,
         @Nullable ViewGroup container,
         @Nullable Bundle savedInstanceState
     )
+
 
     { return (ViewGroup)inflater.inflate(R.layout.page_1,container,false); }
 
