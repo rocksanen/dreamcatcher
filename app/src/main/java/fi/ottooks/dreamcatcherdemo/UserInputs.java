@@ -1,10 +1,7 @@
 package fi.ottooks.dreamcatcherdemo;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -20,7 +17,6 @@ public class UserInputs implements Comparable<UserInputs> {
     private  int moodValue;
     private LocalDate date;
     public static final String SHAREDPREFS = "fi.ottooks.dreamcatcherdemo";
-    Gson gson;
 
 
     public UserInputs(LocalDate date,double startTime, double endTime, double sleepTime, int moodValue) {
@@ -69,6 +65,18 @@ public class UserInputs implements Comparable<UserInputs> {
 
     public void save() {
 
+       Gson gson = new Gson();
+       String json = gson.toJson(this);
+
+       SharedPreferences sharedPreferences = MainActivity.getContextOfApplication().
+                getSharedPreferences(SHAREDPREFS, Activity.MODE_PRIVATE);
+
+       SharedPreferences.Editor prefEditor = sharedPreferences.edit();
+       prefEditor.putString(this.date.toString(),json);
+       prefEditor.commit();
+
+
+        /*
         //Tässä otetaan käyttöön Gson luokka
         Gson gson = new Gson();
         //Sen jälkeen alustetaan jsonin arvoksi tämä kyseinen UserInputsien instanssi.
@@ -78,35 +86,35 @@ public class UserInputs implements Comparable<UserInputs> {
         //Luodaan sharedpreferences mainactivityn contextia hyväksi käyttäen
         //Haetaan se context mainactivityyn juuri luodulla metodilla
         SharedPreferences sharedPreferences =
-        MainActivity.getContextOfApplication().getSharedPreferences(SHAREDPREFS,Activity.MODE_PRIVATE);
+        MainActivity.getContextOfApplication().
+                getSharedPreferences(SHAREDPREFS,Activity.MODE_PRIVATE);
 
         //Ja laitetaan tiedot mitä halutaan
         SharedPreferences.Editor prefEditor =
         sharedPreferences.edit();
 
-        //prefEditor.putInt("StartTime", this.startTime);
-        //prefEditor.putInt("EndTime", this.endTime);
-        //prefEditor.putInt("FullTime", this.sleepTime);
+        // prefEditor.putLong("StartTime", Double.doubleToLongBits(this.startTime));
+        // prefEditor.putLong("EndTime", Double.doubleToLongBits(this.endTime));
+        // prefEditor.putLong("FullTime", Double.doubleToLongBits(this.sleepTime));
+        // prefEditor.putInt("Mood",this.moodValue);
+
 
         //Ja täällä lisätään json preferensseihin, avaimeksi olen tehnyt päivämäärän jota kasvatellaan testi
         //koodissa MainActivityn puolella.
         prefEditor.putString(this.date.toString(), json);
-
-        //prefEditor.putString("Mohammed","Al-Jewari");
         prefEditor.commit();
 
+
+         */
+
     }
-
-
-
-
 
 
     @NonNull
     public String toString(){
 
-        return "Alarm start time: " + this.startTime + ",\n" +
-                "Alarm end Time: " + this.endTime + ",\n" +
+        return "Start time: " + this.startTime + ",\n" +
+                "End Time: " + this.endTime + ",\n" +
                 "Full sleep time: " + this.sleepTime + ",\n" +
                 "Mood: " + this.moodValue + ".";
     }
