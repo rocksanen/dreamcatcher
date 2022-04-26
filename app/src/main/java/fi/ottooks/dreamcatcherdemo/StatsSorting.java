@@ -17,17 +17,9 @@ import java.util.Locale;
  */
 public class StatsSorting {
 
-    public static final String SHAREDPREFS = "fi.ottooks.dreamcatcherdemo";
-    private SharedPreferences sharedPreferences;
 
 
     public StatsSorting() {
-
-        sharedPreferences =
-                MainActivity.
-                getContextOfApplication().
-                getSharedPreferences(SHAREDPREFS, Activity.MODE_PRIVATE);
-
 
 
     }
