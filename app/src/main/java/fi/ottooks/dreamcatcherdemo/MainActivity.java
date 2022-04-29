@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Tällä testataan listoja ja toimintoja, voi kommentoida pois päältä omia testejään varten!!!!!!!!!!!!!
-        testSorting();
+        //testSorting();
 
 
     }
