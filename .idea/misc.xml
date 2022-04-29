@@ -3,10 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Tiedostot/Koulujutut/Mobiilit terveyssovellukset/Android/dreamcatcher/app/src/main/res/layout/activity_main.xml" value="0.5389492753623188" />
+        <entry key="..\:/Tiedostot/Koulujutut/Mobiilit terveyssovellukset/Android/dreamcatcher/app/src/main/res/layout/activity_mood_select.xml" value="0.5" />
+        <entry key="..\:/Tiedostot/Koulujutut/Mobiilit terveyssovellukset/Android/dreamcatcher/app/src/main/res/layout/colors.xml" value="0.5421195652173914" />
         <entry key="..\:/Users/Otto/AndroidStudioProjects/DreamCatcherDemo/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Otto/AndroidStudioProjects/DreamCatcherDemo/app/src/main/res/layout/activity_stats.xml" value="0.264" />
         <entry key="..\:/Users/Otto/AndroidStudioProjects/DreamCatcherDemo/app/src/main/res/layout/page_1.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Otto/AndroidStudioProjects/DreamCatcherDemo/app/src/main/res/layout/page_2.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/samuo/StudioProjects/dreamcatcher/app/src/main/res/layout/activity_main.xml" value="0.19662921348314608" />
+        <entry key="..\:/Users/samuo/StudioProjects/dreamcatcher/app/src/main/res/layout/activity_set_alarm_view.xml" value="0.33" />
+        <entry key="..\:/Users/samuo/StudioProjects/dreamcatcher/app/src/main/res/layout/activity_stats.xml" value="0.29270833333333335" />
+        <entry key="..\:/Users/samuo/StudioProjects/dreamcatcher/app/src/main/res/layout/page_1.xml" value="0.33" />
+        <entry key="..\:/Users/samuo/StudioProjects/dreamcatcher/app/src/main/res/layout/page_2.xml" value="0.29270833333333335" />
+        <entry key="..\:/Users/samuo/StudioProjects/dreamcatcher/app/src/main/res/layout/ring_activity.xml" value="0.33" />
       </map>
     </option>
   </component>

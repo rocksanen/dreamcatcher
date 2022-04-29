@@ -27,7 +27,7 @@ public class UserInputs implements Comparable<UserInputs> {
         this.moodValue = moodValue;
         this.date = date;
 
-        save();
+        //save();
 
     }
 
