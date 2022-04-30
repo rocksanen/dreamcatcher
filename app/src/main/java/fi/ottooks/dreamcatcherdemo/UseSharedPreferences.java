@@ -4,9 +4,13 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+
 import com.google.common.reflect.TypeToken;
+import com.google.firebase.firestore.auth.User;
 import com.google.gson.Gson;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,17 +24,21 @@ public class UseSharedPreferences {
     public static final String LIST = "objectList";
     public static final String START = "starTime";
     private List<UserInputs> userInputsList = new ArrayList<>();
+    private String objectList;
 
 
         public UseSharedPreferences(UserInputs object) {
 
             shraredFileConnector();
             this.userInputsList = getListFromPreferences();
+
             this.userInputsList.add(object);
+
             saveObjectToList();
 
 
         }
+
 
         public UseSharedPreferences(double startTime) {
 
@@ -82,7 +90,9 @@ public class UseSharedPreferences {
 
             List<UserInputs> listItems;
 
-                String objectList = sharedPreferences.getString(LIST,null);
+
+                objectList = sharedPreferences.getString(LIST,null);
+
 
                 if(objectList != null) {
 
@@ -93,7 +103,7 @@ public class UseSharedPreferences {
                     return listItems;
                 }
 
-                return null;
+                return new ArrayList<>();
         }
 
         public void clearData() {
@@ -109,6 +119,7 @@ public class UseSharedPreferences {
 
         //Alustetaan sharedpreferences
         private void shraredFileConnector() {
+
 
             this.sharedPreferences =
             MainActivity.getContextOfApplication().

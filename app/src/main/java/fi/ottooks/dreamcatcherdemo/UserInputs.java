@@ -1,12 +1,13 @@
 package fi.ottooks.dreamcatcherdemo;
 
 import androidx.annotation.NonNull;
+import java.io.Serializable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserInputs implements Comparable<UserInputs> {
+public class UserInputs implements Serializable, Comparable<UserInputs> {
 
     private  double startTime;
     private  double endTime;
@@ -62,15 +63,19 @@ public class UserInputs implements Comparable<UserInputs> {
 
 
     public void save() {
+/*
 
-        /*
         UseSharedPreferences clear = new UseSharedPreferences();
         clear.clearData();
 
-        */
+
+*/
 
         UseSharedPreferences shr =
         new UseSharedPreferences(this);
+
+        //UseSharedPreferences shar = new UseSharedPreferences(10.00);
+
 
 
     }

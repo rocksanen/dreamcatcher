@@ -6,6 +6,8 @@ buildscript {
     repositories {
 
         google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
 
     }
 
@@ -17,9 +19,17 @@ buildscript {
         // Add the following line:
         classpath 'com.google.gms:google-services:4.3.10'  // Google Services plugin
 
+
     }
 
+
+
+
 }
+
+
+
+
 
 
 plugins {
@@ -28,6 +38,7 @@ plugins {
 
 
 }
+
 
 
 
