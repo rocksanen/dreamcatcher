@@ -26,6 +26,7 @@ public class MainView extends Fragment implements View.OnClickListener {
         activityButton = (Button) fragmentView.findViewById(R.id.breakActivityBtn);
         activityButton.setOnClickListener(this);
         return fragmentView;
+
     }
 
 

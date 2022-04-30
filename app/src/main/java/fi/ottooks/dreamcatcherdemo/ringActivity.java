@@ -30,4 +30,10 @@ public class ringActivity extends AppCompatActivity {
 
     }
 
+
+
+
+
+
+
 }
