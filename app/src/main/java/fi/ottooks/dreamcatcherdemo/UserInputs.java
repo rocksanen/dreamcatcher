@@ -4,12 +4,15 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
+import java.io.Serializable;
 
 import com.google.gson.Gson;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-public class UserInputs implements Comparable<UserInputs> {
+public class UserInputs implements Serializable, Comparable<UserInputs> {
 
     private  double startTime;
     private  double endTime;
@@ -27,7 +30,7 @@ public class UserInputs implements Comparable<UserInputs> {
         this.moodValue = moodValue;
         this.date = date;
 
-        //save();
+        save();
 
     }
 
@@ -63,51 +66,27 @@ public class UserInputs implements Comparable<UserInputs> {
     }
 
 
+
     public void save() {
 
-       Gson gson = new Gson();
-       String json = gson.toJson(this);
-
-       SharedPreferences sharedPreferences = MainActivity.getContextOfApplication().
-                getSharedPreferences(SHAREDPREFS, Activity.MODE_PRIVATE);
-
-       SharedPreferences.Editor prefEditor = sharedPreferences.edit();
-       prefEditor.putString(this.date.toString(),json);
-       prefEditor.commit();
-
-
         /*
-        //Tässä otetaan käyttöön Gson luokka
-        Gson gson = new Gson();
-        //Sen jälkeen alustetaan jsonin arvoksi tämä kyseinen UserInputsien instanssi.
-        String json = gson.toJson(this);
+        UseSharedPreferences clear = new UseSharedPreferences();
+        clear.clearData();
+
+        */
+
+        UseSharedPreferences shr =
+        new UseSharedPreferences(this);
+
+        //UseSharedPreferences shar = new UseSharedPreferences(10.00);
 
 
-        //Luodaan sharedpreferences mainactivityn contextia hyväksi käyttäen
-        //Haetaan se context mainactivityyn juuri luodulla metodilla
-        SharedPreferences sharedPreferences =
-        MainActivity.getContextOfApplication().
-                getSharedPreferences(SHAREDPREFS,Activity.MODE_PRIVATE);
-
-        //Ja laitetaan tiedot mitä halutaan
-        SharedPreferences.Editor prefEditor =
-        sharedPreferences.edit();
-
-        // prefEditor.putLong("StartTime", Double.doubleToLongBits(this.startTime));
-        // prefEditor.putLong("EndTime", Double.doubleToLongBits(this.endTime));
-        // prefEditor.putLong("FullTime", Double.doubleToLongBits(this.sleepTime));
-        // prefEditor.putInt("Mood",this.moodValue);
-
-
-        //Ja täällä lisätään json preferensseihin, avaimeksi olen tehnyt päivämäärän jota kasvatellaan testi
-        //koodissa MainActivityn puolella.
-        prefEditor.putString(this.date.toString(), json);
-        prefEditor.commit();
-
-
-         */
 
     }
+
+
+
+
 
 
     @NonNull

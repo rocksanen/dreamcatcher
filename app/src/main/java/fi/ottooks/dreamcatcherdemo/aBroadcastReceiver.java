@@ -16,6 +16,9 @@ public class aBroadcastReceiver extends BroadcastReceiver {
             String tText = String.format("Test");
             Toast.makeText(context, tText, Toast.LENGTH_SHORT).show();
         } else {
+            String tText = "Herätys soi :)";
+            Toast.makeText(context, tText, Toast.LENGTH_SHORT).show();
+            startAlarm(context, intent);
 
         }
     }

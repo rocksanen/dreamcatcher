@@ -8,12 +8,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import java.util.Calendar;
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+import java.util.Calendar;
+@Entity(tableName = "clock_table")
 public class Clock {
+
+    @PrimaryKey
+    @NonNull
+    private int id;
+
 
     private int hour;
     private int min;
+
+
 
     private long created;
 
@@ -21,9 +32,10 @@ public class Clock {
 
     private boolean started;
 
-    public Clock (int hour, int min, String title) {
+    public Clock (int hour, int min, int id, String title) {
         this.hour = hour;
         this.min = min;
+        this.id = id;
 
         this.created = created;
 
@@ -38,6 +50,38 @@ public class Clock {
         return min;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
+    }
+
+    public void setCreated(long created) {
+        this.created = created;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public boolean isStarted() {
+        return started;
+    }
+
+    public void setStarted(boolean started) {
+        this.started = started;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -50,7 +94,7 @@ public class Clock {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, aBroadcastReceiver.class);
         intent.putExtra(TITLE, title);
-        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, id, intent, PendingIntent.FLAG_IMMUTABLE);
 
         Calendar calendar = Calendar.getInstance();
 

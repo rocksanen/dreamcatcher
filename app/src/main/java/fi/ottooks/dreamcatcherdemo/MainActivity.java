@@ -1,6 +1,12 @@
 package fi.ottooks.dreamcatcherdemo;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +24,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import fi.ottooks.dreamcatcherdemo.R;
+import fi.ottooks.dreamcatcherdemo.SlidePagerAdapter;
+import fi.ottooks.dreamcatcherdemo.StatsSorting;
+import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
+import fi.ottooks.dreamcatcherdemo.UserInputs;
 import fi.ottooks.dreamcatcherdemo.fragments.MainView;
 import fi.ottooks.dreamcatcherdemo.fragments.StatsView;
 
@@ -31,12 +42,14 @@ public class MainActivity extends AppCompatActivity {
     //luodaan context muuttuja
     private static Context contextOfApplication;
 
+
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         setSliderAdapter();
 
@@ -70,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         testiLista.add(new UserInputs(LocalDate.now().plusDays(6),10.00, 10.00, 14.00, 5));
         testiLista.add(new UserInputs(LocalDate.now().plusDays(7),10.00, 08.00, 14.00, 5));
 
-        testStats();
+        //testStats();
 
 
     }
@@ -89,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
         for(UserInputs user: userInputsList) {
 
-            Log.d("otto", user.toString());
+            Log.d("otto", user.getDate().toString());
 
 
         }
