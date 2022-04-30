@@ -1,4 +1,4 @@
-package fi.ottooks.dreamcatcherdemo;
+package fi.ottooks.dreamcatcherdemo.view;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,8 +19,9 @@ import android.widget.TimePicker;
 import java.sql.Time;
 import java.util.Random;
 
+import fi.ottooks.dreamcatcherdemo.Clock;
 import fi.ottooks.dreamcatcherdemo.R;
-import fi.ottooks.dreamcatcherdemo.kello.Clock;
+
 import fi.ottooks.dreamcatcherdemo.view.CreateView;
 
 
@@ -80,8 +81,10 @@ public class SetAlarmView extends AppCompatActivity {
 
 
 
+
             createView.insert(clock);
             clock.set(this);
+
             //clock.set(getContext());
 
 

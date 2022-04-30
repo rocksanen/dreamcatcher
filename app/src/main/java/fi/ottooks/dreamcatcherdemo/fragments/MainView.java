@@ -19,10 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import fi.ottooks.dreamcatcherdemo.kello.Clock;
+import fi.ottooks.dreamcatcherdemo.Clock;
+import fi.ottooks.dreamcatcherdemo.view.SetAlarmView;
+
 import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.kello.clockListener;
-import fi.ottooks.dreamcatcherdemo.view.SetAlarmView;
+
 import fi.ottooks.dreamcatcherdemo.view.listViewModel;
 import fi.ottooks.dreamcatcherdemo.view.recycleViewAdapter;
 

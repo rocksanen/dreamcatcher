@@ -60,9 +60,9 @@ public class StatsView extends Fragment {
 
         chart = view.findViewById(R.id.fragment_verticalbarchart_chart);
 
-        BarData data = createChartData();
+        //BarData data = createChartData();
         configureChartAppearance();
-        prepareChartData(data);
+        //prepareChartData(data);
 
 
 
@@ -128,7 +128,7 @@ public class StatsView extends Fragment {
 
         for (int i = 0; i < MAX_X_VALUE; i++) {
 
-            sleepTime.add(new BarEntry(i, (float) userInputsList.get(i).getSleepTime()));
+            //sleepTime.add(new BarEntry(i, (float) userInputsList.get(i).getSleepTime()));
             mood.add(new BarEntry(i, userInputsList.get(i).getMoodValue()));
         }
 
