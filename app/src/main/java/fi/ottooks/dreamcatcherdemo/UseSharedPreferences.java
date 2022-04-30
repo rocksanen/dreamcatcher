@@ -1,16 +1,11 @@
 package fi.ottooks.dreamcatcherdemo;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
-import android.util.Log;
 
 
 import com.google.common.reflect.TypeToken;
-import com.google.firebase.firestore.auth.User;
 import com.google.gson.Gson;
 
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;

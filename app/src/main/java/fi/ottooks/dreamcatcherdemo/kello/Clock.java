@@ -1,4 +1,4 @@
-package fi.ottooks.dreamcatcherdemo;
+package fi.ottooks.dreamcatcherdemo.kello;
 
 import static fi.ottooks.dreamcatcherdemo.aBroadcastReceiver.TITLE;
 
@@ -8,12 +8,46 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.Calendar;
 
+import fi.ottooks.dreamcatcherdemo.aBroadcastReceiver;
+
+@Entity(tableName = "clock_table")
 public class Clock {
+
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCreated(long created) {
+        this.created = created;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setStarted(boolean started) {
+        this.started = started;
+    }
 
     private int hour;
     private int min;
+
+    @PrimaryKey
+    @NonNull
     private int id;
 
     private long created;
@@ -32,12 +66,28 @@ public class Clock {
         this.title = title;
     }
 
+    public void setCreated() {
+
+
+
+    }
+
     public int getHour() {
         return hour;
     }
 
     public int getMin() {
         return min;
+    }
+
+    public int getId() {
+
+        return this.id;
+    }
+
+    public boolean getStarted() {
+
+        return  this.started;
     }
 
     public String getTitle() {
@@ -52,7 +102,7 @@ public class Clock {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, aBroadcastReceiver.class);
         intent.putExtra(TITLE, title);
-        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, id, intent, 0);
+        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, id, intent,  PendingIntent.FLAG_IMMUTABLE);
 
         Calendar calendar = Calendar.getInstance();
 

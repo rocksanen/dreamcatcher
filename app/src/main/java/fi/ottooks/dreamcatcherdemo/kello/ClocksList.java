@@ -1,4 +1,4 @@
-package fi.ottooks.dreamcatcherdemo;
+package fi.ottooks.dreamcatcherdemo.kello;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,10 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import fi.ottooks.dreamcatcherdemo.R;
+import fi.ottooks.dreamcatcherdemo.view.listViewModel;
+import fi.ottooks.dreamcatcherdemo.view.recycleViewAdapter;
+
 public class ClocksList extends Fragment implements clockListener {
 
-    private recycleViewAdapter recycleViewAdapter;
-    private listViewModel listViewModel;
+    private fi.ottooks.dreamcatcherdemo.view.recycleViewAdapter recycleViewAdapter;
+    private fi.ottooks.dreamcatcherdemo.view.listViewModel listViewModel;
     private RecyclerView clocksView;
 
     @Override

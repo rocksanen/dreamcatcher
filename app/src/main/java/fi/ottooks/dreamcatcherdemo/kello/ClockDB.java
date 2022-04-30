@@ -1,4 +1,4 @@
-package fi.ottooks.dreamcatcherdemo;
+package fi.ottooks.dreamcatcherdemo.kello;
 
 import android.content.Context;
 

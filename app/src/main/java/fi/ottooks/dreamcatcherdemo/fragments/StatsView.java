@@ -1,20 +1,15 @@
 package fi.ottooks.dreamcatcherdemo.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -24,17 +19,11 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.google.firebase.firestore.util.Util;
 
 
-import java.nio.charset.StandardCharsets;
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Random;
 
-import fi.ottooks.dreamcatcherdemo.MainActivity;
 import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
 import fi.ottooks.dreamcatcherdemo.UserInputs;
