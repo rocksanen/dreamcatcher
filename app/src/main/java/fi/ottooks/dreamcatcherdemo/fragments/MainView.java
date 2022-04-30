@@ -57,16 +57,19 @@ public class MainView extends Fragment implements clockListener {
             }
         });
 
-        View view = inflater.inflate(R.layout.page_1, container, false);
 
-        clocksView = view.findViewById(R.id.heratykset_list);
+
+        //View view = inflater.inflate(R.layout.page_1, container, false);
+        View rootView =
+                inflater.inflate(R.layout.page_1, container,false);
+
+        clocksView = rootView.findViewById(R.id.heratykset_list);
         clocksView.setLayoutManager(new LinearLayoutManager(getContext()));
         clocksView.setAdapter(recycleViewAdapter);
 
 
 
-        View rootView =
-        inflater.inflate(R.layout.page_1, container,false);
+        //View rootView = inflater.inflate(R.layout.page_1, container,false);
 
         btn = (Button) rootView.findViewById(R.id.uusi_heratys);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +88,9 @@ public class MainView extends Fragment implements clockListener {
 
     @Override
     public void onToggle(Clock clock) {
-        clock.set(getContext());
+
+            clock.set(getContext());
+            listViewModel.update(clock);
+
     }
 }

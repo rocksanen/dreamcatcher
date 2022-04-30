@@ -66,13 +66,13 @@ public class SetAlarmView extends AppCompatActivity {
 
 
     private void luoHeratys() {
-        int alarmId = new Random().nextInt(Integer.MAX_VALUE);
+        int id = new Random().nextInt(Integer.MAX_VALUE);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
 
             Log.d("testing", "String.valueOf(clock)");
             Log.d("Tunti", Integer.toString(tp.getHour()));
             Log.d("Tunti", Integer.toString(tp.getMinute()));
-            Clock clock = new Clock(tp.getHour(), tp.getMinute(), alarmId, "Test");
+            Clock clock = new Clock(tp.getHour(), tp.getMinute(), id, "Test");
 
 
             createView.insert(clock);

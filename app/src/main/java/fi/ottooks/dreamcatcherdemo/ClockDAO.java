@@ -17,7 +17,7 @@ public interface ClockDAO {
     @Query("DELETE FROM clock_table")
     void deleteAll();
 
-    @Query("SELECT * FROM clock_table ORDER BY clockId ASC")
+    @Query("SELECT * FROM clock_table ORDER BY id ASC")
     LiveData<List<Clock>> getClocks();
 
     @Update
