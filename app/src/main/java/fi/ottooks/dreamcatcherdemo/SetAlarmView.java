@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.provider.Settings;
@@ -21,6 +23,7 @@ import java.util.Random;
 public class SetAlarmView extends AppCompatActivity {
 
 
+    private CreateView createView;
 
     TimePicker tp;
 
@@ -29,6 +32,8 @@ public class SetAlarmView extends AppCompatActivity {
         Log.d("testing", "TestT");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_alarm_view);
+        createView = ViewModelProviders.of(this).get(CreateView.class);
+        //createView = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(CreateView.class);
 
         tp = (TimePicker)findViewById(R.id.test_picker);
 
@@ -38,11 +43,13 @@ public class SetAlarmView extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d("testing", "TestT");
                 luoHeratys();
+                finish();
             }
         });
         //tp=(TimePicker) tp.findViewById(R.id.test_picker);
 
     }
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,14 +68,17 @@ public class SetAlarmView extends AppCompatActivity {
     private void luoHeratys() {
         int alarmId = new Random().nextInt(Integer.MAX_VALUE);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+
             Log.d("testing", "String.valueOf(clock)");
             Log.d("Tunti", Integer.toString(tp.getHour()));
             Log.d("Tunti", Integer.toString(tp.getMinute()));
             Clock clock = new Clock(tp.getHour(), tp.getMinute(), alarmId, "Test");
-            //clock.set(getContext());
-            Log.d("testing", Integer.toString(clock.getHour()));
-            Log.d("testing", Integer.toString(clock.getMin()));
+
+
+            createView.insert(clock);
             clock.set(this);
+            //clock.set(getContext());
+
 
 
         }

@@ -3,6 +3,7 @@ package fi.ottooks.dreamcatcherdemo;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private StatsSorting statsSorting;
     private ArrayList<StatsSorting> testiLista = new ArrayList<>();
     private static Context contextOfApplication;
+    private static Lifecycle lifecycle;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -40,9 +42,15 @@ public class MainActivity extends AppCompatActivity {
 
         setSliderAdapter();
         contextOfApplication = this;
+        lifecycle = this.getLifecycle();
+
         testSorting();
         Firebase firebase = new Firebase(new StatsSorting(10.00, 08.00, 14.00, 4));
 
+    }
+
+    public static Lifecycle getLife() {
+        return lifecycle;
     }
 
     public static Context getContextOfApplication(){
@@ -57,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
 
     private void testStats() {

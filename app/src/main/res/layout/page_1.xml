@@ -11,11 +11,13 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="362dp"
-        android:layout_height="339dp"
+        android:layout_height="0dp"
         android:layout_marginStart="37dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="37dp"
+        android:layout_marginBottom="67dp"
         android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/heratykset_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +30,18 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:text="Lisää herätys"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/heratykset_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
