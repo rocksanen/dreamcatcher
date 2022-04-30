@@ -2,20 +2,20 @@ package fi.ottooks.dreamcatcherdemo;
 
 import static fi.ottooks.dreamcatcherdemo.notiChannel.CHANNEL_ID;
 
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.icu.text.CaseMap;
 import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.os.Vibrator;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+
+import fi.ottooks.dreamcatcherdemo.view.ringActivity;
 
 public class aService extends Service {
 
