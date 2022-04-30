@@ -1,95 +1,91 @@
 package fi.ottooks.dreamcatcherdemo;
 
-import android.content.SharedPreferences;
-import android.content.Context;
+import androidx.annotation.NonNull;
+import java.io.Serializable;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-public class UserInputs implements Comparable<UserInputs> {
-
-    private final static String PREFS = "UserInputs";
-    private final static String START = "StartTime";
-    private final static String END = "EndTime";
-    private final static String FULL = "FullTime";
-    private final static String MOOD = "Mood";
-
-    Context context ;
-
+public class UserInputs implements Serializable, Comparable<UserInputs> {
 
     private  double startTime;
     private  double endTime;
     private  double sleepTime;
     private  int moodValue;
+    private LocalDate date;
 
 
-    public UserInputs(double startTime,double endTime, double sleepTime, int moodValue) {
+
+    public UserInputs(LocalDate date,double startTime, double endTime, double sleepTime, int moodValue) {
 
         this.startTime = startTime;
         this.endTime = endTime;
-        this.sleepTime = sleepTime;             //Sleeptime = (24-this.endTime) + this.startTime (Automatic way);
+        this.sleepTime = sleepTime;
         this.moodValue = moodValue;
+        this.date = date;
 
-       // saveData();
+        save();
+
     }
 
     public UserInputs(){
-        /*                      //Otto, tarvitseko että tämä konstrakturi ottaa oletuksia arvoja kun kutsutaan sen?!
-        this.startTime = 23.00;
-        this.endTime = 7.00;
-        this.sleepTime = 8.00;
-        this.moodValue = 5;
 
-         */
     }
 
 
 
-    public double getStartTime(){
-        // SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
-        // Double.longBitsToDouble(prefGet.getLong(START,0));
+    public double getStartTime() {
+
         return this.startTime;
     }
     public double getEndTime(){
-        // SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
-        // Double.longBitsToDouble(prefGet.getLong(END,0));
+
         return this.endTime;
     }
 
     public double getSleepTime(){
 
-        // SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
-        // Double.longBitsToDouble(prefGet.getLong(FULL,0));
         return this.sleepTime;
     }
 
     public int getMoodValue(){
 
-        // SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
-        // prefGet.getInt(MOOD,0);
         return this.moodValue;
     }
 
-    public void loadData(){
 
-        SharedPreferences prefGet = context.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
-        Double.longBitsToDouble(prefGet.getLong(START,0));
-        Double.longBitsToDouble(prefGet.getLong(END,0));
-        Double.longBitsToDouble(prefGet.getLong(FULL,0));
-        prefGet.getInt(MOOD,0);
-    }
-    public void saveData(){
+    public LocalDate getDate() {
 
-        SharedPreferences prefPut = context.getSharedPreferences(PREFS ,Context.MODE_PRIVATE);
-        SharedPreferences.Editor prefEditor = prefPut.edit();
-        prefEditor.putLong(START, Double.doubleToLongBits(this.startTime));
-        prefEditor.putLong(END, Double.doubleToLongBits(this.endTime));
-        prefEditor.putLong(FULL, Double.doubleToLongBits(this.sleepTime));
-        prefEditor.putInt(MOOD, this.moodValue);
-
-        prefEditor.commit();
-
+        return this.date;
     }
 
 
+
+    public void save() {
+/*
+
+        UseSharedPreferences clear = new UseSharedPreferences();
+        clear.clearData();
+
+
+*/
+
+        UseSharedPreferences shr =
+        new UseSharedPreferences(this);
+
+        //UseSharedPreferences shar = new UseSharedPreferences(10.00);
+
+
+
+    }
+
+
+
+
+
+
+    @NonNull
     public String toString(){
 
         return "Alarm start time: " + this.startTime + ",\n" +
@@ -100,10 +96,9 @@ public class UserInputs implements Comparable<UserInputs> {
 
 
     @Override
-    public int compareTo(UserInputs other){
+    public int compareTo(UserInputs other) {
 
         return Integer.compare(this.moodValue, other.moodValue);
-
 
     }
 }

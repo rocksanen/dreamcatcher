@@ -1,9 +1,12 @@
-package fi.ottooks.dreamcatcherdemo;
+package fi.ottooks.dreamcatcherdemo.view;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+
+import fi.ottooks.dreamcatcherdemo.kello.Clock;
+import fi.ottooks.dreamcatcherdemo.kello.ClockRepo;
 
 public class CreateView extends AndroidViewModel {
 

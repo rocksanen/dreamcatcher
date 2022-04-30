@@ -1,10 +1,14 @@
-package fi.ottooks.dreamcatcherdemo;
+package fi.ottooks.dreamcatcherdemo.kello;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+
+import fi.ottooks.dreamcatcherdemo.kello.Clock;
+import fi.ottooks.dreamcatcherdemo.kello.ClockDAO;
+import fi.ottooks.dreamcatcherdemo.kello.ClockDB;
 
 public class ClockRepo {
 

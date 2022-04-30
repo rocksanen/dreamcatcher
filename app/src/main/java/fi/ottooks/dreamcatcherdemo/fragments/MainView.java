@@ -11,6 +11,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,11 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import fi.ottooks.dreamcatcherdemo.Clock;
+import fi.ottooks.dreamcatcherdemo.kello.Clock;
 import fi.ottooks.dreamcatcherdemo.R;
-import fi.ottooks.dreamcatcherdemo.clockListener;
-import fi.ottooks.dreamcatcherdemo.listViewModel;
-import fi.ottooks.dreamcatcherdemo.recycleViewAdapter;
+import fi.ottooks.dreamcatcherdemo.kello.clockListener;
+import fi.ottooks.dreamcatcherdemo.view.SetAlarmView;
+import fi.ottooks.dreamcatcherdemo.view.listViewModel;
+import fi.ottooks.dreamcatcherdemo.view.recycleViewAdapter;
 
 public class MainView extends Fragment implements clockListener {
 
@@ -57,11 +59,9 @@ public class MainView extends Fragment implements clockListener {
             }
         });
 
-
-
-        //View view = inflater.inflate(R.layout.page_1, container, false);
         View rootView =
                 inflater.inflate(R.layout.page_1, container,false);
+
 
         clocksView = rootView.findViewById(R.id.heratykset_list);
         clocksView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -69,7 +69,7 @@ public class MainView extends Fragment implements clockListener {
 
 
 
-        //View rootView = inflater.inflate(R.layout.page_1, container,false);
+
 
         btn = (Button) rootView.findViewById(R.id.uusi_heratys);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +77,7 @@ public class MainView extends Fragment implements clockListener {
             @Override
             public void onClick(View arg0) {
 
-                startActivity(new Intent(getActivity(), fi.ottooks.dreamcatcherdemo.SetAlarmView.class));
+                startActivity(new Intent(getActivity(), SetAlarmView.class));
                 Log.d("namu","pelle");
 
             }

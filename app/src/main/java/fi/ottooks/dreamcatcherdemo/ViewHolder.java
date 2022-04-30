@@ -6,6 +6,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import fi.ottooks.dreamcatcherdemo.kello.Clock;
+import fi.ottooks.dreamcatcherdemo.kello.clockListener;
 
 
 public class ViewHolder extends RecyclerView.ViewHolder {

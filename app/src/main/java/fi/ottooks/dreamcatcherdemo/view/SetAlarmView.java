@@ -19,6 +19,10 @@ import android.widget.TimePicker;
 import java.sql.Time;
 import java.util.Random;
 
+import fi.ottooks.dreamcatcherdemo.R;
+import fi.ottooks.dreamcatcherdemo.kello.Clock;
+import fi.ottooks.dreamcatcherdemo.view.CreateView;
+
 
 public class SetAlarmView extends AppCompatActivity {
 
@@ -73,6 +77,7 @@ public class SetAlarmView extends AppCompatActivity {
             Log.d("Tunti", Integer.toString(tp.getHour()));
             Log.d("Tunti", Integer.toString(tp.getMinute()));
             Clock clock = new Clock(tp.getHour(), tp.getMinute(), id, "Test");
+
 
 
             createView.insert(clock);
