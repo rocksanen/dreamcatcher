@@ -1,12 +1,9 @@
-package fi.ottooks.dreamcatcherdemo.fragments;
+package fi.ottooks.dreamcatcherdemo;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,33 +15,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import fi.ottooks.dreamcatcherdemo.Clock;
-import fi.ottooks.dreamcatcherdemo.R;
-import fi.ottooks.dreamcatcherdemo.clockListener;
-import fi.ottooks.dreamcatcherdemo.listViewModel;
-import fi.ottooks.dreamcatcherdemo.recycleViewAdapter;
-
-public class MainView extends Fragment implements clockListener {
-
-    Button btn;
+public class ClocksList extends Fragment implements clockListener {
 
     private recycleViewAdapter recycleViewAdapter;
     private listViewModel listViewModel;
     private RecyclerView clocksView;
 
-    @Nullable
     @Override
-    public View onCreateView
-    (
-
-        @NonNull LayoutInflater inflater,
-        @Nullable ViewGroup container,
-        @Nullable Bundle savedInstanceState
-
-
-    )
-
-    {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         recycleViewAdapter = new recycleViewAdapter(this);
         listViewModel = ViewModelProviders.of(this).get(listViewModel.class);
@@ -56,35 +35,27 @@ public class MainView extends Fragment implements clockListener {
                 }
             }
         });
+    }
 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.page_1, container, false);
 
         clocksView = view.findViewById(R.id.heratykset_list);
         clocksView.setLayoutManager(new LinearLayoutManager(getContext()));
         clocksView.setAdapter(recycleViewAdapter);
 
+        return view;
 
-
-        View rootView =
-        inflater.inflate(R.layout.page_1, container,false);
-
-        btn = (Button) rootView.findViewById(R.id.uusi_heratys);
-        btn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                startActivity(new Intent(getActivity(), fi.ottooks.dreamcatcherdemo.SetAlarmView.class));
-                Log.d("namu","pelle");
-
-            }
-        });
-
-        return rootView;
     }
+
+
+
 
     @Override
     public void onToggle(Clock clock) {
         clock.set(getContext());
+
     }
 }
