@@ -17,6 +17,18 @@
 
         </activity>
         <activity
+            android:name=".clockBreak"
+            android:exported="false" />
+        <activity
+            android:name=".MoodSelect"
+            android:exported="false" />
+        <activity
+            android:name=".SetAlarmView"
+            android:exported="false" />
+        <activity
+            android:name=".StatsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -2,10 +2,13 @@ package fi.ottooks.dreamcatcherdemo;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Notification;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +34,10 @@ public class MainActivity extends AppCompatActivity {
     private androidx.viewpager.widget.PagerAdapter pagerAdapter;
     private StatsSorting statsSorting;
     private ArrayList<UserInputs> testiLista = new ArrayList<>();
+
+    //luodaan context muuttuja
     private static Context contextOfApplication;
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -40,10 +46,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         setSliderAdapter();
+
         //alustetaan se
         contextOfApplication = this;
-
 
 
         // Tällä testataan listoja ja toimintoja, voi kommentoida pois päältä omia testejään varten!!!!!!!!!!!!!
@@ -51,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
 
 
     //Luodaan sille getter metodi
@@ -110,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
+        Log.d("otto",Integer.toString(userInputsList.size()));
+
+
 
     }
 

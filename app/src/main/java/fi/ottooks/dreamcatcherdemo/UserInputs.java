@@ -1,7 +1,12 @@
 package fi.ottooks.dreamcatcherdemo;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
+
 import androidx.annotation.NonNull;
 import java.io.Serializable;
+
+import com.google.gson.Gson;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -88,8 +93,8 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
     @NonNull
     public String toString(){
 
-        return "Alarm start time: " + this.startTime + ",\n" +
-                "Alarm end Time: " + this.endTime + ",\n" +
+        return "Start time: " + this.startTime + ",\n" +
+                "End Time: " + this.endTime + ",\n" +
                 "Full sleep time: " + this.sleepTime + ",\n" +
                 "Mood: " + this.moodValue + ".";
     }
