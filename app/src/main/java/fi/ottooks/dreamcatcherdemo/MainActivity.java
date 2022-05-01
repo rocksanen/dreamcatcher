@@ -9,10 +9,12 @@ import androidx.viewpager.widget.ViewPager;
 import android.app.Notification;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.tabs.TabLayout;
 
 import java.time.LocalDate;
@@ -51,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
 
         //alustetaan se
         contextOfApplication = this;
+
+
+
+
+        //UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
+        //useSharedPreferences.clearData();
+
+
 
 
         // Tällä testataan listoja ja toimintoja, voi kommentoida pois päältä omia testejään varten!!!!!!!!!!!!!
@@ -110,17 +120,6 @@ public class MainActivity extends AppCompatActivity {
         Collections.reverse(userInputsList);
 
 
-        for(UserInputs user: userInputsList) {
-
-            Log.d("otto", user.getDate().toString());
-
-
-        }
-
-        Log.d("otto",Integer.toString(userInputsList.size()));
-
-
-
     }
 
 
@@ -136,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(pager);
+        tabLayout.setTabTextColors(ColorStateList.valueOf(ColorTemplate.rgb("#ffffff")));
 
     }
 

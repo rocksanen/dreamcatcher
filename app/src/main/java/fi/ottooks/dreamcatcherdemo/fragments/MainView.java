@@ -71,6 +71,7 @@ public class MainView extends Fragment implements clockListener {
 
 
 
+
         btn = (Button) rootView.findViewById(R.id.uusi_heratys);
         btn.setOnClickListener(new View.OnClickListener() {
 

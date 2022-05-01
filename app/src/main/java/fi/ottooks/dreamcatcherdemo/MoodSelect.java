@@ -9,18 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MoodSelect extends AppCompatActivity {
-    ImageButton mood1;
-    ImageButton mood2;
-    ImageButton mood3;
-    ImageButton mood4;
-    ImageButton mood5;
-    int moodValue = 3;
+    private int moodValue = 3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mood_select);
 
-        mood1 = (ImageButton) findViewById(R.id.mood1Btn);
+        ImageButton mood1 = (ImageButton) findViewById(R.id.mood1Btn);
         mood1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,7 +26,7 @@ public class MoodSelect extends AppCompatActivity {
             }
         });
 
-        mood2 = (ImageButton) findViewById(R.id.mood2Btn);
+        ImageButton mood2 = (ImageButton) findViewById(R.id.mood2Btn);
         mood2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,7 +35,7 @@ public class MoodSelect extends AppCompatActivity {
             }
         });
 
-        mood3 = (ImageButton) findViewById(R.id.mood3Btn);
+        ImageButton mood3 = (ImageButton) findViewById(R.id.mood3Btn);
         mood3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,7 +44,7 @@ public class MoodSelect extends AppCompatActivity {
             }
         });
 
-        mood4 = (ImageButton) findViewById(R.id.mood4Btn);
+        ImageButton mood4 = (ImageButton) findViewById(R.id.mood4Btn);
         mood4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +53,7 @@ public class MoodSelect extends AppCompatActivity {
             }
         });
 
-        mood5 = (ImageButton) findViewById(R.id.mood5Btn);
+        ImageButton mood5 = (ImageButton) findViewById(R.id.mood5Btn);
         mood5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

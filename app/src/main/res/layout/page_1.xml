@@ -5,7 +5,7 @@
     android:id="@+id/ekaPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_dark_background"
+    android:background="@drawable/night2"
     android:gravity="center">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_width="362dp"
         android:layout_height="0dp"
         android:layout_marginStart="37dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="65dp"
         android:layout_marginEnd="37dp"
         android:layout_marginBottom="67dp"
         android:layout_weight="1"
@@ -41,6 +41,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
+        android:foregroundGravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
