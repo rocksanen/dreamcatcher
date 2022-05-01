@@ -60,9 +60,9 @@ public class StatsView extends Fragment {
 
         chart = view.findViewById(R.id.fragment_verticalbarchart_chart);
 
-        //BarData data = createChartData();
+        BarData data = createChartData();
         configureChartAppearance();
-        //prepareChartData(data);
+        prepareChartData(data);
 
 
 
