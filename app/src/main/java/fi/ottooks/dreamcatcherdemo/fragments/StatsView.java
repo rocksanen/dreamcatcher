@@ -114,19 +114,26 @@ public class StatsView extends Fragment {
 
         chart.setDrawBorders(true);
         chart.setBorderWidth(2f);
+
         chart.setNoDataText("Ei vielä dataa saatavilla");
+
+
+
         chart.getDescription().setEnabled(false);
 
         XAxis xAxis = chart.getXAxis();
         xAxis.setGranularity(1f);
         xAxis.setCenterAxisLabels(true);
 
+
         YAxis leftAxis = chart.getAxisLeft();
         leftAxis.setDrawGridLines(false);
         leftAxis.setSpaceTop(35f);
         leftAxis.setAxisMinimum(0f);
 
+
         chart.getAxisRight().setEnabled(false);
+
         chart.getXAxis().setAxisMinimum(0);
         chart.getXAxis().setAxisMaximum(MAX_X_VALUE);
         chart.getDescription().setEnabled(false);
@@ -176,6 +183,10 @@ public class StatsView extends Fragment {
         ArrayList<BarEntry> sleepTime = new ArrayList<>();
         ArrayList<BarEntry> mood = new ArrayList<>();
 
+
+
+
+
         for (int i = 0; i < MAX_X_VALUE; i++) {
 
             sleepTime.add(new BarEntry(i, (float)
@@ -195,9 +206,12 @@ public class StatsView extends Fragment {
         set1.setValueTextColor(ColorTemplate.getHoloBlue());
         set1.setValueTextSize(12f);
 
+
+
         set2.setFormSize(10f);
         set2.setValueTextColor(ColorTemplate.rgb("#FFFAFA"));
         set2.setValueTextSize(12f);
+
 
         ArrayList<IBarDataSet> dataSets = new ArrayList<>();
         dataSets.add(set1);

@@ -19,10 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import fi.ottooks.dreamcatcherdemo.kello.Clock;
+import fi.ottooks.dreamcatcherdemo.Clock;
+import fi.ottooks.dreamcatcherdemo.view.SetAlarmView;
+
 import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.kello.clockListener;
-import fi.ottooks.dreamcatcherdemo.view.SetAlarmView;
+
 import fi.ottooks.dreamcatcherdemo.view.listViewModel;
 import fi.ottooks.dreamcatcherdemo.view.recycleViewAdapter;
 
@@ -50,7 +52,7 @@ public class MainView extends Fragment implements clockListener {
 
         recycleViewAdapter = new recycleViewAdapter(this);
         listViewModel = ViewModelProviders.of(this).get(listViewModel.class);
-        listViewModel.getClockLiveData().observe((LifecycleOwner) this, new Observer<List<Clock>>() {
+        listViewModel.getClockLiveData().observe(this, new Observer<List<Clock>>() {
             @Override
             public void onChanged(List<Clock> clocks) {
                 if (clocks != null) {
@@ -89,6 +91,9 @@ public class MainView extends Fragment implements clockListener {
 
     @Override
     public void onToggle(Clock clock) {
-        clock.set(getContext());
+
+            clock.set(getContext());
+            listViewModel.update(clock);
+
     }
 }

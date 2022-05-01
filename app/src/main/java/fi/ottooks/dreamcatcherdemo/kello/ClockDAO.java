@@ -8,7 +8,8 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import fi.ottooks.dreamcatcherdemo.kello.Clock;
+import fi.ottooks.dreamcatcherdemo.Clock;
+
 
 @Dao
 public interface ClockDAO {

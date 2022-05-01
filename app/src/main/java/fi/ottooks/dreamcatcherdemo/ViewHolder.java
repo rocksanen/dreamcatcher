@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import fi.ottooks.dreamcatcherdemo.kello.Clock;
+
 import fi.ottooks.dreamcatcherdemo.kello.clockListener;
 
 
@@ -22,7 +22,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public void bind(Clock clock, clockListener listener) {
+    public void bind(fi.ottooks.dreamcatcherdemo.Clock clock, clockListener listener) {
         String alarmTime = String.format("%02d:%02d", clock.getHour(), clock.getMin());
         time.setText(alarmTime);
         title.setText(clock.getTitle());

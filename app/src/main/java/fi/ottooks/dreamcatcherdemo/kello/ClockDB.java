@@ -9,6 +9,8 @@ import androidx.room.RoomDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import fi.ottooks.dreamcatcherdemo.Clock;
+
 @Database(entities = {Clock.class}, version = 1, exportSchema = false)
 public abstract class ClockDB extends RoomDatabase {
     public abstract ClockDAO clockDao();

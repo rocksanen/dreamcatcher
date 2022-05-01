@@ -10,9 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import fi.ottooks.dreamcatcherdemo.Clock;
 import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.ViewHolder;
-import fi.ottooks.dreamcatcherdemo.kello.Clock;
+
 import fi.ottooks.dreamcatcherdemo.kello.clockListener;
 
 public class recycleViewAdapter extends RecyclerView.Adapter<ViewHolder> {

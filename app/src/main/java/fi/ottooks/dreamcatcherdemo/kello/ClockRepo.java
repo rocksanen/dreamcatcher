@@ -6,7 +6,8 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import fi.ottooks.dreamcatcherdemo.kello.Clock;
+import fi.ottooks.dreamcatcherdemo.Clock;
+
 import fi.ottooks.dreamcatcherdemo.kello.ClockDAO;
 import fi.ottooks.dreamcatcherdemo.kello.ClockDB;
 
