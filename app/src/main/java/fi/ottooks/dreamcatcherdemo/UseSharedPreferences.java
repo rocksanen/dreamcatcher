@@ -12,48 +12,31 @@ import java.util.List;
 
 public class UseSharedPreferences {
 
+    private final String SHAREDPREFS = "fi.ottooks.dreamcatcherdemo";
 
-    private double startTime;
-    private android.content.SharedPreferences sharedPreferences;
-    public static final String SHAREDPREFS = "fi.ottooks.dreamcatcherdemo";
+    private final android.content.SharedPreferences sharedPreferences =
+    MainActivity.getContextOfApplication().
+    getSharedPreferences(SHAREDPREFS, Activity.MODE_PRIVATE);
+
     public static final String LIST = "objectList";
     public static final String START = "starTime";
     private List<UserInputs> userInputsList = new ArrayList<>();
-    private String objectList;
 
 
         public UseSharedPreferences(UserInputs object) {
 
-            shraredFileConnector();
             this.userInputsList = getListFromPreferences();
-
             this.userInputsList.add(object);
-
             saveObjectToList();
 
-
         }
 
-
-        public UseSharedPreferences(double startTime) {
-
-            shraredFileConnector();
-            this.startTime = startTime;
-            saveStartTime();
-
-
-        }
-
-        public UseSharedPreferences() {
-
-            shraredFileConnector();
-
-        }
+        public UseSharedPreferences() {}
 
         private void saveObjectToList() {
 
             Gson gson = new Gson();
-            String json = gson.toJson(this.userInputsList);
+            final String json = gson.toJson(this.userInputsList);
 
             android.content.SharedPreferences.Editor prefEditor =
             sharedPreferences.edit();
@@ -61,17 +44,15 @@ public class UseSharedPreferences {
             prefEditor.putString(LIST, json);
             prefEditor.commit();
 
-
         }
 
-        private void saveStartTime() {
+        public void saveStartTime(double startTime) {
 
             android.content.SharedPreferences.Editor prefEditor =
             sharedPreferences.edit();
 
-            prefEditor.putLong(START,Double.doubleToRawLongBits(this.startTime));
+            prefEditor.putLong(START,Double.doubleToRawLongBits(startTime));
             prefEditor.commit();
-
 
         }
 
@@ -85,9 +66,7 @@ public class UseSharedPreferences {
 
             List<UserInputs> listItems;
 
-
-                objectList = sharedPreferences.getString(LIST,null);
-
+            final String objectList = sharedPreferences.getString(LIST, null);
 
                 if(objectList != null) {
 
@@ -108,17 +87,6 @@ public class UseSharedPreferences {
 
             prefEditor.clear();
             prefEditor.commit();
-
-
-        }
-
-        //Alustetaan sharedpreferences
-        private void shraredFileConnector() {
-
-
-            this.sharedPreferences =
-            MainActivity.getContextOfApplication().
-            getSharedPreferences(SHAREDPREFS, Activity.MODE_PRIVATE);
 
         }
 

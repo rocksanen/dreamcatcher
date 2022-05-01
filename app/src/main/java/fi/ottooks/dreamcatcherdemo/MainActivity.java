@@ -2,14 +2,19 @@ package fi.ottooks.dreamcatcherdemo;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Notification;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.tabs.TabLayout;
 
 import java.time.LocalDate;
@@ -31,7 +36,10 @@ public class MainActivity extends AppCompatActivity {
     private androidx.viewpager.widget.PagerAdapter pagerAdapter;
     private StatsSorting statsSorting;
     private ArrayList<UserInputs> testiLista = new ArrayList<>();
+
+    //luodaan context muuttuja
     private static Context contextOfApplication;
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -40,9 +48,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         setSliderAdapter();
+
         //alustetaan se
         contextOfApplication = this;
+
+
+
+
+        //UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
+        //useSharedPreferences.clearData();
+
 
 
 
@@ -51,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
 
 
     //Luodaan sille getter metodi
@@ -104,13 +120,6 @@ public class MainActivity extends AppCompatActivity {
         Collections.reverse(userInputsList);
 
 
-        for(UserInputs user: userInputsList) {
-
-            Log.d("otto", user.getDate().toString());
-
-
-        }
-
     }
 
 
@@ -126,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(pager);
+        tabLayout.setTabTextColors(ColorStateList.valueOf(ColorTemplate.rgb("#ffffff")));
 
     }
 

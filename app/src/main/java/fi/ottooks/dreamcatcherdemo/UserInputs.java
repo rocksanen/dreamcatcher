@@ -1,9 +1,19 @@
 package fi.ottooks.dreamcatcherdemo;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.os.Build;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+
 import java.io.Serializable;
 
+import com.google.gson.Gson;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,17 +23,18 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
     private  double endTime;
     private  double sleepTime;
     private  int moodValue;
-    private LocalDate date;
+    private String date;
 
 
 
-    public UserInputs(LocalDate date,double startTime, double endTime, double sleepTime, int moodValue) {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public UserInputs(LocalDate date, double startTime, double endTime, double sleepTime, int moodValue) {
 
         this.startTime = startTime;
         this.endTime = endTime;
         this.sleepTime = sleepTime;
         this.moodValue = moodValue;
-        this.date = date;
+        this.date = date.format(DateTimeFormatter.ofPattern("dd-MMM-yy"));
 
         save();
 
@@ -54,8 +65,7 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
         return this.moodValue;
     }
 
-
-    public LocalDate getDate() {
+    public String getDate() {
 
         return this.date;
     }
@@ -88,8 +98,8 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
     @NonNull
     public String toString(){
 
-        return "Alarm start time: " + this.startTime + ",\n" +
-                "Alarm end Time: " + this.endTime + ",\n" +
+        return "Start time: " + this.startTime + ",\n" +
+                "End Time: " + this.endTime + ",\n" +
                 "Full sleep time: " + this.sleepTime + ",\n" +
                 "Mood: " + this.moodValue + ".";
     }

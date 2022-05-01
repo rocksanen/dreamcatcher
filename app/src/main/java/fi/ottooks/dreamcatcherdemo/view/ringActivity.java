@@ -1,4 +1,4 @@
-package fi.ottooks.dreamcatcherdemo;
+package fi.ottooks.dreamcatcherdemo.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import javax.annotation.Nullable;
+
+import fi.ottooks.dreamcatcherdemo.R;
+import fi.ottooks.dreamcatcherdemo.aService;
 
 public class ringActivity extends AppCompatActivity {
 
