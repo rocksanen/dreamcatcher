@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class clockBreak extends AppCompatActivity {
 
     Button sammutaBtn;
-    Button breakBtn;
+    ImageButton breakBtn;
     Boolean sammutettu;
     int clicked;
 
@@ -34,11 +37,16 @@ public class clockBreak extends AppCompatActivity {
             public void onClick(View view) {
                 clicked++;
                 Log.d("", String.valueOf(clicked));
+                Animation animShake = AnimationUtils.loadAnimation(clockBreak.this, R.anim.shake);
+                view.startAnimation(animShake);
                 if (clicked >= 10) {
                     sammutettu = true;
                     Log.d("", "sammutettu");
                 }
             }
         });
+    }
+    public boolean getBreak(){
+        return sammutettu;
     }
 }

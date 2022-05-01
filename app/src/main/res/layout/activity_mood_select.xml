@@ -117,7 +117,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/mood3Btn"
-        app:layout_constraintVertical_bias="0.482" />
+        app:layout_constraintVertical_bias="0.413" />
 
     <TextView
         android:id="@+id/mood4Text"
@@ -128,10 +128,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintHorizontal_bias="0.011"
         app:layout_constraintStart_toEndOf="@+id/mood3Text"
         app:layout_constraintTop_toBottomOf="@+id/mood4Btn"
-        app:layout_constraintVertical_bias="0.482" />
+        app:layout_constraintVertical_bias="0.413" />
 
     <TextView
         android:id="@+id/mood2Text"
@@ -145,7 +145,7 @@
         app:layout_constraintHorizontal_bias="0.585"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/mood2Btn"
-        app:layout_constraintVertical_bias="0.482" />
+        app:layout_constraintVertical_bias="0.413" />
 
     <TextView
         android:id="@+id/mood1Text"
@@ -170,9 +170,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toEndOf="@+id/mood4Text"
-        app:layout_constraintTop_toBottomOf="@+id/mood5Btn" />
+        app:layout_constraintTop_toBottomOf="@+id/mood5Btn"
+        app:layout_constraintVertical_bias="0.413" />
 
     <TextView
         android:id="@+id/moodTitle"
