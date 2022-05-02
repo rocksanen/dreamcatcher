@@ -32,7 +32,7 @@ public class Clock {
 
     private boolean started;
 
-    public Clock (int hour, int min, int id, String title) {
+    public Clock (int hour, int min, int id, String title, boolean started) {
         this.hour = hour;
         this.min = min;
         this.id = id;
@@ -40,6 +40,7 @@ public class Clock {
         this.created = created;
 
         this.title = title;
+        this.started = started;
     }
 
     public int getHour() {
@@ -98,6 +99,14 @@ public class Clock {
 
         Calendar calendar = Calendar.getInstance();
 
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.MINUTE, min);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
+
+
         String tText = null;
         try {
             tText = String.format("Herätys %s laitettu %s klo %02d:%02d", title, calendar.get(Calendar.DAY_OF_WEEK), hour, min);
@@ -108,6 +117,18 @@ public class Clock {
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmPendingIntent);
         this.started = true;
+    }
+
+    public void cancel (Context context) {
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, aBroadcastReceiver.class);
+        PendingIntent pIntent = PendingIntent.getBroadcast(context, id, intent, PendingIntent.FLAG_IMMUTABLE);
+
+        alarmManager.cancel(pIntent);
+        this.started = false;
+
+        String tText = String.format("Herätys peruttu!");
+        Toast.makeText(context, tText, Toast.LENGTH_SHORT).show();
     }
 
 

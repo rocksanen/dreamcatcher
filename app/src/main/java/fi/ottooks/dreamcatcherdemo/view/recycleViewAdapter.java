@@ -37,12 +37,19 @@ public class recycleViewAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Clock clock = clocks.get(position);
         holder.bind(clock, listener);
-
     }
+
+
 
     @Override
     public int getItemCount() {
         return clocks.size();
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        super.onViewRecycled(holder);
+        holder.aSwitch.setOnCheckedChangeListener(null);
     }
 
     public void setClocks(List<Clock> clocks) {

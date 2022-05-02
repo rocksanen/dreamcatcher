@@ -77,7 +77,7 @@ public class SetAlarmView extends AppCompatActivity {
             Log.d("testing", "String.valueOf(clock)");
             Log.d("Tunti", Integer.toString(tp.getHour()));
             Log.d("Tunti", Integer.toString(tp.getMinute()));
-            Clock clock = new Clock(tp.getHour(), tp.getMinute(), id, "Test");
+            Clock clock = new Clock(tp.getHour(), tp.getMinute(), id, "Test", true);
 
 
 
@@ -85,7 +85,6 @@ public class SetAlarmView extends AppCompatActivity {
             createView.insert(clock);
             clock.set(this);
 
-            //clock.set(getContext());
 
 
 

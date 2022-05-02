@@ -24,6 +24,7 @@ public class ClockRepo {
 
     public void insert(Clock clock) {
         ClockDB.dbWriteExecutor.execute(() -> {
+            //dao.deleteAll();
             dao.insert(clock);
         });
     }
