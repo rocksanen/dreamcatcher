@@ -81,7 +81,7 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
 
 
     /**
-     * Saving the created object as a Gson object by using UseSharedPreferences class's method
+     * Save the created UserInputs object by using UseSharedPreferences class's method
      */
     public void save() {
 
