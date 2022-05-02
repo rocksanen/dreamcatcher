@@ -24,6 +24,14 @@ public class ringActivity extends AppCompatActivity {
                 Intent intentService = new Intent(getApplicationContext(), aService.class);
                 getApplicationContext().stopService(intentService);
                 finish();
+
+                /**
+                 *  The mood select activity will show when "Sammuta" button been pressed.
+                 */
+
+                Intent intentMood = new Intent(getApplicationContext(), MoodSelect.class);
+                startActivity(intentMood);
+
             }
         });
 

@@ -1,16 +1,9 @@
 package fi.ottooks.dreamcatcherdemo;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,11 +17,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import fi.ottooks.dreamcatcherdemo.R;
-import fi.ottooks.dreamcatcherdemo.SlidePagerAdapter;
-import fi.ottooks.dreamcatcherdemo.StatsSorting;
-import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
-import fi.ottooks.dreamcatcherdemo.UserInputs;
 import fi.ottooks.dreamcatcherdemo.fragments.MainView;
 import fi.ottooks.dreamcatcherdemo.fragments.StatsView;
 
@@ -39,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
     private StatsSorting statsSorting;
     private ArrayList<UserInputs> testiLista = new ArrayList<>();
 
-    //luodaan context muuttuja
+    /**
+     * Create context variable.
+     */
+
     private static Context contextOfApplication;
 
 
@@ -53,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
         setSliderAdapter();
 
-        //alustetaan se
+        /**
+         * Initialize the context variable.
+         */
         contextOfApplication = this;
 
 
@@ -63,7 +56,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Create getter method to call the context variable.
+     * @return return the context variable which refers to application's context.
+     */
     //Luodaan sille getter metodi
     public static Context getContextOfApplication(){
 

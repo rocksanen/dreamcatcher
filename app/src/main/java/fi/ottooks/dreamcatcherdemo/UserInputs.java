@@ -1,16 +1,22 @@
 package fi.ottooks.dreamcatcherdemo;
 
-import android.app.Activity;
-import android.content.SharedPreferences;
-
 import androidx.annotation.NonNull;
+
 import java.io.Serializable;
-
-import com.google.gson.Gson;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
+
+/**
+ * The UserInputs class for Dream catcher 3000
+ *
+ * <p>
+ *     This class handles all data that the users input.
+ * </p>
+ *
+ *  Saves the data as a Gson object by using UseSharedPreferences class's method.
+ *
+ * @author Mohammed Al-Jewari
+ */
 
 public class UserInputs implements Serializable, Comparable<UserInputs> {
 
@@ -21,7 +27,15 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
     private LocalDate date;
     public static final String SHAREDPREFS = "fi.ottooks.dreamcatcherdemo";
 
-
+    /**
+     * Create UserInputs object, given the data provided.
+     *
+     * @param date a LocalDate parameter to differ the inputted data of the same day (LocalDate)
+     * @param startTime  a sleeping start time (Double)
+     * @param endTime a sleeping end time (Double)
+     * @param sleepTime a full sleep time (Double)
+     * @param moodValue a mood value after waking up (Integer)
+     */
     public UserInputs(LocalDate date,double startTime, double endTime, double sleepTime, int moodValue) {
 
         this.startTime = startTime;
@@ -66,7 +80,9 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
     }
 
 
-
+    /**
+     * Saving the created object as a Gson object by using UseSharedPreferences class's method
+     */
     public void save() {
 
         /*
@@ -98,7 +114,13 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
                 "Mood: " + this.moodValue + ".";
     }
 
-
+    /**
+     * Make the objects those are created using this class constructor comparable.
+     *
+     * Compare the objects by its mood value.
+     * @param other an UserInputs object that compares to. (UserInputs object)
+     * @return a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object.
+     */
     @Override
     public int compareTo(UserInputs other) {
 
