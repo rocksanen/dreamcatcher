@@ -33,7 +33,7 @@ public class MoodSelect extends AppCompatActivity {
          *
          * The value will be by default 3, but will change depending on user's choice.
          *
-         * When user will choose his mood "Value" this activity will end.
+         * When user will choose his mood "Value" then this activity will end.
          */
 
         mood1 = (ImageButton) findViewById(R.id.mood1Btn);

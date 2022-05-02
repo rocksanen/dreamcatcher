@@ -91,8 +91,7 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
 
         */
 
-        UseSharedPreferences shr =
-        new UseSharedPreferences(this);
+        UseSharedPreferences shr = new UseSharedPreferences(this);
 
         //UseSharedPreferences shar = new UseSharedPreferences(10.00);
 
