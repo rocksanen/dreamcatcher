@@ -1,19 +1,15 @@
 package fi.ottooks.dreamcatcherdemo;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
-import android.app.Notification;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.tabs.TabLayout;
@@ -23,11 +19,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import fi.ottooks.dreamcatcherdemo.R;
-import fi.ottooks.dreamcatcherdemo.SlidePagerAdapter;
-import fi.ottooks.dreamcatcherdemo.StatsSorting;
-import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
-import fi.ottooks.dreamcatcherdemo.UserInputs;
 import fi.ottooks.dreamcatcherdemo.fragments.MainView;
 import fi.ottooks.dreamcatcherdemo.fragments.StatsView;
 import fi.ottooks.dreamcatcherdemo.fragments.UserAgeQuestion;
