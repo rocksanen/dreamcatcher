@@ -4,34 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/night2"
+    android:background="@drawable/bg1"
     tools:context=".view.SetAlarmView">
 
     <TextView
         android:id="@+id/uusi_heratys_title"
         android:layout_width="300dp"
         android:layout_height="37dp"
-        android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="Luo uusi herätys"
         android:textAlignment="center"
         android:textColor="#FBF8F8"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061" />
 
     <TimePicker
         android:id="@+id/test_picker"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="4dp"
         android:layout_weight="0.6"
 
+        android:background="@drawable/back"
         android:theme="@style/timepicker"
         android:timePickerMode="spinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uusi_heratys_title" />
 
@@ -39,9 +41,10 @@
         android:id="@+id/uusi_heratys_nappi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="52dp"
         android:text="Lisää"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/test_picker" />
 </androidx.constraintlayout.widget.ConstraintLayout>
