@@ -94,7 +94,6 @@ public class MoodSelect extends AppCompatActivity {
      */
     public int getMoodValue(){
         return moodValue;
-
     }
 
 }

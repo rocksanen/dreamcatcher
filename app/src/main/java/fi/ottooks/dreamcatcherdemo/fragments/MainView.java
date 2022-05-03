@@ -52,7 +52,7 @@ public class MainView extends Fragment implements clockListener {
 
         recycleViewAdapter = new recycleViewAdapter(this);
         listViewModel = ViewModelProviders.of(this).get(listViewModel.class);
-        listViewModel.getClockLiveData().observe(this, new Observer<List<Clock>>() {
+        listViewModel.getClockLiveData().observe((LifecycleOwner) this, new Observer<List<Clock>>() {
             @Override
             public void onChanged(List<Clock> clocks) {
                 if (clocks != null) {
@@ -68,6 +68,7 @@ public class MainView extends Fragment implements clockListener {
         clocksView = rootView.findViewById(R.id.heratykset_list);
         clocksView.setLayoutManager(new LinearLayoutManager(getContext()));
         clocksView.setAdapter(recycleViewAdapter);
+
 
 
 
@@ -90,9 +91,14 @@ public class MainView extends Fragment implements clockListener {
 
     @Override
     public void onToggle(Clock clock) {
-
+        if (clock.isStarted()) {
+            clock.cancel(getContext());
+            listViewModel.update(clock);
+        } else {
             clock.set(getContext());
             listViewModel.update(clock);
+        }
+
 
     }
 }

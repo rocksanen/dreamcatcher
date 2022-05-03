@@ -1,9 +1,21 @@
 package fi.ottooks.dreamcatcherdemo;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.os.Build;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 
 import java.io.Serializable;
+
+import com.google.gson.Gson;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -24,25 +36,29 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
     private  double endTime;
     private  double sleepTime;
     private  int moodValue;
-    private LocalDate date;
-    public static final String SHAREDPREFS = "fi.ottooks.dreamcatcherdemo";
+    private String date;
 
-    /**
-     * Create UserInputs object, given the data provided.
-     *
-     * @param date a LocalDate parameter to differ the inputted data of the same day (LocalDate)
-     * @param startTime  a sleeping start time (Double)
-     * @param endTime a sleeping end time (Double)
-     * @param sleepTime a full sleep time (Double)
-     * @param moodValue a mood value after waking up (Integer)
-     */
+
+
+
+
+        /**
+         * Create UserInputs object, given the data provided.
+         *
+         * @param date a LocalDate parameter to differ the inputted data of the same day (LocalDate)
+         * @param startTime  a sleeping start time (Double)
+         * @param endTime a sleeping end time (Double)
+         * @param sleepTime a full sleep time (Double)
+         * @param moodValue a mood value after waking up (Integer)
+         */
+        @RequiresApi(api = Build.VERSION_CODES.O)
     public UserInputs(LocalDate date,double startTime, double endTime, double sleepTime, int moodValue) {
 
         this.startTime = startTime;
         this.endTime = endTime;
         this.sleepTime = sleepTime;
         this.moodValue = moodValue;
-        this.date = date;
+        this.date = date.format(DateTimeFormatter.ofPattern("dd-MMM-yy"));
 
         save();
 
@@ -73,8 +89,7 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
         return this.moodValue;
     }
 
-
-    public LocalDate getDate() {
+    public String getDate() {
 
         return this.date;
     }
@@ -84,14 +99,16 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
      * Save the created UserInputs object by using UseSharedPreferences class's method
      */
     public void save() {
+/*
 
-        /*
         UseSharedPreferences clear = new UseSharedPreferences();
         clear.clearData();
 
-        */
 
-        UseSharedPreferences shr = new UseSharedPreferences(this);
+*/
+
+        UseSharedPreferences shr =
+        new UseSharedPreferences(this);
 
         //UseSharedPreferences shar = new UseSharedPreferences(10.00);
 

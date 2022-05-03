@@ -33,7 +33,7 @@ public class aService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Intent notiIntent = new Intent(this, ringActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notiIntent, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notiIntent,PendingIntent.FLAG_IMMUTABLE );
         String alarmTitle = String.format("%s Alarm", "teST");
 
 
