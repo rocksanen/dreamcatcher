@@ -4,17 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/bg2"
     tools:context=".MoodSelect">
 
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="347dp"
+        android:layout_height="143dp"
+        android:background="@drawable/back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/mood3Btn"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@null"
-        android:scaleType="fitCenter"
         android:contentDescription="mood 3"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -26,11 +36,11 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@null"
-        android:scaleType="fitCenter"
         android:contentDescription="mood 2"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/mood3Btn"
-        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintHorizontal_bias="0.77"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/guideline6"
         app:srcCompat="@drawable/mood2" />
@@ -40,11 +50,11 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@null"
-        android:scaleType="fitCenter"
         android:contentDescription="mood 4"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.23"
         app:layout_constraintStart_toEndOf="@+id/mood3Btn"
         app:layout_constraintTop_toTopOf="@+id/guideline6"
         app:srcCompat="@drawable/mood4" />
@@ -54,8 +64,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@null"
-        android:scaleType="fitCenter"
         android:contentDescription="mood 1"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/mood2Btn"
         app:layout_constraintHorizontal_bias="0.0"
@@ -68,8 +78,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@null"
-        android:scaleType="fitCenter"
         android:contentDescription="mood 5"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="1.0"
@@ -117,7 +127,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/mood3Btn"
-        app:layout_constraintVertical_bias="0.482" />
+        app:layout_constraintVertical_bias="0.413" />
 
     <TextView
         android:id="@+id/mood4Text"
@@ -128,10 +138,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/mood3Text"
         app:layout_constraintTop_toBottomOf="@+id/mood4Btn"
-        app:layout_constraintVertical_bias="0.482" />
+        app:layout_constraintVertical_bias="0.413" />
 
     <TextView
         android:id="@+id/mood2Text"
@@ -142,10 +152,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/mood3Text"
-        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/mood2Btn"
-        app:layout_constraintVertical_bias="0.482" />
+        app:layout_constraintVertical_bias="0.413" />
 
     <TextView
         android:id="@+id/mood1Text"
@@ -170,9 +180,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toEndOf="@+id/mood4Text"
-        app:layout_constraintTop_toBottomOf="@+id/mood5Btn" />
+        app:layout_constraintTop_toBottomOf="@+id/mood5Btn"
+        app:layout_constraintVertical_bias="0.413" />
 
     <TextView
         android:id="@+id/moodTitle"
@@ -188,4 +199,5 @@
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         testiLista.add(new UserInputs(LocalDate.now().minusDays(1),02.00, 10.00, 08.00, 5));
         testiLista.add(new UserInputs(LocalDate.now(),21.00, 08.00, 11.00, 3));
 
-        //testStats();
+        testStats();
 
 
     }
