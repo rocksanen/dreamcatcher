@@ -1,6 +1,7 @@
 package fi.ottooks.dreamcatcherdemo.fragments;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
@@ -81,7 +83,7 @@ public class MainView extends Fragment implements clockListener {
             public void onClick(View arg0) {
 
                 startActivity(new Intent(getActivity(), SetAlarmView.class));
-                Log.d("namu","pelle");
+
 
             }
         });
@@ -89,6 +91,7 @@ public class MainView extends Fragment implements clockListener {
         return rootView;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onToggle(Clock clock) {
         if (clock.isStarted()) {
