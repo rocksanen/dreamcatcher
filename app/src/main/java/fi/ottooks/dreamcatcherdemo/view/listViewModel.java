@@ -6,10 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import java.util.Calendar;
 import java.util.List;
 
 
 import fi.ottooks.dreamcatcherdemo.Clock;
+import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
 import fi.ottooks.dreamcatcherdemo.kello.ClockRepo;
 
 public class listViewModel extends AndroidViewModel {
@@ -26,6 +28,7 @@ public class listViewModel extends AndroidViewModel {
     }
 
     public void update(Clock clock) {
+
         repo.update(clock);
     }
     public LiveData<List<Clock>> getClockLiveData() {

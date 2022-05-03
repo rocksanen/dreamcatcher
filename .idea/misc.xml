@@ -4,12 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Otto/AndroidStudioProjects/DreamCatcherDemo/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Otto/AndroidStudioProjects/DreamCatcherDemo/app/src/main/res/layout/activity_mood.xml" value="0.264" />
         <entry key="..\:/Users/Otto/AndroidStudioProjects/DreamCatcherDemo/app/src/main/res/layout/activity_stats.xml" value="0.264" />
         <entry key="..\:/Users/Otto/AndroidStudioProjects/DreamCatcherDemo/app/src/main/res/layout/page_1.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Otto/AndroidStudioProjects/DreamCatcherDemo/app/src/main/res/layout/page_2.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/mjass.LAPTOP-SF64JU1N/AndroidStudioProjects/dreamcatcher/app/src/main/res/layout/activity_stats.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/mjass.LAPTOP-SF64JU1N/AndroidStudioProjects/dreamcatcher/app/src/main/res/layout/one_alarm.xml" value="0.22" />
-        <entry key="..\:/Users/mjass.LAPTOP-SF64JU1N/AndroidStudioProjects/dreamcatcher/app/src/main/res/layout/page_1.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/Otto/AndroidStudioProjects/dreambackup/version7/DreamCatcherDemo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/Otto/AndroidStudioProjects/dreambackup/version7/DreamCatcherDemo/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Otto/AndroidStudioProjects/dreambackup/version7/DreamCatcherDemo/app/src/main/res/layout/activity_set_alarm_view.xml" value="0.27803521779425394" />
+        <entry key="..\:/Users/Otto/AndroidStudioProjects/dreambackup/version7/DreamCatcherDemo/app/src/main/res/layout/fragment_user_age_question.xml" value="0.1603336422613531" />
+        <entry key="..\:/Users/Otto/AndroidStudioProjects/dreambackup/version7/DreamCatcherDemo/app/src/main/res/layout/page_1.xml" value="0.4" />
+        <entry key="..\:/Users/Otto/AndroidStudioProjects/dreambackup/version7/DreamCatcherDemo/app/src/main/res/layout/page_2.xml" value="0.4" />
+        <entry key="..\:/Users/Otto/AndroidStudioProjects/dreambackup/version7/DreamCatcherDemo/app/src/main/res/layout/ring_activity.xml" value="0.1" />
+        <entry key="..\:/Users/samuo/StudioProjects/dreamcatcher/app/src/main/res/layout/activity_main.xml" value="0.19662921348314608" />
+        <entry key="..\:/Users/samuo/StudioProjects/dreamcatcher/app/src/main/res/layout/activity_set_alarm_view.xml" value="0.33" />
+        <entry key="..\:/Users/samuo/StudioProjects/dreamcatcher/app/src/main/res/layout/activity_stats.xml" value="0.29270833333333335" />
+        <entry key="..\:/Users/samuo/StudioProjects/dreamcatcher/app/src/main/res/layout/page_1.xml" value="0.33" />
+        <entry key="..\:/Users/samuo/StudioProjects/dreamcatcher/app/src/main/res/layout/page_2.xml" value="0.29270833333333335" />
+        <entry key="..\:/Users/samuo/StudioProjects/dreamcatcher/app/src/main/res/layout/ring_activity.xml" value="0.33" />
       </map>
     </option>
   </component>

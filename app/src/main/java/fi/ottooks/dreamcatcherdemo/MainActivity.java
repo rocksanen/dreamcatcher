@@ -30,6 +30,7 @@ import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
 import fi.ottooks.dreamcatcherdemo.UserInputs;
 import fi.ottooks.dreamcatcherdemo.fragments.MainView;
 import fi.ottooks.dreamcatcherdemo.fragments.StatsView;
+import fi.ottooks.dreamcatcherdemo.fragments.UserAgeQuestion;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -147,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
         List<Fragment> list = new ArrayList<>();
         list.add(new MainView());
         list.add(new StatsView());
+        list.add(new UserAgeQuestion());
 
         pager = findViewById(R.id.pager);
         pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(),list);
