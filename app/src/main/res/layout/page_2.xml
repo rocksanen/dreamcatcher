@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/night3"
+    android:background="@drawable/bg2"
     android:gravity="center">
 
 
@@ -23,18 +23,15 @@
 
     <TextView
         android:id="@+id/nukkumisKeskiArvo"
-        android:layout_width="334dp"
+        android:layout_width="332dp"
         android:layout_height="75dp"
-        android:layout_marginTop="25dp"
         android:background="@drawable/back"
         android:gravity="center"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toStartOf="@+id/guideline12"
-        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <TextView
         android:id="@+id/moodKeskiArvo"
@@ -45,7 +42,6 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toStartOf="@+id/guideline12"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toTopOf="@+id/guideline8"
         app:layout_constraintVertical_bias="0.0" />
@@ -54,16 +50,14 @@
         android:id="@+id/parasUniMaara"
         android:layout_width="332dp"
         android:layout_height="75dp"
-        android:layout_marginTop="10dp"
         android:background="@drawable/back"
         android:gravity="center"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toStartOf="@+id/guideline12"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toTopOf="@+id/guideline9"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.212" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
