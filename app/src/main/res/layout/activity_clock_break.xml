@@ -11,7 +11,7 @@
         android:id="@+id/sammutaBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sulje"
+        android:text="Sulje herätys"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

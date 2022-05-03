@@ -25,6 +25,7 @@ public class clockBreak extends AppCompatActivity {
         clicked = 0;
         sammutaBtn = findViewById(R.id.sammutaBtn);
         breakBtn = findViewById(R.id.breakBtn);
+        breakBtn.setImageResource(R.drawable.clockbreak);
         sammutaBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
