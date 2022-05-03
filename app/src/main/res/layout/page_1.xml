@@ -5,7 +5,7 @@
     android:id="@+id/ekaPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/night2"
+    android:background="@drawable/bg1"
     android:gravity="center">
 
 
@@ -14,40 +14,44 @@
         android:layout_width="201dp"
         android:layout_height="198dp"
         android:layout_marginStart="37dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="37dp"
-        android:layout_marginBottom="67dp"
         android:layout_weight="1"
         android:dial="@drawable/kellotaulu"
         android:hand_hour="@drawable/viisari3"
         android:hand_minute="@drawable/viisari2"
         app:layout_constraintBottom_toTopOf="@+id/heratykset_list"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/kello" />
 
     <Button
         android:id="@+id/uusi_heratys"
         android:layout_width="362dp"
         android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Lisää herätys"
+        app:layout_constraintBottom_toTopOf="@+id/heratykset_list"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/heratykset_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="362dp"
+        android:layout_height="354dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
         android:foregroundGravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.568" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
