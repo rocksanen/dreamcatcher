@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
 import fi.ottooks.dreamcatcherdemo.view.ringActivity;
+import fi.ottooks.dreamcatcherdemo.clockBreak;
 
 public class aService extends Service {
 
@@ -32,7 +33,7 @@ public class aService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Intent notiIntent = new Intent(this, ringActivity.class);
+        Intent notiIntent = new Intent(this, clockBreak.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notiIntent,PendingIntent.FLAG_IMMUTABLE );
         String alarmTitle = String.format("%s Alarm", "teST");
 

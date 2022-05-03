@@ -2,4 +2,6 @@
     <string name="app_name">Dream Catcher 3000</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ageQuestion">Minkä ikäinen sinä olet?</string>
+    <string name="age_input">esim. 18</string>
 </resources>

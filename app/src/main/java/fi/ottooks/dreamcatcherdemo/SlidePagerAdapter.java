@@ -76,6 +76,7 @@ public class SlidePagerAdapter extends FragmentStatePagerAdapter {
         }else {
 
             return null;
+
         }
     }
 
