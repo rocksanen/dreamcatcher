@@ -21,7 +21,7 @@
             android:name=".MoodSelect"
             android:exported="false" />
         <activity
-            android:name=".view.SetAlarmView"
+            android:name=".SetAlarmView"
             android:exported="false" />
 
         <activity
@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.ringActivity">
+        <activity android:name=".ringActivity">
         </activity>
 
         <receiver android:name=".aBroadcastReceiver"

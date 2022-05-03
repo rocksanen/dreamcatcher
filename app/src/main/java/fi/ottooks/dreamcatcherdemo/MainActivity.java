@@ -13,6 +13,7 @@ import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.tabs.TabLayout;
@@ -38,20 +39,28 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<UserInputs> testiLista = new ArrayList<>();
 
     //luodaan context muuttuja
+
+    /**
+     * Create context variable.
+     */
+
     private static Context contextOfApplication;
+
 
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         setSliderAdapter();
 
-        //alustetaan se
+        /**
+         * Initialize the context variable.
+         */
         contextOfApplication = this;
 
 
@@ -69,7 +78,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Create getter method to call the context variable.
+     * @return return the context variable which refers to application's context.
+     */
     //Luodaan sille getter metodi
     public static Context getContextOfApplication(){
 
@@ -119,6 +131,13 @@ public class MainActivity extends AppCompatActivity {
         Collections.sort(userInputsList);
         Collections.reverse(userInputsList);
 
+
+        for(UserInputs user: userInputsList) {
+
+            Log.d("otto", user.getDate().toString());
+
+
+        }
 
     }
 

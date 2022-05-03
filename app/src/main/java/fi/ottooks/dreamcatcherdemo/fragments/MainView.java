@@ -52,7 +52,7 @@ public class MainView extends Fragment implements clockListener {
 
         recycleViewAdapter = new recycleViewAdapter(this);
         listViewModel = ViewModelProviders.of(this).get(listViewModel.class);
-        listViewModel.getClockLiveData().observe(this, new Observer<List<Clock>>() {
+        listViewModel.getClockLiveData().observe((LifecycleOwner) this, new Observer<List<Clock>>() {
             @Override
             public void onChanged(List<Clock> clocks) {
                 if (clocks != null) {
