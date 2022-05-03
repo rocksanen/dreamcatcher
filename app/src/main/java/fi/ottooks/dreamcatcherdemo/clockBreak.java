@@ -39,6 +39,15 @@ public class clockBreak extends AppCompatActivity {
                 Log.d("", String.valueOf(clicked));
                 Animation animShake = AnimationUtils.loadAnimation(clockBreak.this, R.anim.shake);
                 view.startAnimation(animShake);
+                if (clicked == 2) {
+                    breakBtn.setImageResource(R.drawable.clockbreakstate1);
+                } else if (clicked == 4) {
+                    breakBtn.setImageResource(R.drawable.clockbreakstate2);
+                } else if (clicked == 6) {
+                    breakBtn.setImageResource(R.drawable.clockbreakstate3);
+                } else if (clicked == 8) {
+                    breakBtn.setImageResource(R.drawable.clockbreakstate4);
+                }
                 if (clicked >= 10) {
                     sammutettu = true;
                     Log.d("", "sammutettu");
@@ -46,7 +55,8 @@ public class clockBreak extends AppCompatActivity {
             }
         });
     }
-    public boolean getBreak(){
+
+    public boolean getBreak() {
         return sammutettu;
     }
 }
