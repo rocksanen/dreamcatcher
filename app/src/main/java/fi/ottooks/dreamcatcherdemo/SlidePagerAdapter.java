@@ -69,6 +69,8 @@ public class SlidePagerAdapter extends FragmentStatePagerAdapter {
 
             return "STATS ";
 
+        }else if(position == 2){
+            return "INFO ";
         }else{
 
             return null;
