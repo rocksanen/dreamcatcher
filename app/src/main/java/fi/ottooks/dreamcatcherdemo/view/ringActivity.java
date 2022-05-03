@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import javax.annotation.Nullable;
 
+import fi.ottooks.dreamcatcherdemo.MoodSelect;
 import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.aService;
 
