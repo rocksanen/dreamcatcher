@@ -3,54 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="81dp"
+        android:layout_width="408dp"
+        android:layout_height="730dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/test_1"
+            android:layout_width="319dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:text="00:00"
+            android:textSize="24sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/test_1"
-                    android:layout_width="148dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:text="00:00" />
-
-                <TextView
-                    android:id="@+id/test_2"
-                    android:layout_width="159dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:text="NIMI" />
-
-                <Switch
-                    android:id="@+id/heratys_paalle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="On/Off" />
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
+        <TextView
+            android:id="@+id/test_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="NIMI"
+            android:textSize="24sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

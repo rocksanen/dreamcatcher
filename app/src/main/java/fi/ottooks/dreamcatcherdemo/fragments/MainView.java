@@ -73,7 +73,6 @@ public class MainView extends Fragment implements clockListener {
 
 
 
-
         btn = (Button) rootView.findViewById(R.id.uusi_heratys);
         btn.setOnClickListener(new View.OnClickListener() {
 
@@ -91,14 +90,9 @@ public class MainView extends Fragment implements clockListener {
 
     @Override
     public void onToggle(Clock clock) {
-        if (clock.isStarted()) {
-            clock.cancel(getContext());
-            listViewModel.update(clock);
-        } else {
+
             clock.set(getContext());
             listViewModel.update(clock);
-        }
-
 
     }
 }
