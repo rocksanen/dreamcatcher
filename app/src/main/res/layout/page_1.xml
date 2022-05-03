@@ -8,21 +8,24 @@
     android:background="@drawable/night2"
     android:gravity="center">
 
-    <ImageView
+
+    <AnalogClock
         android:id="@+id/imageView"
-        android:layout_width="362dp"
-        android:layout_height="0dp"
+        android:layout_width="201dp"
+        android:layout_height="198dp"
         android:layout_marginStart="37dp"
         android:layout_marginTop="65dp"
         android:layout_marginEnd="37dp"
         android:layout_marginBottom="67dp"
         android:layout_weight="1"
+        android:dial="@drawable/kellotaulu"
+        android:hand_hour="@drawable/viisari3"
+        android:hand_minute="@drawable/viisari2"
         app:layout_constraintBottom_toTopOf="@+id/heratykset_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/kello" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/uusi_heratys"
