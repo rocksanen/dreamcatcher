@@ -1,11 +1,20 @@
 package fi.ottooks.dreamcatcherdemo;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.firestore.auth.User;
+
+import java.time.LocalDate;
+
+import fi.ottooks.dreamcatcherdemo.fragments.MainView;
 
 /**
  * The Mood class for Dream catcher 300
@@ -17,12 +26,8 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 
 public class MoodSelect extends AppCompatActivity {
-    ImageButton mood1;
-    ImageButton mood2;
-    ImageButton mood3;
-    ImageButton mood4;
-    ImageButton mood5;
-    int moodValue = 3;
+    private int moodValue = 3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,54 +41,59 @@ public class MoodSelect extends AppCompatActivity {
          * When user will choose his mood "Value" then this activity will end.
          */
 
-        mood1 = (ImageButton) findViewById(R.id.mood1Btn);
+        ImageButton mood1 = (ImageButton) findViewById(R.id.mood1Btn);
         mood1.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
             moodValue = 1;
-                Log.d("MyTag", "Mood arvo on: " + moodValue);
-                finish();
+                setAllValuesToUserInputs();
+                toMainView();
 
             }
         });
 
-        mood2 = (ImageButton) findViewById(R.id.mood2Btn);
+        ImageButton mood2 = (ImageButton) findViewById(R.id.mood2Btn);
         mood2.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
             moodValue = 2;
-                Log.d("MyTag", "Mood arvo on: " + moodValue);
-                finish();
+                setAllValuesToUserInputs();
+                toMainView();
             }
         });
 
-        mood3 = (ImageButton) findViewById(R.id.mood3Btn);
+        ImageButton mood3 = (ImageButton) findViewById(R.id.mood3Btn);
         mood3.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 moodValue = 3;
-                Log.d("MyTag", "Mood arvo on: " + moodValue);
-                finish();
+                setAllValuesToUserInputs();
+                toMainView();
             }
         });
 
-        mood4 = (ImageButton) findViewById(R.id.mood4Btn);
+        ImageButton mood4 = (ImageButton) findViewById(R.id.mood4Btn);
         mood4.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 moodValue = 4;
-                Log.d("MyTag", "Mood arvo on: " + moodValue);
-                finish();
+                setAllValuesToUserInputs();
+                toMainView();
             }
         });
 
-        mood5 = (ImageButton) findViewById(R.id.mood5Btn);
+        ImageButton mood5 = (ImageButton) findViewById(R.id.mood5Btn);
         mood5.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 moodValue = 5;
-                Log.d("MyTag", "Mood arvo on: " + moodValue);
-                finish();
+                setAllValuesToUserInputs();
+                toMainView();
             }
         });
 
@@ -94,6 +104,24 @@ public class MoodSelect extends AppCompatActivity {
      */
     public int getMoodValue(){
         return moodValue;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void setAllValuesToUserInputs() {
+
+        UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
+        UserInputs userInputs = new UserInputs(LocalDate.now(),
+        useSharedPreferences.getStartTime(),
+        useSharedPreferences.getEndTime(),this.moodValue);
+
+
+    }
+
+    private void toMainView() {
+
+        startActivity(new Intent(this, MainActivity.class).
+                setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+
     }
 
 }

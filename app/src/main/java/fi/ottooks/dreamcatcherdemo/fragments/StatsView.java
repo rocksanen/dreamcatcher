@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -24,6 +26,7 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
@@ -31,7 +34,10 @@ import com.google.firebase.database.collection.LLRBNode;
 
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import fi.ottooks.dreamcatcherdemo.R;
@@ -81,6 +87,7 @@ public class StatsView extends Fragment {
         configureChartAppearance();
         prepareChartData(data);
 
+
         uniKeskiArvot = view.findViewById(R.id.nukkumisKeskiArvo);
         moodKeskiArvot = view.findViewById(R.id.moodKeskiArvo);
         parasUniaika = view.findViewById(R.id.parasUniMaara);
@@ -115,16 +122,14 @@ public class StatsView extends Fragment {
         chart.setDrawBorders(true);
         chart.setBorderWidth(2f);
 
-        chart.setNoDataText("Ei vielä dataa saatavilla");
-
-
+        chart.setNoDataText("Ei vielä dataa saatavilla");;
 
         chart.getDescription().setEnabled(false);
 
         XAxis xAxis = chart.getXAxis();
         xAxis.setGranularity(1f);
         xAxis.setCenterAxisLabels(true);
-
+        chart.getXAxis().setAxisMaximum(MAX_X_VALUE);
 
         YAxis leftAxis = chart.getAxisLeft();
         leftAxis.setDrawGridLines(false);
@@ -135,30 +140,24 @@ public class StatsView extends Fragment {
         chart.getAxisRight().setEnabled(false);
 
         chart.getXAxis().setAxisMinimum(0);
-        chart.getXAxis().setAxisMaximum(MAX_X_VALUE);
+
         chart.getDescription().setEnabled(false);
 
-        List<String> datesToStatsView = new ArrayList<>();
+        ArrayList<String> dates = new ArrayList<>();
 
-        for(int i = 0; i < userInputsList.size(); i++) {
+        for(UserInputs user: userInputsList) {
 
-            datesToStatsView.add(userInputsList.get(i).getDate());
+            if(dates.size() < 7) {
+
+                dates.add(user.getDate());
+
+            }else break;
+
 
         }
 
-        //setValueFormatter toimii hyvin erikoisesti joten joutui tällaisen purkkakoodin laittamaan...
-        datesToStatsView.add(LocalDate.now().toString());
-        datesToStatsView.add(LocalDate.now().toString());
+            xAxis.setValueFormatter(new IndexAxisValueFormatter(dates));
 
-            xAxis.setValueFormatter(new ValueFormatter() {
-
-                public String getFormattedValue(float value) {
-
-                        return datesToStatsView.
-                        get(datesToStatsView.size() - 9 + (int)value);
-
-                }
-            });
 
             leftAxis.setValueFormatter(new ValueFormatter() {
                 @Override
@@ -184,17 +183,40 @@ public class StatsView extends Fragment {
         ArrayList<BarEntry> mood = new ArrayList<>();
 
 
+        if(!userInputsList.isEmpty()) {
+
+            if(userInputsList.size() >= 7) {
+                Collections.reverse(userInputsList);
+                for (int i = 0; i < MAX_X_VALUE; i++) {
+
+                    sleepTime.add(new BarEntry(i,
+                            userInputsList.get(i).getSleepTime()));
+
+                    mood.add(new BarEntry(i,
+                            userInputsList.get(i).getMoodValue()));
+                }
+
+            }else {
+
+                Collections.reverse(userInputsList);
+
+                for (int i = 0; i < userInputsList.size(); i++) {
+
+                    sleepTime.add(new BarEntry(i,
+                            userInputsList.get( i).getSleepTime()));
+
+                    mood.add(new BarEntry(i,
+                            userInputsList.get(i).getMoodValue()));
+                }
 
 
+            }
 
-        for (int i = 0; i < MAX_X_VALUE; i++) {
-
-            sleepTime.add(new BarEntry(i, (float)
-            userInputsList.get(userInputsList.size() - 7 + i).getSleepTime()));
-
-            mood.add(new BarEntry(i,
-            userInputsList.get(userInputsList.size() - 7 + i).getMoodValue()));
         }
+
+
+
+
 
         BarDataSet set1 = new BarDataSet(sleepTime, SLEEP_TIME);
         BarDataSet set2 = new BarDataSet(mood, MOOD);

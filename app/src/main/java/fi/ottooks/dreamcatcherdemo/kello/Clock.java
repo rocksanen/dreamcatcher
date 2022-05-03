@@ -2,11 +2,13 @@ package fi.ottooks.dreamcatcherdemo;
 
 import static fi.ottooks.dreamcatcherdemo.aBroadcastReceiver.TITLE;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -93,6 +95,7 @@ public class Clock {
         return created;
     }
 
+    @SuppressLint("DefaultLocale")
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void set(Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -119,11 +122,12 @@ public class Clock {
         Toast.makeText(context, tText, Toast.LENGTH_LONG).show();
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmPendingIntent);
-
+        Log.d("klok",Long.toString(calendar.getTimeInMillis()));
         //Herätys aika menee sharedPreferensseihin
         UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
-        useSharedPreferences.saveWakeUpTime(calendar.getTimeInMillis());
         useSharedPreferences.saveStartTime();
+        useSharedPreferences.saveWakeUpTime(calendar.getTimeInMillis());
+
         this.started = true;
     }
 

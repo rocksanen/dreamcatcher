@@ -11,6 +11,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
 import java.lang.reflect.Type;
+import java.sql.Date;
 import java.sql.Time;
 import java.time.Clock;
 import java.time.LocalDate;
@@ -74,10 +75,11 @@ public class UseSharedPreferences {
 
             android.content.SharedPreferences.Editor prefEditor =
             sharedPreferences.edit();
-            LocalTime localTime = LocalTime.now();
+            //Instant start = Instant.now();
 
-            //prefEditor.putLong(START,localTime.getLong(ChronoField.CLOCK_HOUR_OF_DAY + ChronoField.MINUTE_OF_HOUR));
-            Log.d("mohammed",Long.toString(localTime.getLong(ChronoField.CLOCK_HOUR_OF_DAY)));
+            long aika = System.currentTimeMillis();
+
+            prefEditor.putLong(START,aika);
             prefEditor.commit();
 
 
@@ -85,10 +87,14 @@ public class UseSharedPreferences {
 
         }
 
-        public Double getStartTime() {
+        public long getStartTime() {
 
-            return Double.longBitsToDouble(sharedPreferences.getLong(START,0));
+            return sharedPreferences.getLong(START,0);
 
+        }
+        public long getEndTime() {
+            //Date date = new Date(sharedPreferences.getLong(END,0));
+            return sharedPreferences.getLong(END,0);
         }
 
         public List<UserInputs> getListFromPreferences() {

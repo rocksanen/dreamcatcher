@@ -29,7 +29,7 @@ public class SlidePagerAdapter extends FragmentStatePagerAdapter {
     }
 
     public Object instatiateItem(ViewGroup container, int position) {
-        Log.d("Namu","setä");
+
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.page_1,null);
         Button button = view.findViewById(R.id.uusi_heratys);
@@ -69,10 +69,13 @@ public class SlidePagerAdapter extends FragmentStatePagerAdapter {
 
             return "STATS ";
 
-        }else{
+        }else if(position == 2){
+
+            return "INFO";
+
+        }else {
 
             return null;
-
         }
     }
 
