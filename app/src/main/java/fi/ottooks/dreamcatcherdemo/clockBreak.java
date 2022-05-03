@@ -2,6 +2,7 @@ package fi.ottooks.dreamcatcherdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,7 +31,21 @@ public class clockBreak extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d("", "sammutettu");
+
+                Intent intentService = new Intent(getApplicationContext(), aService.class);
+                getApplicationContext().stopService(intentService);
+                finish();
+
+                /**
+                 *  The mood select activity will show when "Sammuta" button been pressed.
+                 */
+
+
+
                 sammutettu = true;
+
+                Intent intentMood = new Intent(getApplicationContext(), MoodSelect.class);
+                startActivity(intentMood);
             }
         });
         breakBtn.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +65,22 @@ public class clockBreak extends AppCompatActivity {
                     breakBtn.setImageResource(R.drawable.clockbreakstate4);
                 }
                 if (clicked >= 10) {
+
+                    Intent intentService = new Intent(getApplicationContext(), aService.class);
+                    getApplicationContext().stopService(intentService);
+                    finish();
+
+                    /**
+                     *  The mood select activity will show when "Sammuta" button been pressed.
+                     */
+
+
+
                     sammutettu = true;
+
+                    Intent intentMood = new Intent(getApplicationContext(), MoodSelect.class);
+                    startActivity(intentMood);
+
                     Log.d("", "sammutettu");
                 }
             }
