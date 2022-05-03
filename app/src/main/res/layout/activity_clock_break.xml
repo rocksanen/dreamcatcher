@@ -11,7 +11,7 @@
         android:id="@+id/sammutaBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sulje"
+        android:text="Sulje herätys"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -26,13 +26,16 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.75" />
 
-    <Button
+    <ImageButton
         android:id="@+id/breakBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kello"
+        android:layout_width="225dp"
+        android:layout_height="215dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/sammutaBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/clockbreak" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
