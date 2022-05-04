@@ -57,6 +57,7 @@ public class MainView extends Fragment implements clockListener {
             public void onChanged(List<Clock> clocks) {
                 if (clocks != null) {
                     recycleViewAdapter.setClocks(clocks);
+
                 }
             }
         });

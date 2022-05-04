@@ -56,4 +56,14 @@ public class recycleViewAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.clocks = clocks;
         notifyDataSetChanged();
     }
+
+    public void disableClocks(List<Clock> clocks) {
+        this.clocks = clocks;
+        int i = 0;
+        while (i < clocks.size()) {
+            clocks.get(i).cancel();
+            i++;
+        }
+
+    }
 }
