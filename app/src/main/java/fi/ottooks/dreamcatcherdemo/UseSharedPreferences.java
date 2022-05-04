@@ -1,14 +1,27 @@
 package fi.ottooks.dreamcatcherdemo;
 
 import android.app.Activity;
+import android.os.Build;
+import android.util.Log;
 
+
+import androidx.annotation.RequiresApi;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
 import java.lang.reflect.Type;
+import java.sql.Date;
+import java.sql.Time;
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.temporal.ChronoField;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
+
 
 public class UseSharedPreferences {
 
@@ -19,7 +32,8 @@ public class UseSharedPreferences {
     getSharedPreferences(SHAREDPREFS, Activity.MODE_PRIVATE);
 
     public static final String LIST = "objectList";
-    public static final String START = "starTime";
+    public static final String START = "startTime";
+    public static final String END = "endTime";
     private List<UserInputs> userInputsList = new ArrayList<>();
 
 
@@ -46,20 +60,41 @@ public class UseSharedPreferences {
 
         }
 
-        public void saveStartTime(double startTime) {
+        public void saveWakeUpTime(long calendar) {
 
             android.content.SharedPreferences.Editor prefEditor =
             sharedPreferences.edit();
 
-            prefEditor.putLong(START,Double.doubleToRawLongBits(startTime));
+            prefEditor.putLong(END,calendar);
             prefEditor.commit();
 
         }
 
-        public Double getStartTime() {
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public void saveStartTime() {
 
-            return Double.longBitsToDouble(sharedPreferences.getLong(START,0));
+            android.content.SharedPreferences.Editor prefEditor =
+            sharedPreferences.edit();
+            //Instant start = Instant.now();
 
+            long aika = System.currentTimeMillis();
+
+            prefEditor.putLong(START,aika);
+            prefEditor.commit();
+
+
+
+
+        }
+
+        public long getStartTime() {
+
+            return sharedPreferences.getLong(START,0);
+
+        }
+        public long getEndTime() {
+            //Date date = new Date(sharedPreferences.getLong(END,0));
+            return sharedPreferences.getLong(END,0);
         }
 
         public List<UserInputs> getListFromPreferences() {

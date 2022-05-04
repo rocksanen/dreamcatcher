@@ -1,8 +1,10 @@
 package fi.ottooks.dreamcatcherdemo;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -11,6 +13,9 @@ import java.io.Serializable;
 
 import com.google.gson.Gson;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -32,15 +37,11 @@ import java.util.List;
 
 public class UserInputs implements Serializable, Comparable<UserInputs> {
 
-    private  double startTime;
-    private  double endTime;
-    private  double sleepTime;
+    private  long startTime;
+    private  long endTime;
+    private  long sleepTime;
     private  int moodValue;
     private String date;
-
-
-
-
 
         /**
          * Create UserInputs object, given the data provided.
@@ -48,17 +49,19 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
          * @param date a LocalDate parameter to differ the inputted data of the same day (LocalDate)
          * @param startTime  a sleeping start time (Double)
          * @param endTime a sleeping end time (Double)
-         * @param sleepTime a full sleep time (Double)
          * @param moodValue a mood value after waking up (Integer)
          */
         @RequiresApi(api = Build.VERSION_CODES.O)
-    public UserInputs(LocalDate date,double startTime, double endTime, double sleepTime, int moodValue) {
+    public UserInputs(LocalDate date, long startTime, long endTime, int moodValue) {
 
         this.startTime = startTime;
         this.endTime = endTime;
-        this.sleepTime = sleepTime;
+        this.sleepTime = 0;
         this.moodValue = moodValue;
         this.date = date.format(DateTimeFormatter.ofPattern("dd-MMM-yy"));
+
+
+
 
         save();
 
@@ -70,18 +73,25 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
 
 
 
-    public double getStartTime() {
+    public long getStartTime() {
 
         return this.startTime;
     }
-    public double getEndTime(){
+    public long getEndTime(){
 
         return this.endTime;
     }
 
-    public double getSleepTime(){
+    public Float getSleepTime(){
 
-        return this.sleepTime;
+        long end = this.endTime - this.startTime;
+
+        float totalsleep = ((end / (3600000)) % 24);
+
+
+        System.out.println("petterririririii  "+ totalsleep);
+
+        return totalsleep;
     }
 
     public int getMoodValue(){
