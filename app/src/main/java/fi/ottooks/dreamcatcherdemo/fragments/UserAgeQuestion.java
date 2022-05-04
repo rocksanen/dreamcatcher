@@ -32,7 +32,9 @@ public class UserAgeQuestion extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private Button ageBtn;
+    TextView ageInfoTv;
+    TextView sleepCompare;
+
 
 
     // TODO: Rename and change types of parameters
@@ -76,7 +78,14 @@ public class UserAgeQuestion extends Fragment {
     public void onPause() {
 
         super.onPause();
-        ageBtn.setVisibility(View.INVISIBLE);
+        ageInfoTv.setVisibility(View.INVISIBLE);
+        sleepCompare.setVisibility(View.INVISIBLE);
+
+    }
+
+    public void onResume() {
+
+        super.onResume();
 
     }
 
@@ -86,8 +95,8 @@ public class UserAgeQuestion extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_user_age_question, container, false);
         EditText userAge = view.findViewById(R.id.userAge);
-        TextView ageInfoTv = view.findViewById(R.id.ageInfo);
-        TextView sleepCompare = view.findViewById(R.id.compareTv);
+        ageInfoTv = view.findViewById(R.id.ageInfo);
+        sleepCompare = view.findViewById(R.id.compareTv);
 
 
         Button ageBtn = view.findViewById(R.id.ageBtn);
@@ -158,11 +167,10 @@ public class UserAgeQuestion extends Fragment {
 
                  if (sleepAvg < alku){
                         aika = alku - sleepAvg;
-                        return "Pitäisi nukkua " + (int)aika + " tuntia päivässä enemmän.";
+
                         return "Sinun tulisi nukkua " + (int)aika + " tuntia vuorokaudessa enemmän.";
                  }else if(sleepAvg > loppu){
                         aika = sleepAvg - loppu;
-                        return "Pitäisi nukkua " + (int)aika + " tuntia päivässä vähemmän.";
                         return "Sinun tulisi nukkua " + (int)aika + " tuntia vuorokaudessa vähemmän.";
                     }
                  return "Keskimääräinen uniaikasi " + (int)sleepAvg + " tuntia, on suositusten mukainen";

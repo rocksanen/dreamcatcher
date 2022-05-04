@@ -22,14 +22,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class Firebase {
     private final FirebaseFirestore firebase = FirebaseFirestore.getInstance();
 
+    /**
+     * Non parametric constructor
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public Firebase() {
 
     }
 
+    /**
+     * Save data to Firebase/Firestore
+     * @param list
+     */
     public void saveToFireBase(List<UserInputs> list) {
 
         Map<String, UserInputs> data = new HashMap<>();
@@ -47,12 +55,19 @@ public class Firebase {
 
     }
 
+    /**
+     * Read data from Firebase/Firestore
+     */
     public void getDataFromFireBase() {
         List<UserInputs> userInputsList = new ArrayList<>();
         Map<String,UserInputs> mappi = new HashMap<>();
         firebase.collection("kaikkiunet")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    /**
+                     *
+                     * @param task
+                     */
                     @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {

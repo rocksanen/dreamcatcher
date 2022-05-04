@@ -63,6 +63,13 @@ public class StatsView extends Fragment {
     private TextView parasUniaika;
     private StatsSorting statsSorting;
 
+    /**
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override
@@ -97,6 +104,9 @@ public class StatsView extends Fragment {
         return view;
     }
 
+    /**
+     * Set the text to textviews
+     */
     @SuppressLint("SetTextI18n")
     private void textSetter() {
 
@@ -111,6 +121,9 @@ public class StatsView extends Fragment {
 
     }
 
+    /**
+     * Configure chart to be drawn
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void configureChartAppearance() {
 
@@ -177,6 +190,10 @@ public class StatsView extends Fragment {
 
     }
 
+    /**
+     * Ads values to the chart
+     * @return
+     */
     private BarData createChartData() {
 
         ArrayList<BarEntry> sleepTime = new ArrayList<>();
@@ -214,10 +231,6 @@ public class StatsView extends Fragment {
 
         }
 
-
-
-
-
         BarDataSet set1 = new BarDataSet(sleepTime, SLEEP_TIME);
         BarDataSet set2 = new BarDataSet(mood, MOOD);
 
@@ -242,6 +255,10 @@ public class StatsView extends Fragment {
         return new BarData(dataSets);
     }
 
+    /**
+     * Draws the chart data
+     * @param data
+     */
     private void prepareChartData(BarData data) {
         chart.setData(data);
 

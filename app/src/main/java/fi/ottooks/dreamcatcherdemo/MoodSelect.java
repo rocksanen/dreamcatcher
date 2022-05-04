@@ -120,12 +120,12 @@ public class MoodSelect extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void toMainView() {
 
-
+        setAllValuesToUserInputs();
 
         startActivity(new Intent(this, MainActivity.class).
         setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
-        setAllValuesToUserInputs();
+
         finish();
 
     }

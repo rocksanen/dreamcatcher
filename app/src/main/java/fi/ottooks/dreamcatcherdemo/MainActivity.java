@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     private StatsSorting statsSorting;
     private ArrayList<UserInputs> testiLista = new ArrayList<>();
 
-    //luodaan context muuttuja
 
     /**
      * Create context variable.
@@ -52,7 +51,10 @@ public class MainActivity extends AppCompatActivity {
     private static Context contextOfApplication;
 
 
-
+    /**
+     *
+     * @param savedInstanceState
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
 
@@ -127,7 +129,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * Adds the fragments to list
+     * Sets up pagerview
+     * Sets up the adapter to pagerview
+     * Sets up the Tablayout
+     */
     private void setSliderAdapter() {
 
         List<Fragment> list = new ArrayList<>();

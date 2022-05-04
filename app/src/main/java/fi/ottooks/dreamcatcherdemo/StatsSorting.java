@@ -12,6 +12,10 @@ public class StatsSorting {
 
     private final List<UserInputs> userInputsList;
 
+    /**
+     * Gets list to be processed in constructor
+     * @param list
+     */
     public StatsSorting(List list) {
 
         this.userInputsList = list;
@@ -19,7 +23,10 @@ public class StatsSorting {
     }
 
 
-
+    /**
+     * Returns sleep average to string
+     * @return
+     */
     public String getUniKeskiArvot() {
 
         double totalSleepTime = 0;
@@ -37,6 +44,11 @@ public class StatsSorting {
         return "Nukut keskimäärin " + sleepAverage + " tuntia yössä        ";
 
     }
+
+    /**
+     * Returns sleep average to double
+     * @return
+     */
     public double getUniKeskiArvoToDouble() {
 
         double totalSleepTime = 0;
@@ -51,7 +63,10 @@ public class StatsSorting {
     }
 
 
-
+    /**
+     * Returns mood average to String
+     * @return
+     */
     public String getMoodKeskiArvot() {
 
         double totalMoodValues = 0;
@@ -69,7 +84,11 @@ public class StatsSorting {
 
     }
 
-
+    /**
+     * Compares sleeptimes to mood values and returns best length
+     * to sleep as String
+     * @return
+     */
     public String getParasKokonaisAikaNukkua() {
 
 
