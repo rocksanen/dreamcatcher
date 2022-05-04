@@ -1,6 +1,8 @@
 package fi.ottooks.dreamcatcherdemo.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import java.text.DecimalFormat;
 
 import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.StatsSorting;
@@ -144,6 +148,7 @@ public class UserAgeQuestion extends Fragment {
      * @param loppu the most recommended sleeping time (int)
      * @return sentence which tells compared user's sleeping time to the recommended one.
      */
+    @SuppressLint("DefaultLocale")
     public String vertaaUniAika (int alku, int loppu){
 
             final double sleepAvg =
@@ -155,14 +160,17 @@ public class UserAgeQuestion extends Fragment {
             double aika = 0;
 
 
+
+
+
                  if (sleepAvg < alku){
                         aika = alku - sleepAvg;
-                        return "Sinun tulisi nukkua " + (int)aika + " tuntia vuorokaudessa enemmän.";
+                        return "Sinun tulisi nukkua " + Double.parseDouble(String.format("%.1f",aika))+ " tuntia vuorokaudessa enemmän.";
                  }else if(sleepAvg > loppu){
                         aika = sleepAvg - loppu;
-                        return "Sinun tulisi nukkua " + (int)aika + " tuntia vuorokaudessa vähemmän.";
+                        return "Sinun tulisi nukkua " + Double.parseDouble(String.format("%.1f",aika)) + " tuntia vuorokaudessa vähemmän.";
                     }
-                 return "Keskimääräinen uniaikasi " + (int)sleepAvg + " tuntia, on suositusten mukainen";
+                 return "Keskimääräinen uniaikasi " + Double.parseDouble(String.format("%.1f",sleepAvg)) + " tuntia, on suositusten mukainen";
          }
 
 

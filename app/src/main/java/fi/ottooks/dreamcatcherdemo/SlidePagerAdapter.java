@@ -15,7 +15,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import java.util.List;
 
-
+/**
+ * This class is used to manage fragments to be shown on pageviewer
+ */
 public class SlidePagerAdapter extends FragmentStatePagerAdapter {
 
     private final List fragmentList;

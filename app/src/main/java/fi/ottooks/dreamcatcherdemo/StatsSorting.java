@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Tässä javadoc
+ * This class is used to sort userInputs data to desired comparisons
  */
 public class StatsSorting {
 
