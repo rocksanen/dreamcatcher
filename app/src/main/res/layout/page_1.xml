@@ -5,22 +5,26 @@
     android:id="@+id/ekaPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg1"
+    android:background="@drawable/mainbgleft"
     android:gravity="center">
 
-    <ImageView
+
+    <DigitalClock
         android:id="@+id/imageView"
-        android:layout_width="364dp"
-        android:layout_height="245dp"
+        android:layout_width="362dp"
+        android:layout_height="199dp"
         android:layout_marginStart="37dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="37dp"
         android:layout_weight="1"
+        android:background="@drawable/back"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/kello" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/uusi_heratys"
@@ -33,7 +37,7 @@
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.366" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/heratykset_list"

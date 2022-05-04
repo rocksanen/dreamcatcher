@@ -111,6 +111,9 @@ public class Clock {
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
 
+        if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
+            calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) + 1);
+        }
 
 
         String tText = null;
@@ -144,4 +147,7 @@ public class Clock {
     }
 
 
+    public void cancel() {
+        this.started = false;
+    }
 }

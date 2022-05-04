@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
 
@@ -55,17 +54,15 @@ public class MainActivity extends AppCompatActivity {
          */
         contextOfApplication = this;
 
-        int jep = 0;
 
-
-        //UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
-        //useSharedPreferences.clearData();
+        UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
+        useSharedPreferences.clearData();
 
 
 
 
         // Tällä testataan listoja ja toimintoja, voi kommentoida pois päältä omia testejään varten!!!!!!!!!!!!!
-        //testSorting();
+        testSorting();
 
 
     }
@@ -109,31 +106,10 @@ public class MainActivity extends AppCompatActivity {
         UserInputs user4 = new UserInputs(LocalDate.now().minusDays(3),Long.parseLong(seits),Long.parseLong(kahd),5);
         UserInputs user5 = new UserInputs(LocalDate.now().minusDays(2),Long.parseLong(yhd),Long.parseLong(kym),2);
         UserInputs user6 = new UserInputs(LocalDate.now().minusDays(1),Long.parseLong(yskt),Long.parseLong(kakst),3);
-        //testStats();
 
 
     }
 
-
-    private void testStats() {
-
-        UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
-
-        List<UserInputs> userInputsList = new ArrayList<>();
-        userInputsList = useSharedPreferences.getListFromPreferences();
-
-        Collections.sort(userInputsList);
-        Collections.reverse(userInputsList);
-
-
-        for(UserInputs user: userInputsList) {
-
-            Log.d("otto", user.getDate().toString());
-
-
-        }
-
-    }
 
 
     private void setSliderAdapter() {

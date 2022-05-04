@@ -37,6 +37,21 @@ public class StatsSorting {
         return "Nukut keskimäärin " + sleepAverage + " tuntia yössä        ";
 
     }
+    public double getUniKeskiArvoToDouble() {
+
+        double totalSleepTime = 0;
+
+        for(UserInputs user: userInputsList) {
+
+            totalSleepTime += user.getSleepTime();
+
+        }
+
+        @SuppressLint("DefaultLocale") double sleepAverage =
+                Double.parseDouble(String.format("%.1f",totalSleepTime  /  userInputsList.size())) ;
+
+        return sleepAverage;
+    }
 
 
 
