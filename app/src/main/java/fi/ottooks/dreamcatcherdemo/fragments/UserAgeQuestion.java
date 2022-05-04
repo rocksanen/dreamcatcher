@@ -100,30 +100,32 @@ public class UserAgeQuestion extends Fragment {
                     int age = Integer.parseInt(userAge.getText().toString());
                     //tiedot ovat Sleep Foundation netti sivulta.
                     if (age > 0 && age < 3) {
-                        ageInfoTv.setText("Suositelttu uniaika vauvallesi: 11-14 tuntia/vrk");
+                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 11-14 tuntia/vrk");
                         sleepCompare.setText(vertaaUniAika(11,14));
                     } else if (age > 2 && age < 6) {
-                        ageInfoTv.setText("Suositeltu uniaika lapsellesi: 10-13 tuntia/vrk.");
+                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 10-13 tuntia/vrk.");
                         sleepCompare.setText(vertaaUniAika(10,13));
                     } else if (age > 5 && age < 10) {
-                        ageInfoTv.setText("suositeltu uniaika lapsellesi: 9-11 tuntia/vrk.");
+                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 9-11 tuntia/vrk.");
                         sleepCompare.setText(vertaaUniAika(9,11));
                     } else if (age > 9 && age < 14) {
-                        ageInfoTv.setText("Suositeltu uniaikasi: 9-11 tuntia/vrk.");
+                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 9-11 tuntia/vrk.");
                         sleepCompare.setText(vertaaUniAika(9,11));
                     } else if (age > 13 && age < 18) {
-                        ageInfoTv.setText("Suositeltu uniaikasi: 8-10 tuntia/vrk.");
+                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 8-10 tuntia/vrk.");
                         sleepCompare.setText(vertaaUniAika(8,10));
                     } else if (age > 17 && age < 65) {
-                        ageInfoTv.setText("Suositeltu uniaikasi: 7-9 tuntia/vrk.");
+                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 7-9 tuntia/vrk.");
                         sleepCompare.setText(vertaaUniAika(7,9));
                     } else if (age >= 65) {
-                        ageInfoTv.setText("Suositeltu uniaikasi: 7-8 tuntia/vrk.");
+                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 7-8 tuntia/vrk.");
                         sleepCompare.setText(vertaaUniAika(7,8));
                     } else {
-                        ageInfoTv.setText("Ikä pitäisi olla enemmän kuin 1.");
+                        ageInfoTv.setText("Iän pitäisi olla enemmän kuin 1.");
                     }
                 }
+                ageInfoTv.setVisibility(View.VISIBLE);
+                sleepCompare.setVisibility(View.VISIBLE);
                 userAge.onEditorAction(EditorInfo.IME_ACTION_DONE);
 
             }
@@ -157,11 +159,13 @@ public class UserAgeQuestion extends Fragment {
                  if (sleepAvg < alku){
                         aika = alku - sleepAvg;
                         return "Pitäisi nukkua " + (int)aika + " tuntia päivässä enemmän.";
+                        return "Sinun tulisi nukkua " + (int)aika + " tuntia vuorokaudessa enemmän.";
                  }else if(sleepAvg > loppu){
                         aika = sleepAvg - loppu;
                         return "Pitäisi nukkua " + (int)aika + " tuntia päivässä vähemmän.";
+                        return "Sinun tulisi nukkua " + (int)aika + " tuntia vuorokaudessa vähemmän.";
                     }
-                 return "Sinun uniaikasi " + (int)sleepAvg + " tuntia on suositusten mukainen";
+                 return "Keskimääräinen uniaikasi " + (int)sleepAvg + " tuntia, on suositusten mukainen";
          }
 
 

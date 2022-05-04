@@ -8,7 +8,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.Notification;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Build;
@@ -22,7 +21,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.tabs.TabLayout;
-import com.google.gson.Gson;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -63,12 +61,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setSliderAdapter();
-        //Intent intent = getIntent();
-        Bundle b = getIntent().getExtras();
-        Gson gson = new Gson();
-        UserInputs userInputs = gson.fromJson(String.valueOf(b),UserInputs.class);
 
-        System.out.println("kalakalaklakaklaalakalaka     " + userInputs);
         /**
          * Initialize the context variable.
          */

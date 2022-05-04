@@ -73,8 +73,6 @@ public class clockBreak extends AppCompatActivity {
                      *  The mood select activity will show when "Sammuta" button been pressed.
                      */
 
-
-
                     sammutettu = true;
 
                     Intent intentMood = new Intent(getApplicationContext(), MoodSelect.class);
