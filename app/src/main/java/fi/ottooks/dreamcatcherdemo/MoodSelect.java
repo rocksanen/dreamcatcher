@@ -3,18 +3,13 @@ package fi.ottooks.dreamcatcherdemo;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.firestore.auth.User;
-
 import java.time.LocalDate;
-
-import fi.ottooks.dreamcatcherdemo.fragments.MainView;
 
 /**
  * The Mood class for Dream catcher 300
@@ -100,7 +95,7 @@ public class MoodSelect extends AppCompatActivity {
 
     }
     /**
-     * return the selected mood value so can fetch it in the shared preferences.
+     *@return  return the selected mood value so can fetch it in the shared preferences.
      */
     public int getMoodValue(){
         return moodValue;

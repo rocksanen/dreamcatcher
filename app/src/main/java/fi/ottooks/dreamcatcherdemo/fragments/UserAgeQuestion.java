@@ -70,6 +70,8 @@ public class UserAgeQuestion extends Fragment {
      * In this view asking about user's age to give him information about recommended sleep time after comparing his sleep time to recommended one.
      * In this view there an onClick listener to check user's inputted data if it's validated start the comparing by using the method vertaUniAika(),
      * if the inputted data isn't validated then this view will show what is wrong with inputted data.
+     *
+     * @return  return recommended sleeping time for the inputted age after comparing data with recommended one.
      */
 
     @Override
