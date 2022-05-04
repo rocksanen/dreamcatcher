@@ -28,8 +28,8 @@
 
     <ImageButton
         android:id="@+id/breakBtn"
-        android:layout_width="225dp"
-        android:layout_height="215dp"
+        android:layout_width="346dp"
+        android:layout_height="293dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/sammutaBtn"
