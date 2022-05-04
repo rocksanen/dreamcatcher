@@ -140,10 +140,10 @@ public class UserAgeQuestion extends Fragment {
 
                  if (sleepAvg < alku){
                         aika = alku - sleepAvg;
-                        return "Pitäisi nukkua " + aika + " tuntia yössä enemmän.";
+                        return "Pitäisi nukkua " + aika + " tuntia vuorokaudessa enemmän.";
                  }else if(sleepAvg > loppu){
                         aika = sleepAvg - loppu;
-                        return "Pitäisi nukkua " + aika + " tuntia yössä vähemmän.";
+                        return "Pitäisi nukkua " + aika + " tuntia vuorokaudessa vähemmän.";
                     }
                  return "Sinun uniaikasi " + (int)sleepAvg + " tuntia on suositusten mukainen";
          }
