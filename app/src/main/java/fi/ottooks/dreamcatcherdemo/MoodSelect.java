@@ -12,12 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.time.LocalDate;
 
 /**
- * The Mood class for Dream catcher 300
- * <p>
+ * The Mood class for Dream catcher
  *     This class handles the Mood value after waking up (Stopping the alarm)
- * </p>
- *
- * @author Mohammed Al-Jewari
  */
 
 public class MoodSelect extends AppCompatActivity {
@@ -29,11 +25,9 @@ public class MoodSelect extends AppCompatActivity {
         setContentView(R.layout.activity_mood_select);
 
         /**
-         * The listener here listens to what user will choose as a mood value when he stops the alarm.
-         *
-         * The value will be by default 3, but will change depending on user's choice.
-         *
-         * When user will choose his mood "Value" then this activity will end.
+         * The listener checks which mood form button is pressed
+         * The default value is 3, but changes depending on the user's choice.
+         * When user chooses the mood "Value", MainActivity is called
          */
 
         ImageButton mood1 = (ImageButton) findViewById(R.id.mood1Btn);
@@ -95,7 +89,7 @@ public class MoodSelect extends AppCompatActivity {
 
     }
     /**
-     *@return  return the selected mood value so can fetch it in the shared preferences.
+     *@return  returns the selected mood value. (int)
      */
     public int getMoodValue(){
         return moodValue;
