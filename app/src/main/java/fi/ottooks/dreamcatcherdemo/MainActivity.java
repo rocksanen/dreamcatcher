@@ -1,14 +1,6 @@
 package fi.ottooks.dreamcatcherdemo;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
-import android.app.Notification;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,11 +19,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//import fi.ottooks.dreamcatcherdemo.R;
-import fi.ottooks.dreamcatcherdemo.SlidePagerAdapter;
-import fi.ottooks.dreamcatcherdemo.StatsSorting;
-import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
-import fi.ottooks.dreamcatcherdemo.UserInputs;
 import fi.ottooks.dreamcatcherdemo.fragments.MainView;
 import fi.ottooks.dreamcatcherdemo.fragments.StatsView;
 import fi.ottooks.dreamcatcherdemo.fragments.UserAgeQuestion;
@@ -68,17 +55,15 @@ public class MainActivity extends AppCompatActivity {
          */
         contextOfApplication = this;
 
-        int jep = 0;
 
-
-        //UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
-        //useSharedPreferences.clearData();
+        UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
+        useSharedPreferences.clearData();
 
 
 
 
         // Tällä testataan listoja ja toimintoja, voi kommentoida pois päältä omia testejään varten!!!!!!!!!!!!!
-        //testSorting();
+        testSorting();
 
 
     }
@@ -122,31 +107,10 @@ public class MainActivity extends AppCompatActivity {
         UserInputs user4 = new UserInputs(LocalDate.now().minusDays(3),Long.parseLong(seits),Long.parseLong(kahd),5);
         UserInputs user5 = new UserInputs(LocalDate.now().minusDays(2),Long.parseLong(yhd),Long.parseLong(kym),2);
         UserInputs user6 = new UserInputs(LocalDate.now().minusDays(1),Long.parseLong(yskt),Long.parseLong(kakst),3);
-        //testStats();
 
 
     }
 
-
-    private void testStats() {
-
-        UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
-
-        List<UserInputs> userInputsList = new ArrayList<>();
-        userInputsList = useSharedPreferences.getListFromPreferences();
-
-        Collections.sort(userInputsList);
-        Collections.reverse(userInputsList);
-
-
-        for(UserInputs user: userInputsList) {
-
-            Log.d("otto", user.getDate().toString());
-
-
-        }
-
-    }
 
 
     private void setSliderAdapter() {

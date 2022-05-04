@@ -1,19 +1,9 @@
 package fi.ottooks.dreamcatcherdemo;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.SharedPreferences;
-import android.os.Build;
 
-import androidx.annotation.RequiresApi;
-
-import java.sql.Date;
-import java.sql.Time;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Tässä javadoc
@@ -46,6 +36,21 @@ public class StatsSorting {
 
         return "Nukut keskimäärin " + sleepAverage + " tuntia yössä        ";
 
+    }
+    public double getUniKeskiArvoToDouble() {
+
+        double totalSleepTime = 0;
+
+        for(UserInputs user: userInputsList) {
+
+            totalSleepTime += user.getSleepTime();
+
+        }
+
+        @SuppressLint("DefaultLocale") double sleepAverage =
+                Double.parseDouble(String.format("%.1f",totalSleepTime  /  userInputsList.size())) ;
+
+        return sleepAverage;
     }
 
 
