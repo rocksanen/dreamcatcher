@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import fi.ottooks.dreamcatcherdemo.R;
+//import fi.ottooks.dreamcatcherdemo.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -67,11 +67,11 @@ public class UserAgeQuestion extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_user_age_question, container, false);
-        EditText userAge = view.findViewById(R.id.userAge);
-        TextView ageInfoTv = view.findViewById(R.id.ageInfo);
+        View view = inflater.inflate(fi.ottooks.dreamcatcherdemo.R.layout.fragment_user_age_question, container, false);
+        EditText userAge = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.userAge);
+        TextView ageInfoTv = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.ageInfo);
 
-        Button ageBtn = view.findViewById(R.id.ageBtn);
+        Button ageBtn = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.ageBtn);
         ageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -20,7 +20,7 @@ import java.sql.Time;
 import java.util.Random;
 
 import fi.ottooks.dreamcatcherdemo.Clock;
-import fi.ottooks.dreamcatcherdemo.R;
+//import fi.ottooks.dreamcatcherdemo.R;
 
 import fi.ottooks.dreamcatcherdemo.view.CreateView;
 
@@ -36,13 +36,13 @@ public class SetAlarmView extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         Log.d("testing", "TestT");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_set_alarm_view);
+        setContentView(fi.ottooks.dreamcatcherdemo.R.layout.activity_set_alarm_view);
         createView = ViewModelProviders.of(this).get(CreateView.class);
         //createView = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(CreateView.class);
 
-        tp = (TimePicker)findViewById(R.id.test_picker);
+        tp = (TimePicker)findViewById(fi.ottooks.dreamcatcherdemo.R.id.test_picker);
 
-        Button btn = (Button)findViewById(R.id.uusi_heratys_nappi);
+        Button btn = (Button)findViewById(fi.ottooks.dreamcatcherdemo.R.id.uusi_heratys_nappi);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,8 +58,8 @@ public class SetAlarmView extends AppCompatActivity {
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_set_alarm_view, container, false);
-        Button btn = (Button) view.findViewById(R.id.uusi_heratys_nappi);
+        View view = inflater.inflate(fi.ottooks.dreamcatcherdemo.R.layout.activity_set_alarm_view, container, false);
+        Button btn = (Button) view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.uusi_heratys_nappi);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

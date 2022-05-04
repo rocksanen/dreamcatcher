@@ -28,21 +28,24 @@ import fi.ottooks.dreamcatcherdemo.fragments.MainView;
 public class MoodSelect extends AppCompatActivity {
     private int moodValue = 3;
 
+
+
+    /**
+     * The listener here listens to what user will choose as a mood value when he stops the alarm.
+     *
+     * The value will be by default 3, but will change depending on user's choice.
+     *
+     * When user will choose his mood "Value" then this activity will end.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mood_select);
 
-        /**
-         * The listener here listens to what user will choose as a mood value when he stops the alarm.
-         *
-         * The value will be by default 3, but will change depending on user's choice.
-         *
-         * When user will choose his mood "Value" then this activity will end.
-         */
-
         ImageButton mood1 = (ImageButton) findViewById(R.id.mood1Btn);
+
         mood1.setOnClickListener(new View.OnClickListener() {
+
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
@@ -70,7 +73,6 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 moodValue = 3;
-                setAllValuesToUserInputs();
                 toMainView();
             }
         });
@@ -81,7 +83,6 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 moodValue = 4;
-                setAllValuesToUserInputs();
                 toMainView();
             }
         });
@@ -92,7 +93,6 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 moodValue = 5;
-                setAllValuesToUserInputs();
                 toMainView();
             }
         });
@@ -117,11 +117,12 @@ public class MoodSelect extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void toMainView() {
 
-        startActivity(new Intent(this, MainActivity.class).
-                setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-
+        startActivity(new Intent(this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        setAllValuesToUserInputs();
+        finish();
     }
 
 }

@@ -38,13 +38,13 @@ public class aService extends Service {
         String alarmTitle = String.format("%s Alarm", "teST");
 
 
-
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.tilastot)
                 .setContentTitle(alarmTitle)
                 .setContentText("Herätys ;)")
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
+
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         int notificationId = 1;

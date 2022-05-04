@@ -16,7 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import fi.ottooks.dreamcatcherdemo.Clock;
-import fi.ottooks.dreamcatcherdemo.R;
+//import fi.ottooks.dreamcatcherdemo.R;
+
 import fi.ottooks.dreamcatcherdemo.view.listViewModel;
 import fi.ottooks.dreamcatcherdemo.view.recycleViewAdapter;
 
@@ -45,9 +46,9 @@ public class ClocksList extends Fragment implements clockListener {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.page_1, container, false);
+        View view = inflater.inflate(fi.ottooks.dreamcatcherdemo.R.layout.page_1, container, false);
 
-        clocksView = view.findViewById(R.id.heratykset_list);
+        clocksView = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.heratykset_list);
         clocksView.setLayoutManager(new LinearLayoutManager(getContext()));
         clocksView.setAdapter(recycleViewAdapter);
 

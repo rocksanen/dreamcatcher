@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import fi.ottooks.dreamcatcherdemo.R;
+//import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.SlidePagerAdapter;
 import fi.ottooks.dreamcatcherdemo.StatsSorting;
 import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;

@@ -40,7 +40,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import fi.ottooks.dreamcatcherdemo.R;
+//import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.StatsSorting;
 import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
 import fi.ottooks.dreamcatcherdemo.UserInputs;
@@ -76,21 +76,21 @@ public class StatsView extends Fragment {
 
     {
 
-        View view = inflater.inflate(R.layout.page_2, container, false);
+        View view = inflater.inflate(fi.ottooks.dreamcatcherdemo.R.layout.page_2, container, false);
         userInputsList = new UseSharedPreferences().getListFromPreferences();
 
         statsSorting = new StatsSorting(userInputsList);
 
-        chart = view.findViewById(R.id.fragment_verticalbarchart_chart);
+        chart = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.fragment_verticalbarchart_chart);
 
         BarData data = createChartData();
         configureChartAppearance();
         prepareChartData(data);
 
 
-        uniKeskiArvot = view.findViewById(R.id.nukkumisKeskiArvo);
-        moodKeskiArvot = view.findViewById(R.id.moodKeskiArvo);
-        parasUniaika = view.findViewById(R.id.parasUniMaara);
+        uniKeskiArvot = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.nukkumisKeskiArvo);
+        moodKeskiArvot = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.moodKeskiArvo);
+        parasUniaika = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.parasUniMaara);
 
         textSetter();
 

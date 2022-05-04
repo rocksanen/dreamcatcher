@@ -45,6 +45,7 @@ public class Clock {
 
         this.title = title;
         this.started = started;
+        ;
     }
 
     public int getHour() {
@@ -78,6 +79,9 @@ public class Clock {
     public boolean isStarted() {
         return started;
     }
+
+
+
 
     public void setStarted(boolean started) {
         this.started = started;
@@ -147,7 +151,4 @@ public class Clock {
     }
 
 
-    public void cancel() {
-        this.started = false;
-    }
 }
