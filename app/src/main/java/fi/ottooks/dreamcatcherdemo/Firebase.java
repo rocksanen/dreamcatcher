@@ -22,7 +22,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * This class is used to save data to Firebase/Firestore and read data from there
+ */
 public class Firebase {
     private final FirebaseFirestore firebase = FirebaseFirestore.getInstance();
 

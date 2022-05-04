@@ -22,7 +22,9 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-
+/**
+ * This class is used to save to sharedPreferences and get from sharedPreferences
+ */
 public class UseSharedPreferences {
 
     private final String SHAREDPREFS = "fi.ottooks.dreamcatcherdemo";
