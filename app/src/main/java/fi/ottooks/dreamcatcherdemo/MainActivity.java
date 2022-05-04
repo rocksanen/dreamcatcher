@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import fi.ottooks.dreamcatcherdemo.R;
+//import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.SlidePagerAdapter;
 import fi.ottooks.dreamcatcherdemo.StatsSorting;
 import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(fi.ottooks.dreamcatcherdemo.R.layout.activity_main);
 
         setSliderAdapter();
 

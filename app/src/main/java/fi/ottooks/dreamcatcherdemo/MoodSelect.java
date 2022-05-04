@@ -17,7 +17,6 @@ import java.time.LocalDate;
  * This class handles the Mood value after waking up (Stopping the alarm)
  *
  *
- * @author Mohammed Al-Jewari
  */
 
 public class MoodSelect extends AppCompatActivity {
