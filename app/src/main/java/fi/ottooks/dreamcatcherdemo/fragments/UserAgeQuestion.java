@@ -90,6 +90,7 @@ public class UserAgeQuestion extends Fragment {
                         ageInfoTv.setText("Suositeltu uniaika sinulle: 8-10 tuntia.");
                     } else if (age > 17 && age < 65) {
                         ageInfoTv.setText("Suositeltu uniaika sinulle: 7-9 tuntia.");
+
                     } else if (age >= 65) {
                         ageInfoTv.setText("Suositeltu unia aika sinulle: 7-8 tuntia.");
                     } else {
@@ -102,4 +103,7 @@ public class UserAgeQuestion extends Fragment {
         // Inflate the layout for this fragment
         return view ;
     }
+
+
+
 }

@@ -37,10 +37,9 @@ import java.util.List;
 
 public class UserInputs implements Serializable, Comparable<UserInputs> {
 
-    private  long startTime;
-    private  long endTime;
-    private  long sleepTime;
-    private  int moodValue;
+    private long startTime;
+    private long endTime;
+    private int moodValue;
     private String date;
 
         /**
@@ -56,12 +55,8 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
 
         this.startTime = startTime;
         this.endTime = endTime;
-        this.sleepTime = 0;
         this.moodValue = moodValue;
         this.date = date.format(DateTimeFormatter.ofPattern("dd-MMM-yy"));
-
-
-
 
         save();
 
@@ -70,7 +65,6 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
     public UserInputs(){
 
     }
-
 
 
     public long getStartTime() {
@@ -86,12 +80,7 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
 
         long end = this.endTime - this.startTime;
 
-        float totalsleep = ((end / (3600000)) % 24);
-
-
-        System.out.println("petterririririii  "+ totalsleep);
-
-        return totalsleep;
+        return (float) ((end / (3600000)) % 24);
     }
 
     public int getMoodValue(){
@@ -108,22 +97,24 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
     /**
      * Save the created UserInputs object by using UseSharedPreferences class's method
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void save() {
-/*
 
-        UseSharedPreferences clear = new UseSharedPreferences();
-        clear.clearData();
-
-
-*/
 
         UseSharedPreferences shr =
-        new UseSharedPreferences(this);
+                new UseSharedPreferences(this);
 
-        //UseSharedPreferences shar = new UseSharedPreferences(10.00);
+        try {
+
+            Firebase firebase = new Firebase(this);
 
 
 
+        } catch (Exception e) {
+
+            System.out.println(e.getCause());
+
+        }
     }
 
 
@@ -136,7 +127,7 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
 
         return "Start time: " + this.startTime + ",\n" +
                 "End Time: " + this.endTime + ",\n" +
-                "Full sleep time: " + this.sleepTime + ",\n" +
+                "Full sleep time: " + this.getSleepTime() + ",\n" +
                 "Mood: " + this.moodValue + ".";
     }
 
