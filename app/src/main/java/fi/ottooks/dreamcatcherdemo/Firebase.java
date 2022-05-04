@@ -1,23 +1,84 @@
 package fi.ottooks.dreamcatcherdemo;
 
 import android.os.Build;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.firestore.auth.User;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Firebase {
-
-    private Object object;
+    private final FirebaseFirestore firebase = FirebaseFirestore.getInstance();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public Firebase(Object object) {
+    public Firebase() {
 
-        FirebaseFirestore firebase = FirebaseFirestore.getInstance();
-        System.out.println(object.toString());
-        firebase.collection("kaikkiunet").document(LocalDate.now().toString()).set(object);
+    }
+
+    public void saveToFireBase(List<UserInputs> list) {
+
+        Map<String, UserInputs> data = new HashMap<>();
+
+        for(UserInputs user: list) {
+
+            data.put(user.getDate(), user);
+
+        }
+
+
+        firebase.collection("kaikkiunet").document("unet")
+        .set(data, SetOptions.merge());
+
+
+    }
+
+    public void getDataFromFireBase() {
+        List<UserInputs> userInputsList = new ArrayList<>();
+        Map<String,UserInputs> mappi = new HashMap<>();
+        firebase.collection("kaikkiunet")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                //Log.d("ode", document.getId() + " => " + document.getData());
+                                UserInputs userInputs = document.toObject(UserInputs.class);
+
+                                userInputsList.add(userInputs);
+                            }
+
+
+                            for(UserInputs user: userInputsList) {
+
+                                System.out.println(user);
+                            }
+
+
+                        } else {
+                            Log.d("ode", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+
+
 
     }
 

@@ -62,6 +62,22 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
 
     }
 
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
+    }
+
+    public void setMoodValue(int moodValue) {
+        this.moodValue = moodValue;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     public UserInputs(){
 
     }
@@ -104,17 +120,8 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
         UseSharedPreferences shr =
                 new UseSharedPreferences(this);
 
-        try {
-
-            Firebase firebase = new Firebase(this);
 
 
-
-        } catch (Exception e) {
-
-            System.out.println(e.getCause());
-
-        }
     }
 
 

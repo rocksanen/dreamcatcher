@@ -1,5 +1,6 @@
 package fi.ottooks.dreamcatcherdemo.fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import java.util.List;
+
+import fi.ottooks.dreamcatcherdemo.Firebase;
 import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.StatsSorting;
 import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
+import fi.ottooks.dreamcatcherdemo.UserInputs;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +32,7 @@ public class UserAgeQuestion extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private Button ageBtn;
 
 
     // TODO: Rename and change types of parameters
@@ -66,6 +73,13 @@ public class UserAgeQuestion extends Fragment {
 
     }
 
+    public void onPause() {
+
+        super.onPause();
+        ageBtn.setVisibility(View.INVISIBLE);
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -78,8 +92,10 @@ public class UserAgeQuestion extends Fragment {
 
         Button ageBtn = view.findViewById(R.id.ageBtn);
         ageBtn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
+
                 if (userAge.getText().toString().trim().length() != 0) {
                     int age = Integer.parseInt(userAge.getText().toString());
                     //tiedot ovat Sleep Foundation netti sivulta.
@@ -129,7 +145,7 @@ public class UserAgeQuestion extends Fragment {
      */
     public String vertaaUniAika (int alku, int loppu){
 
-            double sleepAvg =
+            final double sleepAvg =
 
                     new StatsSorting(new UseSharedPreferences().
                     getListFromPreferences()).
@@ -140,10 +156,10 @@ public class UserAgeQuestion extends Fragment {
 
                  if (sleepAvg < alku){
                         aika = alku - sleepAvg;
-                        return "Pitäisi nukkua " + aika + " tuntia päivässä enemmän.";
+                        return "Pitäisi nukkua " + (int)aika + " tuntia päivässä enemmän.";
                  }else if(sleepAvg > loppu){
                         aika = sleepAvg - loppu;
-                        return "Pitäisi nukkua " + aika + " tuntia päivässä vähemmän.";
+                        return "Pitäisi nukkua " + (int)aika + " tuntia päivässä vähemmän.";
                     }
                  return "Sinun uniaikasi " + (int)sleepAvg + " tuntia on suositusten mukainen";
          }

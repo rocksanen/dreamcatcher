@@ -37,6 +37,7 @@ public class UseSharedPreferences {
     private List<UserInputs> userInputsList = new ArrayList<>();
 
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public UseSharedPreferences(UserInputs object) {
 
             this.userInputsList = getListFromPreferences();
@@ -47,6 +48,7 @@ public class UseSharedPreferences {
 
         public UseSharedPreferences() {}
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         private void saveObjectToList() {
 
             Gson gson = new Gson();
@@ -57,6 +59,19 @@ public class UseSharedPreferences {
 
             prefEditor.putString(LIST, json);
             prefEditor.commit();
+
+            try {
+
+                Firebase firebase = new Firebase();
+                firebase.saveToFireBase(this.userInputsList);
+
+
+
+            } catch (Exception e) {
+
+                System.out.println("ei mennyt");
+
+            }
 
         }
 

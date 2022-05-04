@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.Notification;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Build;
@@ -21,6 +22,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -61,21 +63,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setSliderAdapter();
+        //Intent intent = getIntent();
+        Bundle b = getIntent().getExtras();
+        Gson gson = new Gson();
+        UserInputs userInputs = gson.fromJson(String.valueOf(b),UserInputs.class);
 
+        System.out.println("kalakalaklakaklaalakalaka     " + userInputs);
         /**
          * Initialize the context variable.
          */
         contextOfApplication = this;
 
 
-        UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
-        useSharedPreferences.clearData();
+        //UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
+        //useSharedPreferences.clearData();
 
 
 
 
         // Tällä testataan listoja ja toimintoja, voi kommentoida pois päältä omia testejään varten!!!!!!!!!!!!!
-        testSorting();
+        //testSorting();
 
 
     }
@@ -112,13 +119,16 @@ public class MainActivity extends AppCompatActivity {
         String kym = "4651602664826";
         String yskt = "1651602664826";
         String kakst = "5651602664826";
+        String kolmst = "1651602664826";
+        String neljst = "6651602664826";
 
-        UserInputs user1 = new UserInputs(LocalDate.now().minusDays(6),Long.parseLong(eka),Long.parseLong(toka),2);
-        UserInputs user2 = new UserInputs(LocalDate.now().minusDays(5),Long.parseLong(kolmas),Long.parseLong(neljas),5);
-        UserInputs user3 = new UserInputs(LocalDate.now().minusDays(4),Long.parseLong(viides),Long.parseLong(kuudes),4);
-        UserInputs user4 = new UserInputs(LocalDate.now().minusDays(3),Long.parseLong(seits),Long.parseLong(kahd),5);
-        UserInputs user5 = new UserInputs(LocalDate.now().minusDays(2),Long.parseLong(yhd),Long.parseLong(kym),2);
-        UserInputs user6 = new UserInputs(LocalDate.now().minusDays(1),Long.parseLong(yskt),Long.parseLong(kakst),3);
+        UserInputs user1 = new UserInputs(LocalDate.now().minusDays(7),Long.parseLong(eka),Long.parseLong(toka),2);
+        UserInputs user2 = new UserInputs(LocalDate.now().minusDays(6),Long.parseLong(kolmas),Long.parseLong(neljas),5);
+        UserInputs user3 = new UserInputs(LocalDate.now().minusDays(5),Long.parseLong(viides),Long.parseLong(kuudes),4);
+        UserInputs user4 = new UserInputs(LocalDate.now().minusDays(4),Long.parseLong(seits),Long.parseLong(kahd),5);
+        UserInputs user5 = new UserInputs(LocalDate.now().minusDays(3),Long.parseLong(yhd),Long.parseLong(kym),2);
+        UserInputs user6 = new UserInputs(LocalDate.now().minusDays(2),Long.parseLong(yskt),Long.parseLong(kakst),3);
+        UserInputs user7 = new UserInputs(LocalDate.now().minusDays(1),Long.parseLong(kolmst),Long.parseLong(neljst),4);
 
 
     }
