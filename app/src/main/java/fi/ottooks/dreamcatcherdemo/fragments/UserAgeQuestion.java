@@ -116,7 +116,6 @@ public class UserAgeQuestion extends Fragment {
         return view ;
 
         }
-       // public int sleepAvg = StatsSorting.getSleepAvg();
 
 
 
