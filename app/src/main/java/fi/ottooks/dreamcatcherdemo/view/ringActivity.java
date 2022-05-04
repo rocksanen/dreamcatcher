@@ -23,7 +23,10 @@ import fi.ottooks.dreamcatcherdemo.kello.ClockRepo;
 public class ringActivity extends AppCompatActivity {
 
 
-
+    /**
+     * The mood select activity will show when "Sammuta" button been pressed.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +40,7 @@ public class ringActivity extends AppCompatActivity {
                 getApplicationContext().stopService(intentService);
                 finish();
 
-                /**
-                 *  The mood select activity will show when "Sammuta" button been pressed.
-                 */
+
 
                 Intent intentMood = new Intent(getApplicationContext(), MoodSelect.class);
                 startActivity(intentMood);

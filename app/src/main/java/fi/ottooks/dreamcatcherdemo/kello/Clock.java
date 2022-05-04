@@ -17,24 +17,34 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.Calendar;
+
+/**
+ *
+ */
 @Entity(tableName = "clock_table")
+
 public class Clock {
 
     @PrimaryKey
     @NonNull
     private int id;
-
-
     private int hour;
     private int min;
-
-
 
     private long created;
 
     private String title;
 
     private boolean started;
+
+    /**
+     *
+     * @param hour
+     * @param min
+     * @param id
+     * @param title
+     * @param started
+     */
 
     public Clock (int hour, int min, int id, String title, boolean started) {
         this.hour = hour;
@@ -47,6 +57,7 @@ public class Clock {
         this.started = started;
         ;
     }
+
 
     public int getHour() {
         return hour;
@@ -98,6 +109,11 @@ public class Clock {
     public long getCreated() {
         return created;
     }
+
+    /**
+     *
+     * @param context
+     */
 
     @SuppressLint("DefaultLocale")
     @RequiresApi(api = Build.VERSION_CODES.O)

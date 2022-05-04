@@ -67,14 +67,21 @@ public class UserAgeQuestion extends Fragment {
 
     }
 
+    /**
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_user_age_question, container, false);
-        EditText userAge = view.findViewById(R.id.userAge);
-        TextView ageInfoTv = view.findViewById(R.id.ageInfo);
-        TextView sleepCompare = view.findViewById(R.id.compareTv);
+        View view = inflater.inflate(fi.ottooks.dreamcatcherdemo.R.layout.fragment_user_age_question, container, false);
+        EditText userAge = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.userAge);
+        TextView ageInfoTv = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.ageInfo);
+        TextView sleepCompare = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.compareTv);
 
 
         Button ageBtn = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.ageBtn);
@@ -119,7 +126,6 @@ public class UserAgeQuestion extends Fragment {
         return view ;
 
         }
-
 
 
     /**
