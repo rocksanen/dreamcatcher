@@ -3,24 +3,19 @@ package fi.ottooks.dreamcatcherdemo;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.firestore.auth.User;
-
 import java.time.LocalDate;
-
-import fi.ottooks.dreamcatcherdemo.fragments.MainView;
 
 /**
  * The Mood class for Dream catcher 300
- * <p>
- *     This class handles the Mood value after waking up (Stopping the alarm)
- * </p>
+ *
+ * This class handles the Mood value after waking up (Stopping the alarm)
+ *
  *
  * @author Mohammed Al-Jewari
  */
@@ -42,6 +37,7 @@ public class MoodSelect extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mood_select);
 
+
         ImageButton mood1 = (ImageButton) findViewById(R.id.mood1Btn);
 
         mood1.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +46,7 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
             moodValue = 1;
-                setAllValuesToUserInputs();
+
                 toMainView();
 
             }
@@ -62,7 +58,7 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
             moodValue = 2;
-                setAllValuesToUserInputs();
+
                 toMainView();
             }
         });
@@ -73,6 +69,7 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 moodValue = 3;
+
                 toMainView();
             }
         });
@@ -83,6 +80,7 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 moodValue = 4;
+
                 toMainView();
             }
         });
@@ -93,6 +91,7 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 moodValue = 5;
+
                 toMainView();
             }
         });
@@ -100,7 +99,7 @@ public class MoodSelect extends AppCompatActivity {
 
     }
     /**
-     * return the selected mood value so can fetch it in the shared preferences.
+     *@return  return the selected mood value so can fetch it in the shared preferences.
      */
     public int getMoodValue(){
         return moodValue;
@@ -120,9 +119,14 @@ public class MoodSelect extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void toMainView() {
 
-        startActivity(new Intent(this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
         setAllValuesToUserInputs();
+
+        startActivity(new Intent(this, MainActivity.class).
+        setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+
+
         finish();
+
     }
 
 }

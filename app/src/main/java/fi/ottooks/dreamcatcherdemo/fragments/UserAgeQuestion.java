@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-//import fi.ottooks.dreamcatcherdemo.R;
 import androidx.fragment.app.Fragment;
 
 //import fi.ottooks.dreamcatcherdemo.R;
@@ -68,12 +67,13 @@ public class UserAgeQuestion extends Fragment {
     }
 
     /**
+     * In this view asking about user's age to give him information about recommended sleep time after comparing his sleep time to recommended one.
+     * In this view there an onClick listener to check user's inputted data if it's validated start the comparing by using the method vertaUniAika(),
+     * if the inputted data isn't validated then this view will show what is wrong with inputted data.
      *
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
+     * @return  return recommended sleeping time for the inputted age after comparing data with recommended one.
      */
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -89,7 +89,11 @@ public class UserAgeQuestion extends Fragment {
             @Override
             public void onClick(View view) {
                 if (userAge.getText().toString().trim().length() != 0) {
+
                     int age = Integer.parseInt(userAge.getText().toString());
+
+                    ageInfoTv.setVisibility(View.VISIBLE);
+                    sleepCompare.setVisibility(View.VISIBLE);
                     //tiedot ovat Sleep Foundation netti sivulta.
                     if (age > 0 && age < 3) {
                         ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 11-14 tuntia/vrk");
@@ -113,11 +117,14 @@ public class UserAgeQuestion extends Fragment {
                         ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 7-8 tuntia/vrk.");
                         sleepCompare.setText(vertaaUniAika(7,8));
                     } else {
-                        ageInfoTv.setText("Iän pitäisi olla enemmän kuin 1.");
+                        sleepCompare.setVisibility(View.INVISIBLE);
+                        ageInfoTv.setText("Iän pitäisi olla enemmän kuin 0.");
                     }
+                }else {
+                    ageInfoTv.setVisibility(View.INVISIBLE);
+                    sleepCompare.setVisibility(View.INVISIBLE);
                 }
-                ageInfoTv.setVisibility(View.VISIBLE);
-                sleepCompare.setVisibility(View.VISIBLE);
+
                 userAge.onEditorAction(EditorInfo.IME_ACTION_DONE);
 
             }
@@ -126,6 +133,8 @@ public class UserAgeQuestion extends Fragment {
         return view ;
 
         }
+       // public int sleepAvg = StatsSorting.getSleepAvg();
+
 
 
     /**
@@ -137,7 +146,7 @@ public class UserAgeQuestion extends Fragment {
      */
     public String vertaaUniAika (int alku, int loppu){
 
-            double sleepAvg =
+            final double sleepAvg =
 
                     new StatsSorting(new UseSharedPreferences().
                     getListFromPreferences()).
