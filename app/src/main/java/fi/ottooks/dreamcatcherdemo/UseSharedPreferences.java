@@ -26,7 +26,9 @@ import java.util.Locale;
 public class UseSharedPreferences {
 
     private final String SHAREDPREFS = "fi.ottooks.dreamcatcherdemo";
-
+    /**
+     * Initialization of sharedPreferences folder
+     */
     private final android.content.SharedPreferences sharedPreferences =
     MainActivity.getContextOfApplication().
     getSharedPreferences(SHAREDPREFS, Activity.MODE_PRIVATE);
@@ -36,7 +38,11 @@ public class UseSharedPreferences {
     public static final String END = "endTime";
     private List<UserInputs> userInputsList = new ArrayList<>();
 
-
+    /**
+     * Get the UserInputs object to be saved to sharedPreferences
+     * @param object
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
         public UseSharedPreferences(UserInputs object) {
 
             this.userInputsList = getListFromPreferences();
@@ -45,8 +51,16 @@ public class UseSharedPreferences {
 
         }
 
+    /**
+     * Non parametric constructor
+     */
         public UseSharedPreferences() {}
 
+    /**
+     * Changes object-list to json and saves the json to sharedpreferences
+     * Saves object-list to Firebase database
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
         private void saveObjectToList() {
 
             Gson gson = new Gson();
@@ -58,9 +72,26 @@ public class UseSharedPreferences {
             prefEditor.putString(LIST, json);
             prefEditor.commit();
 
+            try {
+
+                Firebase firebase = new Firebase();
+                firebase.saveToFireBase(this.userInputsList);
+
+
+
+            } catch (Exception e) {
+
+                System.out.println("ei mennyt");
+
+            }
+
         }
 
-        public void saveWakeUpTime(long calendar) {
+    /**
+     * Saves intented waking time
+     * @param calendar
+     */
+    public void saveWakeUpTime(long calendar) {
 
             android.content.SharedPreferences.Editor prefEditor =
             sharedPreferences.edit();
@@ -70,7 +101,10 @@ public class UseSharedPreferences {
 
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.O)
+    /**
+     * Saves the start time when triggering the wakeup time
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
         public void saveStartTime() {
 
             android.content.SharedPreferences.Editor prefEditor =
@@ -87,17 +121,30 @@ public class UseSharedPreferences {
 
         }
 
+    /**
+     * Returns startingtime
+     * @return
+     */
         public long getStartTime() {
 
             return sharedPreferences.getLong(START,0);
 
         }
-        public long getEndTime() {
+
+    /**
+     * Returns endtime
+     * @return
+     */
+    public long getEndTime() {
             //Date date = new Date(sharedPreferences.getLong(END,0));
             return sharedPreferences.getLong(END,0);
         }
 
-        public List<UserInputs> getListFromPreferences() {
+    /**
+     * Gets json file back from sharedpreferences and changes it back to object-list
+     * @return
+     */
+    public List<UserInputs> getListFromPreferences() {
 
             List<UserInputs> listItems;
 

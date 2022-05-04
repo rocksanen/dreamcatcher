@@ -144,7 +144,7 @@ public class UserAgeQuestion extends Fragment {
      */
     public String vertaaUniAika (int alku, int loppu){
 
-            double sleepAvg =
+            final double sleepAvg =
 
                     new StatsSorting(new UseSharedPreferences().
                     getListFromPreferences()).
@@ -162,8 +162,6 @@ public class UserAgeQuestion extends Fragment {
                     }
                  return "Keskimääräinen uniaikasi " + (int)sleepAvg + " tuntia, on suositusten mukainen";
          }
-
-
 
 
 

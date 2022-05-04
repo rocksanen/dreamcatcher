@@ -15,6 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import java.util.List;
 
+
 public class SlidePagerAdapter extends FragmentStatePagerAdapter {
 
     private final List fragmentList;
@@ -22,12 +23,23 @@ public class SlidePagerAdapter extends FragmentStatePagerAdapter {
     private LayoutInflater layoutInflater;
     private Integer [] frags = {R.layout.page_1,R.layout.page_2};
 
+    /**
+     * Gets the fragments to be processed
+     * @param fm
+     * @param fragmentList
+     */
     public SlidePagerAdapter(@NonNull FragmentManager fm, List<Fragment> fragmentList) {
         super(fm);
         this.fragmentList = fragmentList;
         this.context =  MainActivity.getContextOfApplication();
     }
 
+    /**
+     *
+     * @param container
+     * @param position
+     * @return
+     */
     public Object instatiateItem(ViewGroup container, int position) {
 
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -49,15 +61,29 @@ public class SlidePagerAdapter extends FragmentStatePagerAdapter {
 
     }
 
+    /**
+     * Gets selected item from fragmetlist
+     * @param position
+     * @return
+     */
     @NonNull
     @Override
     public Fragment getItem(int position) { return (Fragment) fragmentList.get(position); }
 
+    /**
+     * Returns the size of fragmentlist
+     * @return
+     */
     @Override
     public int getCount() {
         return fragmentList.size();
     }
 
+    /**
+     * Sets the tablayout header
+     * @param position
+     * @return
+     */
     @Override
     public CharSequence getPageTitle(int position) {
 
