@@ -26,8 +26,7 @@ public class MoodSelect extends AppCompatActivity {
 
         /**
          * The listener checks which mood form button is pressed
-         * The defailt valie is default 3, but changes depending on user's choice.
-         * When user will choose his mood "Value" then this activity will end.
+         * The default value is 3, but changes depending on the user's choice.
          * When user chooses the mood "Value", MainActivity is called
          */
 
