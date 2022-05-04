@@ -67,11 +67,13 @@ public class UserAgeQuestion extends Fragment {
     }
 
     /**
-     * In this view asking about user's age to give him information about recommended sleep time after comparing his sleep time to recommended one.
-     * In this view there an onClick listener to check user's inputted data if it's validated start the comparing by using the method vertaUniAika(),
-     * if the inputted data isn't validated then this view will show what is wrong with inputted data.
-     *
-     * @return  return recommended sleeping time for the inputted age after comparing data with recommended one.
+     * the view in question compares the inputted age to an sleeptime recommendation.
+     * The onClick listener validates the users data using vertaaUniAika() method.
+     * Unvalid data returns an error message.
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return returns recommended sleeptime according to inputted age.
      */
 
     @Override
@@ -138,11 +140,10 @@ public class UserAgeQuestion extends Fragment {
 
 
     /**
-     * This method compare user's average sleeping time with the recommended time.
-     *
+     * The method compares user's average sleeping time and the recommended time based on the inputted age.
      * @param alku the least recommended sleeping time (int)
      * @param loppu the most recommended sleeping time (int)
-     * @return sentence which tells compared user's sleeping time to the recommended one.
+     * @return returns a string that tells the user the recommended sleeping time. (String)
      */
     public String vertaaUniAika (int alku, int loppu){
 

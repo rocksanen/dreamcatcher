@@ -11,12 +11,21 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+/**
+ * This activity is called when the clock is ringing and the user presses the popup notification
+ */
+
 public class clockBreak extends AppCompatActivity {
 
     Button sammutaBtn;
     ImageButton breakBtn;
     Boolean sammutettu;
     int clicked;
+
+    /**
+     * @param savedInstanceState An anonymous listener will be called that listens if the user has pressed either "Sammuta" button or
+     *                           the imagebutton that triggers an series of animations.
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +46,7 @@ public class clockBreak extends AppCompatActivity {
                 finish();
 
                 /**
-                 *  The mood select activity will show when "Sammuta" button been pressed.
+                 *  The mood select activity is called when "Sammuta" button is pressed.
                  */
 
 
@@ -47,6 +56,7 @@ public class clockBreak extends AppCompatActivity {
                 startActivity(intentMood);
             }
         });
+
         breakBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +80,7 @@ public class clockBreak extends AppCompatActivity {
                     finish();
 
                     /**
-                     *  The mood select activity will show when "Sammuta" button been pressed.
+                     *  The mood select activity is called when "Sammuta" button is pressed.
                      */
 
                     sammutettu = true;
