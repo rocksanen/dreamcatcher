@@ -85,25 +85,7 @@ public class StatsSorting {
 
 
     }
-/*
-    public static int getSleepAvg(){
-        double totalSleepTime = 0;
 
-        for(UserInputs user: userInputsList) {
-
-            totalSleepTime += user.getSleepTime();
-
-        }
-
-        @SuppressLint("DefaultLocale") double sleepAverage =
-                Double.parseDouble(String.format("%.1f",totalSleepTime  /  userInputsList.size())) ;
-
-        int intVlaue = (int) sleepAverage;
-        return intVlaue ;
-    }
-
-
- */
 
 
 }
