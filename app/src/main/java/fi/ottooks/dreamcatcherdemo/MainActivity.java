@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
          */
         contextOfApplication = this;
 
-
+        int jep = 0;
 
 
         //UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
