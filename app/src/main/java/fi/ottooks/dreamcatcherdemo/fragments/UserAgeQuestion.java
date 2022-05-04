@@ -112,7 +112,7 @@ public class UserAgeQuestion extends Fragment {
                         sleepCompare.setText(vertaaUniAika(7,8));
                     } else {
                         sleepCompare.setVisibility(View.INVISIBLE);
-                        ageInfoTv.setText("Iän pitäisi olla enemmän kuin 1.");
+                        ageInfoTv.setText("Iän pitäisi olla 1 tai enemmän.");
                     }
                 }else {
                     ageInfoTv.setVisibility(View.INVISIBLE);
