@@ -66,11 +66,7 @@ public class UserAgeQuestion extends Fragment {
 
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        Button ageBtn = view.findViewById(R.id.ageBtn);
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -87,7 +83,11 @@ public class UserAgeQuestion extends Fragment {
             @Override
             public void onClick(View view) {
                 if (userAge.getText().toString().trim().length() != 0) {
+
                     int age = Integer.parseInt(userAge.getText().toString());
+
+                    ageInfoTv.setVisibility(View.VISIBLE);
+                    sleepCompare.setVisibility(View.VISIBLE);
                     //tiedot ovat Sleep Foundation netti sivulta.
                     if (age > 0 && age < 3) {
                         ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 11-14 tuntia/vrk");
@@ -111,11 +111,14 @@ public class UserAgeQuestion extends Fragment {
                         ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 7-8 tuntia/vrk.");
                         sleepCompare.setText(vertaaUniAika(7,8));
                     } else {
+                        sleepCompare.setVisibility(View.INVISIBLE);
                         ageInfoTv.setText("Iän pitäisi olla enemmän kuin 1.");
                     }
+                }else {
+                    ageInfoTv.setVisibility(View.INVISIBLE);
+                    sleepCompare.setVisibility(View.INVISIBLE);
                 }
-                ageInfoTv.setVisibility(View.VISIBLE);
-                sleepCompare.setVisibility(View.VISIBLE);
+
                 userAge.onEditorAction(EditorInfo.IME_ACTION_DONE);
 
             }
