@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import fi.ottooks.dreamcatcherdemo.R;
+import fi.ottooks.dreamcatcherdemo.StatsSorting;
+import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +26,7 @@ public class UserAgeQuestion extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -114,7 +117,7 @@ public class UserAgeQuestion extends Fragment {
 
         }
        // public int sleepAvg = StatsSorting.getSleepAvg();
-        public int sleepAvg = 8;
+
 
 
     /**
@@ -125,15 +128,24 @@ public class UserAgeQuestion extends Fragment {
      * @return sentence which tells compared user's sleeping time to the recommended one.
      */
     public String vertaaUniAika (int alku, int loppu){
-            int aika;
-                 if (this.sleepAvg < alku){
-                        aika = alku - this.sleepAvg;
+
+            double sleepAvg =
+
+                    new StatsSorting(new UseSharedPreferences().
+                    getListFromPreferences()).
+                    getUniKeskiArvoToDouble();
+
+            double aika = 0;
+
+
+                 if (sleepAvg < alku){
+                        aika = alku - sleepAvg;
                         return "Pitäisi nukkua " + aika + " tuntia päivässä enemmän.";
-                 }else if(this.sleepAvg > loppu){
-                        aika = this.sleepAvg - loppu;
+                 }else if(sleepAvg > loppu){
+                        aika = sleepAvg - loppu;
                         return "Pitäisi nukkua " + aika + " tuntia päivässä vähemmän.";
                     }
-                 return "Sinun uniaikasi on suositusten mukainen";
+                 return "Sinun uniaikasi " + (int)sleepAvg + " tuntia on suositusten mukainen";
          }
 
 
