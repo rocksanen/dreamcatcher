@@ -41,7 +41,6 @@ public class clockBreak extends AppCompatActivity {
                  */
 
 
-
                 sammutettu = true;
 
                 Intent intentMood = new Intent(getApplicationContext(), MoodSelect.class);
