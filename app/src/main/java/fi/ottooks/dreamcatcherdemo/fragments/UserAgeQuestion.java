@@ -1,6 +1,5 @@
 package fi.ottooks.dreamcatcherdemo.fragments;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,16 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-import java.util.List;
-
-import fi.ottooks.dreamcatcherdemo.Firebase;
 import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.StatsSorting;
 import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
-import fi.ottooks.dreamcatcherdemo.UserInputs;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,9 +26,6 @@ public class UserAgeQuestion extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    TextView ageInfoTv;
-    TextView sleepCompare;
-
 
 
     // TODO: Rename and change types of parameters
@@ -75,19 +66,7 @@ public class UserAgeQuestion extends Fragment {
 
     }
 
-    public void onPause() {
 
-        super.onPause();
-        ageInfoTv.setVisibility(View.INVISIBLE);
-        sleepCompare.setVisibility(View.INVISIBLE);
-
-    }
-
-    public void onResume() {
-
-        super.onResume();
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -95,18 +74,20 @@ public class UserAgeQuestion extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_user_age_question, container, false);
         EditText userAge = view.findViewById(R.id.userAge);
-        ageInfoTv = view.findViewById(R.id.ageInfo);
-        sleepCompare = view.findViewById(R.id.compareTv);
+        TextView ageInfoTv = view.findViewById(R.id.ageInfo);
+        TextView sleepCompare = view.findViewById(R.id.compareTv);
 
 
         Button ageBtn = view.findViewById(R.id.ageBtn);
         ageBtn.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-
                 if (userAge.getText().toString().trim().length() != 0) {
+
                     int age = Integer.parseInt(userAge.getText().toString());
+
+                    ageInfoTv.setVisibility(View.VISIBLE);
+                    sleepCompare.setVisibility(View.VISIBLE);
                     //tiedot ovat Sleep Foundation netti sivulta.
                     if (age > 0 && age < 3) {
                         ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 11-14 tuntia/vrk");
@@ -130,11 +111,14 @@ public class UserAgeQuestion extends Fragment {
                         ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 7-8 tuntia/vrk.");
                         sleepCompare.setText(vertaaUniAika(7,8));
                     } else {
-                        ageInfoTv.setText("Iän pitäisi olla enemmän kuin 1.");
+                        sleepCompare.setVisibility(View.INVISIBLE);
+                        ageInfoTv.setText("Iän pitäisi olla 1 tai enemmän.");
                     }
+                }else {
+                    ageInfoTv.setVisibility(View.INVISIBLE);
+                    sleepCompare.setVisibility(View.INVISIBLE);
                 }
-                ageInfoTv.setVisibility(View.VISIBLE);
-                sleepCompare.setVisibility(View.VISIBLE);
+
                 userAge.onEditorAction(EditorInfo.IME_ACTION_DONE);
 
             }
@@ -143,7 +127,6 @@ public class UserAgeQuestion extends Fragment {
         return view ;
 
         }
-       // public int sleepAvg = StatsSorting.getSleepAvg();
 
 
 
@@ -167,7 +150,6 @@ public class UserAgeQuestion extends Fragment {
 
                  if (sleepAvg < alku){
                         aika = alku - sleepAvg;
-
                         return "Sinun tulisi nukkua " + (int)aika + " tuntia vuorokaudessa enemmän.";
                  }else if(sleepAvg > loppu){
                         aika = sleepAvg - loppu;
