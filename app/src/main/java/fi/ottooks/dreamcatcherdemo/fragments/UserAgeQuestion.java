@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 //import fi.ottooks.dreamcatcherdemo.R;
 import java.text.DecimalFormat;
 
-import fi.ottooks.dreamcatcherdemo.R;
+//import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.StatsSorting;
 import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
 

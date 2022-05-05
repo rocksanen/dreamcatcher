@@ -10,7 +10,11 @@ import java.util.List;
 
 import fi.ottooks.dreamcatcherdemo.Clock;
 
-
+/**
+ * The ClockDAO class for Dream catcher
+ *     Used to create the ROOM database operations
+ *     DAO = Data Access Objects
+ */
 @Dao
 public interface ClockDAO {
 

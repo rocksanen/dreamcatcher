@@ -11,6 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import fi.ottooks.dreamcatcherdemo.kello.clockListener;
 
+/**
+ * The ViewHolder class for Dream catcher
+ *      This class is used to set the elements of each alarm to the single viewholder in recyclerview
+ *
+ *
+ */
 
 public class ViewHolder extends RecyclerView.ViewHolder {
     private TextView time;
@@ -18,6 +24,10 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     public Switch aSwitch;
 
+    /**
+     * Here we get all of the elements that we want to modify
+     * @param itemView itemView
+     */
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
 
@@ -27,6 +37,11 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     }
 
+    /**
+     * Here we give values to all the elements we are changing and set a listener for the on/off switch
+     * @param clock clock
+     * @param listener listener
+     */
     public void bind(fi.ottooks.dreamcatcherdemo.Clock clock, clockListener listener) {
         String alarmTime = String.format("%02d:%02d", clock.getHour(), clock.getMin());
         time.setText(alarmTime);

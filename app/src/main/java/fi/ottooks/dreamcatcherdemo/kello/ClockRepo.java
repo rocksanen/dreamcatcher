@@ -11,17 +11,30 @@ import fi.ottooks.dreamcatcherdemo.Clock;
 import fi.ottooks.dreamcatcherdemo.kello.ClockDAO;
 import fi.ottooks.dreamcatcherdemo.kello.ClockDB;
 
+/**
+ * The ClockRepo class for Dream catcher
+ *     Used to do the operations which were earlier set in ClockDAO class
+ */
+
 public class ClockRepo {
 
     private LiveData<List<Clock>> clockLiveData;
     private ClockDAO dao;
 
+    /**
+     * Used to get the database
+     * @param application application
+     */
     public ClockRepo(Application application) {
         ClockDB db = ClockDB.getDB(application);
         dao = db.clockDao();
         clockLiveData = dao.getClocks();
     }
 
+    /**
+     * Used upon creating a new alarm, inserting it into the database
+     * @param clock clock
+     */
     public void insert(Clock clock) {
         ClockDB.dbWriteExecutor.execute(() -> {
             //dao.deleteAll();
@@ -29,12 +42,20 @@ public class ClockRepo {
         });
     }
 
+    /**
+     * Used to update already existing objects in the database
+     * @param clock
+     */
     public void update(Clock clock) {
         ClockDB.dbWriteExecutor.execute(() -> {
             dao.update(clock);
         });
     }
 
+    /**
+     * Used to get the list of current alarms in the database
+     * @return a list of the alarms in the database
+     */
     public LiveData<List<Clock>> getClockLiveData() {
         return clockLiveData;
     }

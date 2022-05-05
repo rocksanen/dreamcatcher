@@ -31,6 +31,12 @@ import fi.ottooks.dreamcatcherdemo.kello.clockListener;
 import fi.ottooks.dreamcatcherdemo.view.listViewModel;
 import fi.ottooks.dreamcatcherdemo.view.recycleViewAdapter;
 
+/**
+ * The MainView class for Dream catcher
+ *      This class is used to set the view and listeners on the mainview fragment
+ *
+ */
+
 public class MainView extends Fragment implements clockListener {
 
     Button btn;
@@ -40,7 +46,16 @@ public class MainView extends Fragment implements clockListener {
     private listViewModel listViewModel;
     private RecyclerView clocksView;
 
-
+    /**
+     * Here we set the view onCreateView, we set the alarms to show up in a recyclerview
+     * We use recycleViewAdapter and listViewModel classes to achieve this
+     * There are listeners set for button to add a new alarm and a switch to toggle alarms on/off
+     *
+     * @param inflater inflater
+     * @param container container
+     * @param savedInstanceState savedInstanceState
+     * @return returns the built view
+     */
 
     @Nullable
     @Override

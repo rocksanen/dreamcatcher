@@ -22,22 +22,16 @@ public class MoodSelect extends AppCompatActivity {
 
 
     /**
-     * The listener here listens to what user will choose as a mood value when he stops the alarm.
-     *
-     * The value will be by default 3, but will change depending on user's choice.
-     *
-     * When user will choose his mood "Value" then this activity will end.
+     * The listener checks which mood form button is pressed
+     * The default value is 3, but changes depending on the user's choice.
+     * When user chooses the mood "Value", MainActivity is called
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mood_select);
 
-        /**
-         * The listener checks which mood form button is pressed
-         * The default value is 3, but changes depending on the user's choice.
-         * When user chooses the mood "Value", MainActivity is called
-         */
+
 
         ImageButton mood1 = (ImageButton) findViewById(R.id.mood1Btn);
         mood1.setOnClickListener(new View.OnClickListener() {
@@ -118,11 +112,12 @@ public class MoodSelect extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void toMainView() {
 
-        setAllValuesToUserInputs();
+        //setAllValuesToUserInputs();
 
         startActivity(new Intent(this, MainActivity.class).
         setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
+        setAllValuesToUserInputs();
 
         finish();
 
