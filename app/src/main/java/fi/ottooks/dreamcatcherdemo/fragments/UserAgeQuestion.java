@@ -160,10 +160,6 @@ public class UserAgeQuestion extends Fragment {
 
             double aika = 0;
 
-
-
-
-
                  if (sleepAvg < alku){
                         aika = alku - sleepAvg;
                         return "Sinun tulisi nukkua " + Double.parseDouble(String.format("%.1f",aika))+ " tuntia vuorokaudessa enemmän.";

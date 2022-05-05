@@ -36,7 +36,7 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
             moodValue = 1;
-
+                setAllValuesToUserInputs();
                 toMainView();
 
             }
@@ -48,7 +48,7 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
             moodValue = 2;
-
+                setAllValuesToUserInputs();
                 toMainView();
             }
         });
@@ -59,7 +59,7 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 moodValue = 3;
-
+                setAllValuesToUserInputs();
                 toMainView();
             }
         });
@@ -70,7 +70,7 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 moodValue = 4;
-
+                setAllValuesToUserInputs();
                 toMainView();
             }
         });
@@ -81,7 +81,7 @@ public class MoodSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 moodValue = 5;
-
+                setAllValuesToUserInputs();
                 toMainView();
             }
         });
@@ -109,7 +109,7 @@ public class MoodSelect extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void toMainView() {
 
-        setAllValuesToUserInputs();
+
 
         startActivity(new Intent(this, MainActivity.class).
         setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
