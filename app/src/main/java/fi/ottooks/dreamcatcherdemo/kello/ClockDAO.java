@@ -10,7 +10,11 @@ import java.util.List;
 
 import fi.ottooks.dreamcatcherdemo.Clock;
 
-
+/**
+ * The ClockDAO class for Dream catcher
+ *     Used to create the ROOM database operations
+ *     DAO = Data Access Objects
+ */
 @Dao
 public interface ClockDAO {
 
@@ -20,7 +24,7 @@ public interface ClockDAO {
     @Query("DELETE FROM clock_table")
     void deleteAll();
 
-    @Query("SELECT * FROM clock_table ORDER BY id ASC")
+    @Query("SELECT * FROM clock_table ORDER BY hour ASC, min ASC")
     LiveData<List<Clock>> getClocks();
 
     @Update

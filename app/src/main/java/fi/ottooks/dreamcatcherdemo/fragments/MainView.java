@@ -1,9 +1,10 @@
 package fi.ottooks.dreamcatcherdemo.fragments;
 
+import android.app.AlarmManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,19 +25,37 @@ import java.util.List;
 import fi.ottooks.dreamcatcherdemo.Clock;
 import fi.ottooks.dreamcatcherdemo.view.SetAlarmView;
 
-import fi.ottooks.dreamcatcherdemo.R;
+//import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.kello.clockListener;
 
 import fi.ottooks.dreamcatcherdemo.view.listViewModel;
 import fi.ottooks.dreamcatcherdemo.view.recycleViewAdapter;
 
+/**
+ * The MainView class for Dream catcher
+ *      This class is used to set the view and listeners on the mainview fragment
+ *
+ */
+
 public class MainView extends Fragment implements clockListener {
 
     Button btn;
+    AlarmManager alarmManager;
 
     private recycleViewAdapter recycleViewAdapter;
     private listViewModel listViewModel;
     private RecyclerView clocksView;
+
+    /**
+     * Here we set the view onCreateView, we set the alarms to show up in a recyclerview
+     * We use recycleViewAdapter and listViewModel classes to achieve this
+     * There are listeners set for button to add a new alarm and a switch to toggle alarms on/off
+     *
+     * @param inflater inflater
+     * @param container container
+     * @param savedInstanceState savedInstanceState
+     * @return returns the built view
+     */
 
     @Nullable
     @Override
@@ -57,18 +76,22 @@ public class MainView extends Fragment implements clockListener {
         listViewModel.getClockLiveData().observe((LifecycleOwner) this, new Observer<List<Clock>>() {
             @Override
             public void onChanged(List<Clock> clocks) {
+
+
                 if (clocks != null) {
                     recycleViewAdapter.setClocks(clocks);
-
                 }
+
             }
+
+
         });
 
         View rootView =
-                inflater.inflate(R.layout.page_1, container,false);
+                inflater.inflate(fi.ottooks.dreamcatcherdemo.R.layout.page_1, container,false);
 
 
-        clocksView = rootView.findViewById(R.id.heratykset_list);
+        clocksView = rootView.findViewById(fi.ottooks.dreamcatcherdemo.R.id.heratykset_list);
         clocksView.setLayoutManager(new LinearLayoutManager(getContext()));
         clocksView.setAdapter(recycleViewAdapter);
 
@@ -77,7 +100,7 @@ public class MainView extends Fragment implements clockListener {
 
 
 
-        btn = (Button) rootView.findViewById(R.id.uusi_heratys);
+        btn = (Button) rootView.findViewById(fi.ottooks.dreamcatcherdemo.R.id.uusi_heratys);
         btn.setOnClickListener(new View.OnClickListener() {
 
             @Override

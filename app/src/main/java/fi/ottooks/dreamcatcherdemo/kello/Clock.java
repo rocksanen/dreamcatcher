@@ -17,24 +17,35 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.Calendar;
+
+/**
+ * The Clock class for Dream catcher
+ *     This class handles stuff related to the alarm, its data & setting/canceling it
+ */
 @Entity(tableName = "clock_table")
+
 public class Clock {
 
     @PrimaryKey
     @NonNull
     private int id;
-
-
     private int hour;
     private int min;
-
-
 
     private long created;
 
     private String title;
 
     private boolean started;
+
+    /**
+     * Used to get & save the values of an alarm
+     * @param hour the hour the alarm goes off, type int
+     * @param min the minute the alarm goes off, type int
+     * @param id id used to keep track of the alarms, type int
+     * @param title
+     * @param started used to store if the alarm is enabled/disabled, type boolean
+     */
 
     public Clock (int hour, int min, int id, String title, boolean started) {
         this.hour = hour;
@@ -45,7 +56,9 @@ public class Clock {
 
         this.title = title;
         this.started = started;
+        ;
     }
+
 
     public int getHour() {
         return hour;
@@ -79,6 +92,9 @@ public class Clock {
         return started;
     }
 
+
+
+
     public void setStarted(boolean started) {
         this.started = started;
     }
@@ -94,6 +110,13 @@ public class Clock {
     public long getCreated() {
         return created;
     }
+
+    /**
+     * Used to set the alarm by assigning the values from Clock (Above) to an calendar
+     * Alarm time gets checked and if the time has passed on the day of setting it, it sets to the next day
+     * Then alarm gets set with alarmManager and data of its set time and activation time is sent to the sharedpreferences
+     * @param context
+     */
 
     @SuppressLint("DefaultLocale")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -118,7 +141,7 @@ public class Clock {
 
         String tText = null;
         try {
-            tText = String.format("Herätys %s laitettu %s klo %02d:%02d", title, calendar.get(Calendar.DAY_OF_WEEK), hour, min);
+            tText = String.format("Herätys asetettu klo %02d:%02d", hour, min);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -134,6 +157,12 @@ public class Clock {
         this.started = true;
     }
 
+    /**
+     * Used to cancel the alarm by getting a reference to the alarmmanager and creating an intent using the broadcaster,
+     * intent is then used to create a pendingintent, which has a reference to the same id as on setting the alarm
+     * Then we use alarmmanager with the pendingintent as a parameter to cancel the alarm
+     * @param context
+     */
     public void cancel (Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, aBroadcastReceiver.class);
@@ -147,7 +176,4 @@ public class Clock {
     }
 
 
-    public void cancel() {
-        this.started = false;
-    }
 }

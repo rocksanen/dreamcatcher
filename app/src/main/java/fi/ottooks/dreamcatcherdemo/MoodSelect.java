@@ -19,6 +19,13 @@ import java.time.LocalDate;
 public class MoodSelect extends AppCompatActivity {
     private int moodValue = 3;
 
+
+
+    /**
+     * The listener checks which mood form button is pressed
+     * The default value is 3, but changes depending on the user's choice.
+     * When user chooses the mood "Value", MainActivity is called
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,7 +116,7 @@ public class MoodSelect extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void toMainView() {
 
-
+        setAllValuesToUserInputs();
 
         startActivity(new Intent(this, MainActivity.class).
         setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));

@@ -9,6 +9,12 @@ import fi.ottooks.dreamcatcherdemo.Clock;
 
 import fi.ottooks.dreamcatcherdemo.kello.ClockRepo;
 
+/**
+ * The CreateView class for Dream catcher
+ *      This class is used to insert new alarms into the database
+ *
+ */
+
 public class CreateView extends AndroidViewModel {
 
     private ClockRepo repo;

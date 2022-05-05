@@ -13,9 +13,10 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+//import fi.ottooks.dreamcatcherdemo.R;
 import java.text.DecimalFormat;
 
-import fi.ottooks.dreamcatcherdemo.R;
+//import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.StatsSorting;
 import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
 
@@ -84,14 +85,13 @@ public class UserAgeQuestion extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        View view = inflater.inflate(fi.ottooks.dreamcatcherdemo.R.layout.fragment_user_age_question, container, false);
+        EditText userAge = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.userAge);
+        TextView ageInfoTv = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.ageInfo);
+        TextView sleepCompare = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.compareTv);
 
-        View view = inflater.inflate(R.layout.fragment_user_age_question, container, false);
-        EditText userAge = view.findViewById(R.id.userAge);
-        TextView ageInfoTv = view.findViewById(R.id.ageInfo);
-        TextView sleepCompare = view.findViewById(R.id.compareTv);
 
-
-        Button ageBtn = view.findViewById(R.id.ageBtn);
+        Button ageBtn = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.ageBtn);
         ageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
