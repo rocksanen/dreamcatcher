@@ -110,16 +110,21 @@ public class MoodSelect extends AppCompatActivity {
 
     /**
      * Saves all the alarm info to sharedpreferences
+     * if slept hours is less than 3, it will not be counted as "sleep" and
+     * data will not be saved.
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setAllValuesToUserInputs() {
 
         final UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
 
-        new UserInputs(LocalDate.now(),
-        useSharedPreferences.getStartTime(),
-        useSharedPreferences.getEndTime(),this.moodValue);
+        if(useSharedPreferences.getStartTime() - useSharedPreferences.getEndTime() >= 3) {
 
+            new UserInputs(LocalDate.now(),
+            useSharedPreferences.getStartTime(),
+            useSharedPreferences.getEndTime(),this.moodValue);
+
+        }
     }
 
     /**

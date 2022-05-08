@@ -34,17 +34,24 @@ public class MainActivity extends AppCompatActivity {
         setSliderAdapter();
 
 
-        // Opettajille tiedoksi!!!! Tällä metodilla voitte halutessanne lisätä testi dataa.
+        // Opettajille tiedoksi!!!! Tällä alla olevalla metodilla voitte halutessanne lisätä testi dataa.
         // Ensin kommentoitte testSorting päälle ja käynnistätte sovelluksen. Tämän jälkeen jos haluatte
         // testata lisääkö uusi herätys dataa niin ensin sovellus pitää sammuttaa ja kommentoida testSorting
-        // pois päältä, jotta se ei kirjoita uuden herätys datan päälle sovelluksen käynnistyttyä herätyksellä. -->
+        // pois päältä, jotta se ei kirjoita uuden herätys datan päälle sovelluksen käynnistyttyä herätyksellä.
+        //
+        // Huom! MoodSelect luokasta löytyy metodi: setAllValuesToUserInputs(), jossa on if-lauseke joka
+        // ei anna tallettaa dataa jos uni on alle 3 tuntia, eli tämä ehtolauseke pitää myös poistaa, jos haluatte
+        // testata lyhyttä esim. minuutin mittaisen herätyksen tallentamista ja charttiin piirtämistä.
+        // Mitään näistä edellä mainituista preseduureista ei tarvitse tehdä, jos haluatte ihan vaan ruveta käyttämään
+        // appiamme eli mittaamaan yöunianne, koska se on asiakas asetuksissa. :) -->
 
-        // ----> // testSorting();
+        // Tässä ----> // testSorting();
 
-        //Opettajille tiedoksi!!!! Tällä voitte halutessanne tyhjentää datan sharedpreferenceista. -->
+        // Opettajille tiedoksi!!!! Tällä alla olevalla kahden rivin lausekkeela
+        // voitte halutessanne tyhjentää datan sharedpreferenceista. -->
 
-        // ----> // UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
-        // ----> // useSharedPreferences.clearData();
+        // Tässä ----> // UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
+        // Tässä ----> // useSharedPreferences.clearData();
 
     }
 

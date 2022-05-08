@@ -72,7 +72,7 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
     public Float getSleepTime(){
 
         final long end = this.endTime - this.startTime;
-        return (float) ((end / (3600000)) % 24);
+        return (float)((end / (3600000)) % 24);
 
     }
 
