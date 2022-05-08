@@ -2,37 +2,24 @@ package fi.ottooks.dreamcatcherdemo;
 
 import android.app.Activity;
 import android.os.Build;
-import android.util.Log;
-
-
 import androidx.annotation.RequiresApi;
-
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
-
 import java.lang.reflect.Type;
-import java.sql.Date;
-import java.sql.Time;
-import java.time.Clock;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.temporal.ChronoField;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * This class is used to save to sharedPreferences and get from sharedPreferences
  */
 public class UseSharedPreferences {
 
-    private final String SHAREDPREFS = "fi.ottooks.dreamcatcherdemo";
+    private static final String SHAREDPREFS = "fi.ottooks.dreamcatcherdemo";
     /**
      * Initialization of sharedPreferences folder
      */
     private final android.content.SharedPreferences sharedPreferences =
-    MainActivity.getContextOfApplication().
+    AppContext.getContext().
     getSharedPreferences(SHAREDPREFS, Activity.MODE_PRIVATE);
 
     public static final String LIST = "objectList";
@@ -62,10 +49,11 @@ public class UseSharedPreferences {
      * Changes object-list to json and saves the json to sharedpreferences
      * Saves object-list to Firebase database
      */
+
     @RequiresApi(api = Build.VERSION_CODES.O)
         private void saveObjectToList() {
 
-            Gson gson = new Gson();
+            final Gson gson = new Gson();
             final String json = gson.toJson(this.userInputsList);
 
             android.content.SharedPreferences.Editor prefEditor =
@@ -76,24 +64,21 @@ public class UseSharedPreferences {
 
             try {
 
-                Firebase firebase = new Firebase();
+                final Firebase firebase = new Firebase();
                 firebase.saveToFireBase(this.userInputsList);
-
-
 
             } catch (Exception e) {
 
-                System.out.println("ei mennyt");
+                System.out.println(e.getCause());
 
             }
-
         }
 
     /**
      * Saves intented waking time
      * @param calendar
      */
-    public void saveWakeUpTime(long calendar) {
+        public void saveWakeUpTime(long calendar) {
 
             android.content.SharedPreferences.Editor prefEditor =
             sharedPreferences.edit();
@@ -111,15 +96,11 @@ public class UseSharedPreferences {
 
             android.content.SharedPreferences.Editor prefEditor =
             sharedPreferences.edit();
-            //Instant start = Instant.now();
 
-            long aika = System.currentTimeMillis();
+            final long aika = System.currentTimeMillis();
 
             prefEditor.putLong(START,aika);
             prefEditor.commit();
-
-
-
 
         }
 
@@ -127,26 +108,19 @@ public class UseSharedPreferences {
      * Returns startingtime
      * @return
      */
-        public long getStartTime() {
-
-            return sharedPreferences.getLong(START,0);
-
-        }
+        public long getStartTime() { return sharedPreferences.getLong(START,0);}
 
     /**
      * Returns endtime
      * @return
      */
-    public long getEndTime() {
-            //Date date = new Date(sharedPreferences.getLong(END,0));
-            return sharedPreferences.getLong(END,0);
-        }
+        public long getEndTime() { return sharedPreferences.getLong(END,0);}
 
     /**
      * Gets json file back from sharedpreferences and changes it back to object-list
      * @return
      */
-    public List<UserInputs> getListFromPreferences() {
+        public List<UserInputs> getListFromPreferences() {
 
             List<UserInputs> listItems;
 
@@ -154,8 +128,8 @@ public class UseSharedPreferences {
 
                 if(objectList != null) {
 
-                    Gson gson = new Gson();
-                    Type type = new TypeToken<List<UserInputs>>(){}.getType();
+                    final Gson gson = new Gson();
+                    final Type type = new TypeToken<List<UserInputs>>(){}.getType();
                     listItems = gson.fromJson(objectList,type);
 
                     return listItems;
@@ -164,6 +138,7 @@ public class UseSharedPreferences {
                 return new ArrayList<>();
         }
 
+        //Testejä varten ainoastaan!!!!
         public void clearData() {
 
             android.content.SharedPreferences.Editor prefEditor =
@@ -173,5 +148,4 @@ public class UseSharedPreferences {
             prefEditor.commit();
 
         }
-
 }

@@ -1,14 +1,12 @@
 package fi.ottooks.dreamcatcherdemo;
 
+import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-
 import fi.ottooks.dreamcatcherdemo.kello.clockListener;
 
 /**
@@ -19,8 +17,9 @@ import fi.ottooks.dreamcatcherdemo.kello.clockListener;
  */
 
 public class ViewHolder extends RecyclerView.ViewHolder {
-    private TextView time;
-    private TextView title;
+
+    private final TextView time;
+    private final TextView title;
 
     public Switch aSwitch;
 
@@ -29,6 +28,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
      * @param itemView itemView
      */
     public ViewHolder(@NonNull View itemView) {
+
         super(itemView);
 
         time = itemView.findViewById(R.id.test_1);
@@ -43,15 +43,19 @@ public class ViewHolder extends RecyclerView.ViewHolder {
      * @param listener listener
      */
     public void bind(fi.ottooks.dreamcatcherdemo.Clock clock, clockListener listener) {
-        String alarmTime = String.format("%02d:%02d", clock.getHour(), clock.getMin());
+
+        @SuppressLint("DefaultLocale") String alarmTime = String.format("%02d:%02d", clock.getHour(), clock.getMin());
         time.setText(alarmTime);
         title.setText(clock.getTitle());
         aSwitch.setChecked(clock.isStarted());
 
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+
                 listener.onToggle(clock);
+
             }
         });
 

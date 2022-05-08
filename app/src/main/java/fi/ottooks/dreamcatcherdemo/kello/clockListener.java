@@ -8,6 +8,4 @@ import fi.ottooks.dreamcatcherdemo.Clock;
  */
 
 
-public interface clockListener {
-    void onToggle(Clock clock);
-}
+public interface clockListener { void onToggle(Clock clock);}

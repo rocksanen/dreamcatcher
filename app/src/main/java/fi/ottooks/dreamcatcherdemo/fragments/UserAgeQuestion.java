@@ -2,7 +2,6 @@ package fi.ottooks.dreamcatcherdemo.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +9,10 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.fragment.app.Fragment;
-
-//import fi.ottooks.dreamcatcherdemo.R;
-import java.text.DecimalFormat;
-
-//import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.StatsSorting;
 import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,8 +45,9 @@ public class UserAgeQuestion extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static UserAgeQuestion newInstance(String param1, String param2) {
-        UserAgeQuestion fragment = new UserAgeQuestion();
-        Bundle args = new Bundle();
+
+        final UserAgeQuestion fragment = new UserAgeQuestion();
+        final Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
@@ -63,12 +58,13 @@ public class UserAgeQuestion extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
+
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
-
-
     }
 
     /**
@@ -85,19 +81,21 @@ public class UserAgeQuestion extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(fi.ottooks.dreamcatcherdemo.R.layout.fragment_user_age_question, container, false);
-        EditText userAge = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.userAge);
-        TextView ageInfoTv = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.ageInfo);
-        TextView sleepCompare = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.compareTv);
+        final View view =
+        inflater.inflate(fi.ottooks.dreamcatcherdemo.R.layout.fragment_user_age_question, container, false);
+        final EditText userAge = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.userAge);
+        final TextView ageInfoTv = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.ageInfo);
+        final TextView sleepCompare = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.compareTv);
 
-
-        Button ageBtn = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.ageBtn);
+        final Button ageBtn = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.ageBtn);
         ageBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
                 if (userAge.getText().toString().trim().length() != 0) {
 
-                    int age = Integer.parseInt(userAge.getText().toString());
+                    final int age = Integer.parseInt(userAge.getText().toString());
 
                     ageInfoTv.setVisibility(View.VISIBLE);
                     sleepCompare.setVisibility(View.VISIBLE);
@@ -141,8 +139,6 @@ public class UserAgeQuestion extends Fragment {
 
         }
 
-
-
     /**
      * The method compares user's average sleeping time and the recommended time based on the inputted age.
      * @param alku the least recommended sleeping time (int)
@@ -154,22 +150,32 @@ public class UserAgeQuestion extends Fragment {
 
             final double sleepAvg =
 
-                    new StatsSorting(new UseSharedPreferences().
-                    getListFromPreferences()).
-                    getUniKeskiArvoToDouble();
+                 new StatsSorting(new UseSharedPreferences().
+                 getListFromPreferences()).
+                 getUniKeskiArvoToDouble();
 
             double aika = 0;
 
                  if (sleepAvg < alku){
+
                         aika = alku - sleepAvg;
-                        return "Sinun tulisi nukkua " + Double.parseDouble(String.format("%.1f",aika))+ " tuntia vuorokaudessa enemmän.";
+                        return
+                        "Sinun tulisi nukkua " +
+                        Double.parseDouble(String.format("%.1f",aika)) +
+                        " tuntia vuorokaudessa enemmän.";
+
                  }else if(sleepAvg > loppu){
+
                         aika = sleepAvg - loppu;
-                        return "Sinun tulisi nukkua " + Double.parseDouble(String.format("%.1f",aika)) + " tuntia vuorokaudessa vähemmän.";
-                    }
-                 return "Keskimääräinen uniaikasi " + Double.parseDouble(String.format("%.1f",sleepAvg)) + " tuntia, on suositusten mukainen";
+                        return
+                        "Sinun tulisi nukkua " +
+                        Double.parseDouble(String.format("%.1f",aika)) +
+                        " tuntia vuorokaudessa vähemmän.";
+
+                 }return
+
+                         "Keskimääräinen uniaikasi " +
+                         Double.parseDouble(String.format("%.1f",sleepAvg)) +
+                         " tuntia, on suositusten mukainen";
          }
-
-
-
 }

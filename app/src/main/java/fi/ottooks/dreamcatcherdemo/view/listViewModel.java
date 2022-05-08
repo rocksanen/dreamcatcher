@@ -1,17 +1,11 @@
 package fi.ottooks.dreamcatcherdemo.view;
 
 import android.app.Application;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-
-import java.util.Calendar;
 import java.util.List;
-
-
 import fi.ottooks.dreamcatcherdemo.Clock;
-import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
 import fi.ottooks.dreamcatcherdemo.kello.ClockRepo;
 
 /**
@@ -22,16 +16,17 @@ import fi.ottooks.dreamcatcherdemo.kello.ClockRepo;
  */
 public class listViewModel extends AndroidViewModel {
 
-    private ClockRepo repo;
-    private LiveData<List<Clock>> clockLiveData;
+    private final ClockRepo repo;
+    private final LiveData<List<Clock>> clockLiveData;
 
     /**
      * gets the current repository and all the alarms from it
      * @param application application
      */
-    public listViewModel(@NonNull Application application) {
-        super(application);
+    public listViewModel(@NonNull Application application)
+    {
 
+        super(application);
         repo = new ClockRepo(application);
         clockLiveData = repo.getClockLiveData();
 

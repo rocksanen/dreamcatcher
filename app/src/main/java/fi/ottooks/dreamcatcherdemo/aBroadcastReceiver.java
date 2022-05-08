@@ -22,11 +22,15 @@ public class aBroadcastReceiver extends BroadcastReceiver {
      */
     @Override
     public void onReceive(Context context, Intent intent) {
+
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
-            String tText = String.format(":D");
+
+            final String tText = ":D";
             Toast.makeText(context, tText, Toast.LENGTH_SHORT).show();
+
         } else {
-            String tText = "Wake up";
+
+            final String tText = "Wake up";
             Toast.makeText(context, tText, Toast.LENGTH_SHORT).show();
             startAlarm(context, intent);
 
@@ -39,12 +43,14 @@ public class aBroadcastReceiver extends BroadcastReceiver {
      * @param intent intent
      */
     private void startAlarm(Context context, Intent intent) {
-        Intent intentService = new Intent(context, aService.class);
+
+        final Intent intentService = new Intent(context, aService.class);
         intentService.putExtra(TITLE, intent.getStringExtra(TITLE));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            context.startForegroundService(intentService);
-        }
 
+            context.startForegroundService(intentService);
+
+        }
     }
 }

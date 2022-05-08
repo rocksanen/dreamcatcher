@@ -9,14 +9,12 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.IBinder;
 import android.os.Vibrator;
-
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
-
-import fi.ottooks.dreamcatcherdemo.view.ringActivity;
-import fi.ottooks.dreamcatcherdemo.clockBreak;
 
 /**
  * The aService class for Dream catcher
@@ -26,7 +24,6 @@ import fi.ottooks.dreamcatcherdemo.clockBreak;
 public class aService extends Service {
 
     private MediaPlayer mediaPlayer;
-    private Vibrator vibrator;
 
     /**
      * Gets called once the service is created, sets up the sound and the vibrating
@@ -35,10 +32,12 @@ public class aService extends Service {
 
     @Override
     public void onCreate() {
+
         super.onCreate();
         mediaPlayer = MediaPlayer.create(this, R.raw.heratys);
         mediaPlayer.setLooping(true);
-        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
     }
 
     /**
@@ -49,12 +48,16 @@ public class aService extends Service {
      * @param startId
      * @return START_STICKY, means it will try to re-create the service once its killed
      */
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Intent notiIntent = new Intent(this, clockBreak.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notiIntent,PendingIntent.FLAG_IMMUTABLE );
-        String alarmTitle = String.format("Aika herätä!");
 
+        Intent notiIntent = new Intent(this, clockBreak.class);
+
+        PendingIntent pendingIntent =
+        PendingIntent.getActivity(this, 0, notiIntent,PendingIntent.FLAG_IMMUTABLE );
+
+        String alarmTitle = "Aika herätä!";
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.alarmicon)
@@ -63,13 +66,11 @@ public class aService extends Service {
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
-
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         int notificationId = 1;
         createChannel(notificationManager);
         mediaPlayer.start();
         startForeground(notificationId, notificationBuilder.build());
-
 
         return START_STICKY;
     }
@@ -79,13 +80,15 @@ public class aService extends Service {
      * @param notificationManager notificationManager
      */
     public void createChannel(NotificationManager notificationManager) {
-        NotificationChannel channel = null;
+
+        NotificationChannel channel;
+
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+
             channel = new NotificationChannel(CHANNEL_ID, "nimi", NotificationManager.IMPORTANCE_DEFAULT);
             channel.setDescription("testi noti");
             notificationManager.createNotificationChannel(channel);
         }
-
     }
 
     /**
@@ -95,9 +98,7 @@ public class aService extends Service {
      */
     @Nullable
     @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
+    public IBinder onBind(Intent intent) {return null;}
 
     /**
      * Gets called once the service is not used anymore and is destroyed
@@ -105,7 +106,9 @@ public class aService extends Service {
      */
     @Override
     public void onDestroy() {
+
         super.onDestroy();
         mediaPlayer.stop();
+
     }
 }

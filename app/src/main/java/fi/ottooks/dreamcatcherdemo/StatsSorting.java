@@ -1,7 +1,6 @@
 package fi.ottooks.dreamcatcherdemo;
 
 import android.annotation.SuppressLint;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -16,12 +15,7 @@ public class StatsSorting {
      * Gets list to be processed in constructor
      * @param list
      */
-    public StatsSorting(List list) {
-
-        this.userInputsList = list;
-
-    }
-
+    public StatsSorting(List<UserInputs> list) {this.userInputsList = list;}
 
     /**
      * Returns sleep average to string
@@ -37,8 +31,8 @@ public class StatsSorting {
 
         }
 
-        @SuppressLint("DefaultLocale") double sleepAverage =
-                Double.parseDouble(String.format("%.1f",totalSleepTime  /  userInputsList.size())) ;
+        @SuppressLint("DefaultLocale")final double sleepAverage =
+        Double.parseDouble(String.format("%.1f",totalSleepTime  /  userInputsList.size())) ;
 
 
         return "Nukut keskimäärin " + sleepAverage + " tuntia yössä        ";
@@ -77,8 +71,8 @@ public class StatsSorting {
 
         }
 
-        @SuppressLint("DefaultLocale") double moodAverage =
-                Double.parseDouble(String.format("%.1f",totalMoodValues  /  userInputsList.size())) ;
+        @SuppressLint("DefaultLocale")final double moodAverage =
+        Double.parseDouble(String.format("%.1f",totalMoodValues  /  userInputsList.size())) ;
 
         return "Keskimääräinen tyytyväisyytesi on " + moodAverage + "/5";
 
@@ -90,7 +84,6 @@ public class StatsSorting {
      * @return
      */
     public String getParasKokonaisAikaNukkua() {
-
 
         Collections.sort(userInputsList);
 
@@ -105,18 +98,12 @@ public class StatsSorting {
                 amountOfVariables ++;
 
             }
-
         }
 
-        @SuppressLint("DefaultLocale") double sleepAverage =
-                Double.parseDouble(String.format("%.1f",totalSleepTime  /  amountOfVariables)) ;
+        @SuppressLint("DefaultLocale")final double sleepAverage =
+        Double.parseDouble(String.format("%.1f",totalSleepTime  /  amountOfVariables)) ;
 
         return "Paras pituus unelle on keskimäärin " + sleepAverage + " tuntia";
 
-
-
     }
-
-
-
 }

@@ -1,19 +1,15 @@
 package fi.ottooks.dreamcatcherdemo.view;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import fi.ottooks.dreamcatcherdemo.Clock;
-//import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.ViewHolder;
-
 import fi.ottooks.dreamcatcherdemo.kello.clockListener;
 
 /**
@@ -25,12 +21,14 @@ import fi.ottooks.dreamcatcherdemo.kello.clockListener;
 public class recycleViewAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<Clock> clocks;
-    private clockListener listener;
+    private final clockListener listener;
 
 
     public recycleViewAdapter(clockListener listener) {
+
         this.clocks = new ArrayList<Clock>();
         this.listener = listener;
+
     }
 
     /**
@@ -42,8 +40,13 @@ public class recycleViewAdapter extends RecyclerView.Adapter<ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View clockView = LayoutInflater.from(parent.getContext()).inflate(fi.ottooks.dreamcatcherdemo.R.layout.one_alarm, parent, false);
+
+        final View clockView =
+        LayoutInflater.from(parent.getContext()).
+        inflate(fi.ottooks.dreamcatcherdemo.R.layout.one_alarm, parent, false);
+
         return new ViewHolder(clockView);
+
     }
 
     /**
@@ -53,8 +56,10 @@ public class recycleViewAdapter extends RecyclerView.Adapter<ViewHolder> {
      */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Clock clock = clocks.get(position);
+
+        final Clock clock = clocks.get(position);
         holder.bind(clock, listener);
+
     }
 
     /**
@@ -71,9 +76,12 @@ public class recycleViewAdapter extends RecyclerView.Adapter<ViewHolder> {
      * @param holder holder
      */
     @Override
-    public void onViewRecycled(@NonNull ViewHolder holder) {
+    public void onViewRecycled(@NonNull ViewHolder holder)
+    {
+
         super.onViewRecycled(holder);
         holder.aSwitch.setOnCheckedChangeListener(null);
+
     }
 
     /**
@@ -81,9 +89,11 @@ public class recycleViewAdapter extends RecyclerView.Adapter<ViewHolder> {
      * In our case on mainview class, onCreate method
      * @param clocks clocks
      */
+    @SuppressLint("NotifyDataSetChanged")
     public void setClocks(List<Clock> clocks) {
+
         this.clocks = clocks;
         notifyDataSetChanged();
-    }
 
+    }
 }

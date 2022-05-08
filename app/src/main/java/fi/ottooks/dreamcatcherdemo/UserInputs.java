@@ -1,26 +1,11 @@
 package fi.ottooks.dreamcatcherdemo;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.SharedPreferences;
 import android.os.Build;
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-
 import java.io.Serializable;
-
-import com.google.gson.Gson;
-
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -78,56 +63,28 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
         this.date = date;
     }
 
-    public UserInputs(){
+    public UserInputs(){}
 
-    }
+    public long getStartTime() { return this.startTime;}
 
-
-    public long getStartTime() {
-
-        return this.startTime;
-    }
-    public long getEndTime(){
-
-        return this.endTime;
-    }
+    public long getEndTime(){ return this.endTime;}
 
     public Float getSleepTime(){
 
-        long end = this.endTime - this.startTime;
-
+        final long end = this.endTime - this.startTime;
         return (float) ((end / (3600000)) % 24);
+
     }
 
-    public int getMoodValue(){
+    public int getMoodValue(){return this.moodValue;}
 
-        return this.moodValue;
-    }
-
-    public String getDate() {
-
-        return this.date;
-    }
-
+    public String getDate() {return this.date;}
 
     /**
      * Save the created UserInputs object by using UseSharedPreferences class's method
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void save() {
-
-
-        UseSharedPreferences shr =
-                new UseSharedPreferences(this);
-
-
-
-    }
-
-
-
-
-
+    public void save() {new UseSharedPreferences(this);}
 
     @NonNull
     public String toString(){
@@ -146,9 +103,6 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
      * @return a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object.
      */
     @Override
-    public int compareTo(UserInputs other) {
+    public int compareTo(UserInputs other) {return Integer.compare(this.moodValue, other.moodValue);}
 
-        return Integer.compare(this.moodValue, other.moodValue);
-
-    }
 }

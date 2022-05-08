@@ -12,7 +12,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".AppContext"
         android:theme="@style/Theme.DreamCatcherDemo">
+
 
         <activity
             android:name=".clockBreak"
