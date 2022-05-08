@@ -34,15 +34,19 @@ public class MainActivity extends AppCompatActivity {
         setSliderAdapter();
 
 
-        // Opettajille tiedoksi!!!! Tällä metodilla voitte halutessanne lisätä testi dataa. -->
-        //testSorting();
+        // Opettajille tiedoksi!!!! Tällä metodilla voitte halutessanne lisätä testi dataa.
+        // Ensin kommentoitte testSorting päälle ja käynnistätte sovelluksen. Tämän jälkeen jos haluatte
+        // testata lisääkö uusi herätys dataa niin ensin sovellus pitää sammuttaa ja kommentoida testSorting
+        // pois päältä, jotta se ei kirjoita uuden herätys datan päälle sovelluksen käynnistyttyä herätyksellä. -->
+
+        // ----> // testSorting();
 
         //Opettajille tiedoksi!!!! Tällä voitte halutessanne tyhjentää datan sharedpreferenceista. -->
-        //UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
-        //useSharedPreferences.clearData();
+
+        // ----> // UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
+        // ----> // useSharedPreferences.clearData();
 
     }
-
 
     public void onResume() {super.onResume();}
 
@@ -64,13 +68,20 @@ public class MainActivity extends AppCompatActivity {
         final String kolmst = "1651602664826";
         final String neljst = "6651602664826";
 
-        UserInputs user1 = new UserInputs(LocalDate.now().minusDays(7),Long.parseLong(eka),Long.parseLong(toka),2);
-        UserInputs user2 = new UserInputs(LocalDate.now().minusDays(6),Long.parseLong(kolmas),Long.parseLong(neljas),5);
-        UserInputs user3 = new UserInputs(LocalDate.now().minusDays(5),Long.parseLong(viides),Long.parseLong(kuudes),4);
-        UserInputs user4 = new UserInputs(LocalDate.now().minusDays(4),Long.parseLong(seits),Long.parseLong(kahd),5);
-        UserInputs user5 = new UserInputs(LocalDate.now().minusDays(3),Long.parseLong(yhd),Long.parseLong(kym),2);
-        UserInputs user6 = new UserInputs(LocalDate.now().minusDays(2),Long.parseLong(yskt),Long.parseLong(kakst),3);
-        UserInputs user7 = new UserInputs(LocalDate.now().minusDays(1),Long.parseLong(kolmst),Long.parseLong(neljst),4);
+        new UserInputs(LocalDate.now().minusDays(7),
+                Long.parseLong(eka),Long.parseLong(toka),2);
+        new UserInputs(LocalDate.now().minusDays(6),
+                Long.parseLong(kolmas),Long.parseLong(neljas),5);
+        new UserInputs(LocalDate.now().minusDays(5),
+                Long.parseLong(viides),Long.parseLong(kuudes),4);
+        new UserInputs(LocalDate.now().minusDays(4),
+                Long.parseLong(seits),Long.parseLong(kahd),5);
+        new UserInputs(LocalDate.now().minusDays(3),
+                Long.parseLong(yhd),Long.parseLong(kym),2);
+        new UserInputs(LocalDate.now().minusDays(2),
+                Long.parseLong(yskt),Long.parseLong(kakst),3);
+        new UserInputs(LocalDate.now().minusDays(1),
+                Long.parseLong(kolmst),Long.parseLong(neljst),4);
 
     }
 

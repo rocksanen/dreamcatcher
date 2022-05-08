@@ -114,7 +114,7 @@ public class MoodSelect extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setAllValuesToUserInputs() {
 
-        UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
+        final UseSharedPreferences useSharedPreferences = new UseSharedPreferences();
 
         new UserInputs(LocalDate.now(),
         useSharedPreferences.getStartTime(),
