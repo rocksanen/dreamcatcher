@@ -11,6 +11,7 @@ import fi.ottooks.dreamcatcherdemo.kello.ClockRepo;
 /**
  * The listViewModel class for Dream catcher
  * This is used to get the currently available alarms using ClockRepo class
+ * @author Samu
  *
  *
  */

@@ -5,6 +5,7 @@ import fi.ottooks.dreamcatcherdemo.Clock;
 /**
  * The clockListener class for Dream catcher
  *     An interface for clockListener
+ * @author Samu
  */
 
 

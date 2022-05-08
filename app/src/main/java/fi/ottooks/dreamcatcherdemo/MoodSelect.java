@@ -12,6 +12,7 @@ import java.time.LocalDate;
 /**
  * The Mood class for Dream catcher
  *     This class handles the Mood value after waking up (Stopping the alarm)
+ * @author Jesper, Mohammed and Otto
  */
 
 public class MoodSelect extends AppCompatActivity {
@@ -23,6 +24,7 @@ public class MoodSelect extends AppCompatActivity {
      * The default value is 3, but changes depending on the user's choice.
      * When user chooses the mood "Value", MainActivity is called
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -37,72 +39,48 @@ public class MoodSelect extends AppCompatActivity {
 
         final ImageButton mood1 = (ImageButton) findViewById(R.id.mood1Btn);
 
-        mood1.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View view) {
+        mood1.setOnClickListener(view -> {
 
-                moodValue = 1;
-                setAllValuesToUserInputs();
-                toMainView();
+            moodValue = 1;
+            setAllValuesToUserInputs();
+            toMainView();
 
-            }
         });
 
         final ImageButton mood2 = (ImageButton) findViewById(R.id.mood2Btn);
-        mood2.setOnClickListener(new View.OnClickListener() {
+        mood2.setOnClickListener(view -> {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View view) {
+            moodValue = 2;
+            setAllValuesToUserInputs();
+            toMainView();
 
-                moodValue = 2;
-                setAllValuesToUserInputs();
-                toMainView();
-
-            }
         });
 
         final ImageButton mood3 = (ImageButton) findViewById(R.id.mood3Btn);
-        mood3.setOnClickListener(new View.OnClickListener() {
+        mood3.setOnClickListener(view -> {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View view) {
+            moodValue = 3;
+            setAllValuesToUserInputs();
+            toMainView();
 
-                moodValue = 3;
-                setAllValuesToUserInputs();
-                toMainView();
-
-            }
         });
 
         final ImageButton mood4 = (ImageButton) findViewById(R.id.mood4Btn);
-        mood4.setOnClickListener(new View.OnClickListener() {
+        mood4.setOnClickListener(view -> {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View view) {
+            moodValue = 4;
+            setAllValuesToUserInputs();
+            toMainView();
 
-                moodValue = 4;
-                setAllValuesToUserInputs();
-                toMainView();
-
-            }
         });
 
         final ImageButton mood5 = (ImageButton) findViewById(R.id.mood5Btn);
-        mood5.setOnClickListener(new View.OnClickListener() {
+        mood5.setOnClickListener(view -> {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View view) {
+            moodValue = 5;
+            setAllValuesToUserInputs();
+            toMainView();
 
-                moodValue = 5;
-                setAllValuesToUserInputs();
-                toMainView();
-
-            }
         });
 
 

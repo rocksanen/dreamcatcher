@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 import fi.ottooks.dreamcatcherdemo.Clock;
-import fi.ottooks.dreamcatcherdemo.ViewHolder;
 import fi.ottooks.dreamcatcherdemo.kello.clockListener;
 
 /**
  * The recycleViewAdapter class for Dream catcher
  *      This class is used to set the view and listeners on the mainview fragment
+ * @author Samu
  *
  */
 
@@ -26,7 +26,7 @@ public class recycleViewAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     public recycleViewAdapter(clockListener listener) {
 
-        this.clocks = new ArrayList<Clock>();
+        this.clocks = new ArrayList<>();
         this.listener = listener;
 
     }

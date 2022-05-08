@@ -1,4 +1,4 @@
-package fi.ottooks.dreamcatcherdemo;
+package fi.ottooks.dreamcatcherdemo.kello;
 
 import android.app.Application;
 import android.app.NotificationChannel;
@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 /**
  * The notiChannel class for Dream catcher
  *     This is an application class used to create a notification channel before creating the actual notification in aService class
+ * @author Samu
  *
  */
 public class notiChannel extends Application {

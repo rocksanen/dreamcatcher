@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * This class is used to save to sharedPreferences and get from sharedPreferences
+ * @author Otto
  */
 public class UseSharedPreferences {
 
@@ -69,7 +70,7 @@ public class UseSharedPreferences {
 
             } catch (Exception e) {
 
-                System.out.println(e.getCause());
+                System.out.println(e.getCause() + " Eipähän maha mittään");
 
             }
         }
@@ -94,7 +95,7 @@ public class UseSharedPreferences {
     @RequiresApi(api = Build.VERSION_CODES.O)
         public void saveStartTime() {
 
-            android.content.SharedPreferences.Editor prefEditor =
+            final android.content.SharedPreferences.Editor prefEditor =
             sharedPreferences.edit();
 
             final long aika = System.currentTimeMillis();
@@ -138,7 +139,7 @@ public class UseSharedPreferences {
                 return new ArrayList<>();
         }
 
-        //Testejä varten ainoastaan!!!!
+        //Testien puhdistusta varten ainoastaan!!!!
         public void clearData() {
 
             android.content.SharedPreferences.Editor prefEditor =

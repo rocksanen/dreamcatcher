@@ -17,6 +17,8 @@ import java.util.Map;
 
 /**
  * This class is used to save data to Firebase/Firestore and read data from there
+ * @author Otto
+ * https://firebase.google.com/docs/firestore
  */
 public class Firebase {
 

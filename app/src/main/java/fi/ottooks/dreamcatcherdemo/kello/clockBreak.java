@@ -1,4 +1,4 @@
-package fi.ottooks.dreamcatcherdemo;
+package fi.ottooks.dreamcatcherdemo.kello;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
+import fi.ottooks.dreamcatcherdemo.MoodSelect;
+import fi.ottooks.dreamcatcherdemo.R;
+
 /**
  * This activity is called when the clock is ringing and the user presses the popup notification
+ * @author Jesper
  */
 
 public class clockBreak extends AppCompatActivity {
@@ -34,9 +38,37 @@ public class clockBreak extends AppCompatActivity {
         breakBtn = findViewById(R.id.breakBtn);
         breakBtn.setImageResource(R.drawable.clockbreak);
 
-        sammutaBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        sammutaBtn.setOnClickListener(view -> {
+
+            final Intent intentService = new Intent(getApplicationContext(), aService.class);
+            getApplicationContext().stopService(intentService);
+            finish();
+
+            /**
+             *  The mood select activity is called when "Sammuta" button is pressed.
+             */
+
+            final Intent intentMood = new Intent(getApplicationContext(), MoodSelect.class);
+            startActivity(intentMood);
+        });
+
+        breakBtn.setOnClickListener(view -> {
+
+            clicked++;
+
+            final Animation animShake = AnimationUtils.loadAnimation(clockBreak.this, R.anim.shake);
+            view.startAnimation(animShake);
+
+            if (clicked == 2) {
+                breakBtn.setImageResource(R.drawable.clockbreakstate1);
+            } else if (clicked == 4) {
+                breakBtn.setImageResource(R.drawable.clockbreakstate2);
+            } else if (clicked == 6) {
+                breakBtn.setImageResource(R.drawable.clockbreakstate3);
+            } else if (clicked == 8) {
+                breakBtn.setImageResource(R.drawable.clockbreakstate4);
+            }
+            if (clicked >= 10) {
 
                 final Intent intentService = new Intent(getApplicationContext(), aService.class);
                 getApplicationContext().stopService(intentService);
@@ -48,41 +80,7 @@ public class clockBreak extends AppCompatActivity {
 
                 final Intent intentMood = new Intent(getApplicationContext(), MoodSelect.class);
                 startActivity(intentMood);
-            }
-        });
 
-        breakBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                clicked++;
-
-                final Animation animShake = AnimationUtils.loadAnimation(clockBreak.this, R.anim.shake);
-                view.startAnimation(animShake);
-
-                if (clicked == 2) {
-                    breakBtn.setImageResource(R.drawable.clockbreakstate1);
-                } else if (clicked == 4) {
-                    breakBtn.setImageResource(R.drawable.clockbreakstate2);
-                } else if (clicked == 6) {
-                    breakBtn.setImageResource(R.drawable.clockbreakstate3);
-                } else if (clicked == 8) {
-                    breakBtn.setImageResource(R.drawable.clockbreakstate4);
-                }
-                if (clicked >= 10) {
-
-                    final Intent intentService = new Intent(getApplicationContext(), aService.class);
-                    getApplicationContext().stopService(intentService);
-                    finish();
-
-                    /**
-                     *  The mood select activity is called when "Sammuta" button is pressed.
-                     */
-
-                    final Intent intentMood = new Intent(getApplicationContext(), MoodSelect.class);
-                    startActivity(intentMood);
-
-                }
             }
         });
     }

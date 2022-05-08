@@ -5,6 +5,8 @@ import android.content.Context;
 
 /**
  * This class is used to get the context of application
+ * @author Otto
+ * From the deep and dark lairs of google
  */
 public class AppContext extends Application {
 

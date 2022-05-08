@@ -1,4 +1,4 @@
-package fi.ottooks.dreamcatcherdemo;
+package fi.ottooks.dreamcatcherdemo.view;
 
 import android.annotation.SuppressLint;
 import android.view.View;
@@ -7,11 +7,14 @@ import android.widget.Switch;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.kello.clockListener;
 
 /**
  * The ViewHolder class for Dream catcher
  *      This class is used to set the elements of each alarm to the single viewholder in recyclerview
+ * @author Samu
  *
  *
  */
@@ -49,15 +52,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         title.setText(clock.getTitle());
         aSwitch.setChecked(clock.isStarted());
 
-        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-
-                listener.onToggle(clock);
-
-            }
-        });
+        aSwitch.setOnCheckedChangeListener((compoundButton, isChecked) -> listener.onToggle(clock));
 
     }
 

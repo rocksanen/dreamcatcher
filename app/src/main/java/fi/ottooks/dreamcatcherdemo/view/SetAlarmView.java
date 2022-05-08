@@ -15,6 +15,7 @@ import fi.ottooks.dreamcatcherdemo.Clock;
 /**
  * The SetAlarmView class for Dream catcher
  *     Used to create and control everything on the setAlarmView activity
+ * @author Samu
  *
  */
 
@@ -29,6 +30,7 @@ public class SetAlarmView extends AppCompatActivity {
      *
      * @param savedInstanceState savedInstanceState
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -39,16 +41,11 @@ public class SetAlarmView extends AppCompatActivity {
         tp = (TimePicker)findViewById(fi.ottooks.dreamcatcherdemo.R.id.test_picker);
 
         final Button btn = (Button)findViewById(fi.ottooks.dreamcatcherdemo.R.id.uusi_heratys_nappi);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(view -> {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View view) {
+            luoHeratys();
+            finish();
 
-                luoHeratys();
-                finish();
-
-            }
         });
     }
 

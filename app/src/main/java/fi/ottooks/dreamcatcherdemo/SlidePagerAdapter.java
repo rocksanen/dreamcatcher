@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * This class is used to manage fragments to be shown on pageviewer
+ * @author Otto
+ * https://developer.android.com/guide/fragments/create
  */
 public class SlidePagerAdapter extends FragmentStatePagerAdapter {
 

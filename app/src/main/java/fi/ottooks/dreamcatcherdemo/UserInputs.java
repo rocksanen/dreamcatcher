@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
  *
  *  Saves the data as a Gson object by using UseSharedPreferences class's method.
  *
- * @author Mohammed Al-Jewari
+ * @author Mohammed Al-Jewari and Otto
  */
 
 public class UserInputs implements Serializable, Comparable<UserInputs> {
@@ -82,6 +82,7 @@ public class UserInputs implements Serializable, Comparable<UserInputs> {
 
     /**
      * Save the created UserInputs object by using UseSharedPreferences class's method
+     * @author otto
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void save() {new UseSharedPreferences(this);}

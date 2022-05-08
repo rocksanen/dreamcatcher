@@ -16,12 +16,15 @@ import fi.ottooks.dreamcatcherdemo.fragments.MainView;
 import fi.ottooks.dreamcatcherdemo.fragments.StatsView;
 import fi.ottooks.dreamcatcherdemo.fragments.UserAgeQuestion;
 
-
+/**
+ * @author Otto
+ */
 public class MainActivity extends AppCompatActivity {
 
     /**
      *
      * @param savedInstanceState
+     *
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -41,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
         //
         // Huom! MoodSelect luokasta löytyy metodi: setAllValuesToUserInputs(), jossa on if-lauseke joka
         // ei anna tallettaa dataa jos uni on alle 3 tuntia, eli tämä ehtolauseke pitää myös poistaa, jos haluatte
-        // testata lyhyttä esim. minuutin mittaisen herätyksen tallentamista ja charttiin piirtämistä.
+        // testata lyhyttä esim. minuutin mittaisen herätyksen tallentamista  ja charttiin piirtämistä (ei piirrä mitään unimäärään,
+        // koska chartti piirtää tunteja, mutta piirtää moodin ja ottaa jokatapauksessa keskiarvoihin alle tunnin unimäärän
+        // silti mukaan).
         // Mitään näistä edellä mainituista proseduureista ei tarvitse tehdä, jos haluatte ihan vaan ruveta käyttämään
         // appiamme eli mittaamaan yöunianne, koska se on asiakas asetuksissa. ;) -->
 
@@ -98,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
      * Sets up pagerview
      * Sets up the adapter to pagerview
      * Sets up the Tablayout
+     * https://developer.android.com/guide/fragments/create
      */
     private void setSliderAdapter() {
 

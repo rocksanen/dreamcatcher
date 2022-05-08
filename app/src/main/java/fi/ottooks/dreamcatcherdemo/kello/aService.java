@@ -1,6 +1,6 @@
-package fi.ottooks.dreamcatcherdemo;
+package fi.ottooks.dreamcatcherdemo.kello;
 
-import static fi.ottooks.dreamcatcherdemo.notiChannel.CHANNEL_ID;
+import static fi.ottooks.dreamcatcherdemo.kello.notiChannel.CHANNEL_ID;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -16,9 +16,12 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
+import fi.ottooks.dreamcatcherdemo.R;
+
 /**
  * The aService class for Dream catcher
  *     Service that is used to control the alarm
+ * @author Samu
  */
 
 public class aService extends Service {

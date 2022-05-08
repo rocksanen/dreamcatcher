@@ -18,6 +18,7 @@ import fi.ottooks.dreamcatcherdemo.UseSharedPreferences;
  * A simple {@link Fragment} subclass.
  * Use the {@link UserAgeQuestion#newInstance} factory method to
  * create an instance of this fragment.
+ * @author Mohammed and Otto
  */
 public class UserAgeQuestion extends Fragment {
 
@@ -63,6 +64,7 @@ public class UserAgeQuestion extends Fragment {
      * @return returns recommended sleeptime according to inputted age.
      */
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,51 +76,47 @@ public class UserAgeQuestion extends Fragment {
         final TextView sleepCompare = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.compareTv);
 
         final Button ageBtn = view.findViewById(fi.ottooks.dreamcatcherdemo.R.id.ageBtn);
-        ageBtn.setOnClickListener(new View.OnClickListener() {
+        ageBtn.setOnClickListener(view1 -> {
 
-            @Override
-            public void onClick(View view) {
+            if (userAge.getText().toString().trim().length() != 0) {
 
-                if (userAge.getText().toString().trim().length() != 0) {
+                final int age = Integer.parseInt(userAge.getText().toString());
 
-                    final int age = Integer.parseInt(userAge.getText().toString());
-
-                    ageInfoTv.setVisibility(View.VISIBLE);
-                    sleepCompare.setVisibility(View.VISIBLE);
-                    //tiedot ovat Sleep Foundation netti sivulta.
-                    if (age > 0 && age < 3) {
-                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 11-14 tuntia/vrk");
-                        sleepCompare.setText(vertaaUniAika(11,14));
-                    } else if (age > 2 && age < 6) {
-                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 10-13 tuntia/vrk.");
-                        sleepCompare.setText(vertaaUniAika(10,13));
-                    } else if (age > 5 && age < 10) {
-                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 9-11 tuntia/vrk.");
-                        sleepCompare.setText(vertaaUniAika(9,11));
-                    } else if (age > 9 && age < 14) {
-                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 9-11 tuntia/vrk.");
-                        sleepCompare.setText(vertaaUniAika(9,11));
-                    } else if (age > 13 && age < 18) {
-                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 8-10 tuntia/vrk.");
-                        sleepCompare.setText(vertaaUniAika(8,10));
-                    } else if (age > 17 && age < 65) {
-                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 7-9 tuntia/vrk.");
-                        sleepCompare.setText(vertaaUniAika(7,9));
-                    } else if (age >= 65) {
-                        ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 7-8 tuntia/vrk.");
-                        sleepCompare.setText(vertaaUniAika(7,8));
-                    } else {
-                        sleepCompare.setVisibility(View.INVISIBLE);
-                        ageInfoTv.setText("Iän pitäisi olla enemmän kuin 0.");
-                    }
-                }else {
-                    ageInfoTv.setVisibility(View.INVISIBLE);
+                ageInfoTv.setVisibility(View.VISIBLE);
+                sleepCompare.setVisibility(View.VISIBLE);
+                //tiedot ovat Sleep Foundation netti sivulta.
+                if (age > 0 && age < 3) {
+                    ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 11-14 tuntia/vrk");
+                    sleepCompare.setText(vertaaUniAika(11,14));
+                } else if (age > 2 && age < 6) {
+                    ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 10-13 tuntia/vrk.");
+                    sleepCompare.setText(vertaaUniAika(10,13));
+                } else if (age > 5 && age < 10) {
+                    ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 9-11 tuntia/vrk.");
+                    sleepCompare.setText(vertaaUniAika(9,11));
+                } else if (age > 9 && age < 14) {
+                    ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 9-11 tuntia/vrk.");
+                    sleepCompare.setText(vertaaUniAika(9,11));
+                } else if (age > 13 && age < 18) {
+                    ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 8-10 tuntia/vrk.");
+                    sleepCompare.setText(vertaaUniAika(8,10));
+                } else if (age > 17 && age < 65) {
+                    ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 7-9 tuntia/vrk.");
+                    sleepCompare.setText(vertaaUniAika(7,9));
+                } else if (age >= 65) {
+                    ageInfoTv.setText("Suositeltu uniaika ikäisellesi on 7-8 tuntia/vrk.");
+                    sleepCompare.setText(vertaaUniAika(7,8));
+                } else {
                     sleepCompare.setVisibility(View.INVISIBLE);
+                    ageInfoTv.setText("Iän pitäisi olla enemmän kuin 0.");
                 }
-
-                userAge.onEditorAction(EditorInfo.IME_ACTION_DONE);
-
+            }else {
+                ageInfoTv.setVisibility(View.INVISIBLE);
+                sleepCompare.setVisibility(View.INVISIBLE);
             }
+
+            userAge.onEditorAction(EditorInfo.IME_ACTION_DONE);
+
         });
         // Inflate the layout for this fragment
         return view ;
@@ -134,13 +132,13 @@ public class UserAgeQuestion extends Fragment {
     @SuppressLint("DefaultLocale")
     public String vertaaUniAika (int alku, int loppu){
 
-            final double sleepAvg =
+        final double sleepAvg =
 
                  new StatsSorting(new UseSharedPreferences().
                  getListFromPreferences()).
                  getUniKeskiArvoToDouble();
 
-            double aika = 0;
+            double aika;
 
                  if (sleepAvg < alku){
 

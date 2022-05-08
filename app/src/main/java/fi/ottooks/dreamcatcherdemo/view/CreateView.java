@@ -9,6 +9,7 @@ import fi.ottooks.dreamcatcherdemo.kello.ClockRepo;
 /**
  * The CreateView class for Dream catcher
  *      This class is used to insert new alarms into the database
+ * @author Samu
  *
  */
 

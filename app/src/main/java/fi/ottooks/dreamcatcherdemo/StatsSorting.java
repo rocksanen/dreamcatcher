@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * This class is used to sort userInputs data to desired comparisons
+ * @author Otto
  */
 public class StatsSorting {
 

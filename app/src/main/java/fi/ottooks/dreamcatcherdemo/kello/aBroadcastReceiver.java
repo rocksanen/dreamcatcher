@@ -1,4 +1,4 @@
-package fi.ottooks.dreamcatcherdemo;
+package fi.ottooks.dreamcatcherdemo.kello;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -8,7 +8,8 @@ import android.widget.Toast;
 
 /**
  * The aBroadcastReceiver class for Dream catcher
- *     Used to receive the broadcast and schedule the alarm afterwards
+ * Used to receive the broadcast and schedule the alarm afterwards
+ * @author Samu
  */
 public class aBroadcastReceiver extends BroadcastReceiver {
 

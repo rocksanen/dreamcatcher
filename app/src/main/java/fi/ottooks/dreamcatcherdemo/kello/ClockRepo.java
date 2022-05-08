@@ -8,6 +8,7 @@ import fi.ottooks.dreamcatcherdemo.Clock;
 /**
  * The ClockRepo class for Dream catcher
  *     Used to do the operations which were earlier set in ClockDAO class
+ * @author Samu
  */
 
 public class ClockRepo {
@@ -47,11 +48,8 @@ public class ClockRepo {
      */
     public void update(Clock clock) {
 
-        ClockDB.dbWriteExecutor.execute(() -> {
+        ClockDB.dbWriteExecutor.execute(() -> dao.update(clock));
 
-            dao.update(clock);
-
-        });
     }
 
     /**

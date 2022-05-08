@@ -32,6 +32,8 @@ import fi.ottooks.dreamcatcherdemo.UserInputs;
 
 /**
  * This class show the statistics to the statsview
+ * @author Otto
+ * https://github.com/PhilJay/MPAndroidChart
  */
 public class StatsView extends Fragment {
 
@@ -117,7 +119,7 @@ public class StatsView extends Fragment {
         chart.setGridBackgroundColor(ColorTemplate.colorWithAlpha(0,150));
         chart.setDrawBorders(true);
         chart.setBorderWidth(2f);
-        chart.setNoDataText("Ei vielä dataa saatavilla");;
+        chart.setNoDataText("Ei vielä dataa saatavilla");
         chart.getDescription().setEnabled(false);
 
         final XAxis xAxis = chart.getXAxis();

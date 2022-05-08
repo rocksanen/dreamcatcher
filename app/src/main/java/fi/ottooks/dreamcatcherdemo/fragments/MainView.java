@@ -27,6 +27,7 @@ import fi.ottooks.dreamcatcherdemo.view.recycleViewAdapter;
 /**
  * The MainView class for Dream catcher
  *      This class is used to set the view and listeners on the mainview fragment
+ * @author Samu
  *
  */
 
@@ -63,16 +64,12 @@ public class MainView extends Fragment implements clockListener {
 
         recycleViewAdapter = new recycleViewAdapter(this);
         listViewModel = ViewModelProviders.of(this).get(listViewModel.class);
-        listViewModel.getClockLiveData().observe((LifecycleOwner) this, new Observer<List<Clock>>() {
+        listViewModel.getClockLiveData().observe((LifecycleOwner) this, clocks -> {
 
-            @Override
-            public void onChanged(List<Clock> clocks) {
+            if (clocks != null) {
 
-                if (clocks != null) {
+                recycleViewAdapter.setClocks(clocks);
 
-                    recycleViewAdapter.setClocks(clocks);
-
-                }
             }
         });
 
@@ -84,15 +81,7 @@ public class MainView extends Fragment implements clockListener {
         clocksView.setAdapter(recycleViewAdapter);
 
         btn = (Button) rootView.findViewById(fi.ottooks.dreamcatcherdemo.R.id.uusi_heratys);
-        btn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                startActivity(new Intent(getActivity(), SetAlarmView.class));
-
-            }
-        });
+        btn.setOnClickListener(arg0 -> startActivity(new Intent(getActivity(), SetAlarmView.class)));
 
         return rootView;
     }

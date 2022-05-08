@@ -7,7 +7,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import javax.annotation.Nullable;
 import fi.ottooks.dreamcatcherdemo.MoodSelect;
-import fi.ottooks.dreamcatcherdemo.aService;
+import fi.ottooks.dreamcatcherdemo.kello.aService;
 
 
 public class ringActivity extends AppCompatActivity {
@@ -15,6 +15,7 @@ public class ringActivity extends AppCompatActivity {
     /**
      * The mood select activity will show when "Sammuta" button been pressed.
      * @param savedInstanceState
+     * @author Samu
      */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,19 +24,15 @@ public class ringActivity extends AppCompatActivity {
         setContentView(fi.ottooks.dreamcatcherdemo.R.layout.ring_activity);
 
         final Button btn = (Button)findViewById(fi.ottooks.dreamcatcherdemo.R.id.sammuta);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(view -> {
 
-            @Override
-            public void onClick(View view) {
+            final Intent intentService = new Intent(getApplicationContext(), aService.class);
+            getApplicationContext().stopService(intentService);
+            finish();
 
-                final Intent intentService = new Intent(getApplicationContext(), aService.class);
-                getApplicationContext().stopService(intentService);
-                finish();
+            final Intent intentMood = new Intent(getApplicationContext(), MoodSelect.class);
+            startActivity(intentMood);
 
-                final Intent intentMood = new Intent(getApplicationContext(), MoodSelect.class);
-                startActivity(intentMood);
-
-            }
         });
     }
 }

@@ -12,6 +12,7 @@ import fi.ottooks.dreamcatcherdemo.Clock;
  * The ClockDB class for Dream catcher
  *     Used to create a database, annotation @Database annotation includes an entities array that lists
  *     every data entity that is associated with the database
+ * @author Samu
  */
 
 @Database(entities = {Clock.class}, version = 1, exportSchema = false)

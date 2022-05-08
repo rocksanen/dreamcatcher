@@ -1,6 +1,6 @@
 package fi.ottooks.dreamcatcherdemo;
 
-import static fi.ottooks.dreamcatcherdemo.aBroadcastReceiver.TITLE;
+import static fi.ottooks.dreamcatcherdemo.kello.aBroadcastReceiver.TITLE;
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
@@ -15,9 +15,12 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import java.util.Calendar;
 
+import fi.ottooks.dreamcatcherdemo.kello.aBroadcastReceiver;
+
 /**
  * The Clock class for Dream catcher
  *     This class handles stuff related to the alarm, its data & setting/canceling it
+ * @author Samu
  */
 @Entity(tableName = "clock_table")
 
