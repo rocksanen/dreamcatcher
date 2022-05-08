@@ -2,7 +2,6 @@ package fi.ottooks.dreamcatcherdemo.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-
-import java.text.DecimalFormat;
 
 import fi.ottooks.dreamcatcherdemo.R;
 import fi.ottooks.dreamcatcherdemo.StatsSorting;
@@ -95,7 +92,7 @@ public class UserAgeQuestion extends Fragment {
         ageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (userAge.getText().toString().trim().length() != 0) {
+                if (!userAge.getText().toString().trim().isEmpty() ) {
 
                     int age = Integer.parseInt(userAge.getText().toString());
 

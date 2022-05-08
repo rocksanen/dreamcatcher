@@ -23,7 +23,7 @@
         android:background="@drawable/back"
         android:ems="10"
         android:hint="@string/age_input"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
