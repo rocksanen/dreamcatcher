@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
         // Huom! MoodSelect luokasta löytyy metodi: setAllValuesToUserInputs(), jossa on if-lauseke joka
         // ei anna tallettaa dataa jos uni on alle 3 tuntia, eli tämä ehtolauseke pitää myös poistaa, jos haluatte
         // testata lyhyttä esim. minuutin mittaisen herätyksen tallentamista ja charttiin piirtämistä.
-        // Mitään näistä edellä mainituista preseduureista ei tarvitse tehdä, jos haluatte ihan vaan ruveta käyttämään
-        // appiamme eli mittaamaan yöunianne, koska se on asiakas asetuksissa. :) -->
+        // Mitään näistä edellä mainituista proseduureista ei tarvitse tehdä, jos haluatte ihan vaan ruveta käyttämään
+        // appiamme eli mittaamaan yöunianne, koska se on asiakas asetuksissa. ;) -->
 
         // Tässä ----> // testSorting();
 
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new UserAgeQuestion());
 
         final ViewPager pager = findViewById(R.id.pager);
-        androidx.viewpager.widget.PagerAdapter pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(), list);
+        final androidx.viewpager.widget.PagerAdapter pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(), list);
         pager.setAdapter(pagerAdapter);
 
         final TabLayout tabLayout = findViewById(R.id.tab_layout);
