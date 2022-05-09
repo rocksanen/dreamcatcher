@@ -15,7 +15,7 @@ public class ringActivity extends AppCompatActivity {
     /**
      * The mood select activity will show when "Sammuta" button been pressed.
      * @param savedInstanceState
-     * @author Samu
+     * @author Samu and Mohammed
      */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -40,7 +40,7 @@ public class Clock {
      * @param hour the hour the alarm goes off, type int
      * @param min the minute the alarm goes off, type int
      * @param id id used to keep track of the alarms, type int
-     * @param title
+     * @param title for future features
      * @param started used to store if the alarm is enabled/disabled, type boolean
      */
 
@@ -99,9 +99,7 @@ public class Clock {
         return title;
     }
 
-    public long getCreated() {
-        return created;
-    }
+    public long getCreated() {return created;}
 
     /**
      * Used to set the alarm by assigning the values from Clock (Above) to an calendar
@@ -134,6 +132,7 @@ public class Clock {
 
         }
 
+        created = calendar.getTimeInMillis();
 
         String tText = null;
 

@@ -3,10 +3,10 @@ package fi.ottooks.dreamcatcherdemo;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.time.LocalDate;
 
 /**
@@ -82,8 +82,6 @@ public class MoodSelect extends AppCompatActivity {
             toMainView();
 
         });
-
-
     }
 
     /**
