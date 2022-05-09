@@ -50,13 +50,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         @SuppressLint("DefaultLocale") String alarmTime = String.format("%02d:%02d", clock.getHour(), clock.getMin());
         time.setText(alarmTime);
         title.setText(clock.getTitle());
-
-        if (clock.isStarted() && clock.getCreated() < System.currentTimeMillis()) {
-            aSwitch.setChecked(false);
-            clock.setStarted(false);
-        } else {
-            aSwitch.setChecked(clock.isStarted());
-        }
+        aSwitch.setChecked(clock.isStarted());
 
         aSwitch.setOnCheckedChangeListener((compoundButton, isChecked) -> listener.onToggle(clock));
 

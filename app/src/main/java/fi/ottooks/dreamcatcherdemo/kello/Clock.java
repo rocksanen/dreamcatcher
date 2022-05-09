@@ -132,7 +132,6 @@ public class Clock {
 
         }
 
-        created = calendar.getTimeInMillis();
 
         String tText = null;
 
